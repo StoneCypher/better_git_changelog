@@ -1,0 +1,2924 @@
+commit 6a6f1c8a256f2f943c3230ec32dd32d2c2344927
+Merge: e084bf4 f0f3961
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 16:28:55 2022 -0700
+
+    Merge pull request #488 from StoneCypher/Doc_Action_Transition_ForceTransition
+
+    Document action, transition, force_transition; fixes StoneCypher/fsl#801, StoneCypher/fsl#802, StoneCypher/fsl#803
+
+commit f0f3961d25dc11cfb547eca55c7e3a65b9cf3ccf
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 16:24:24 2022 -0700
+
+    Document action, transition, force_transition; fixes StoneCypher/fsl#801, StoneCypher/fsl#802, StoneCypher/fsl#803
+
+commit e084bf4a0936d419b5a9921e746a707644ad263f
+Merge: a7d9fba b2558b2
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 15:54:12 2022 -0700
+
+    Merge pull request #487 from StoneCypher/Doc_ListEdges_ListTransitions_ListEntrances_ListExits
+
+    Doc list edges list transitions list entrances list exits
+
+commit b2558b2457dfaf6cb61782d0c758cf1ad043149b
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 15:44:19 2022 -0700
+
+    Forgot to update benny labels
+
+commit b3155ba56af766456f250e61906e92e648a44b46
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 15:41:50 2022 -0700
+
+    Bump version, cut benny labor by 80%
+
+commit 86eeb1e7f51e30a7a16da03e697d8630b6a7b10a
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 15:38:01 2022 -0700
+
+    Document list_edges, list_transitions, list_entrances, list_exits, fixes StoneCypher/fsl#800, fixes StoneCypher/fsl#801, fixes StoneCypher/fsl#802, fixes StoneCypher/fsl#803
+
+commit a7d9fba39b0772cc1ff2ab685bfad47c8ce4be2e
+Merge: 605f414 8809458
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 15:30:25 2022 -0700
+
+    Merge pull request #486 from StoneCypher/Doc_Actions_ListStatesHavingAction
+
+    Document actions and list_states_having_action, fixes StoneCypher/fsl#798, fixes StoneCypher/fsl#799
+
+commit 88094584ff08b1ec24dee69ca9ecc7547217c586
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 15:05:26 2022 -0700
+
+    Document actions and list_states_having_action, fixes StoneCypher/fsl#798, fixes StoneCypher/fsl#799
+
+commit 605f414b3e815e2baaa7f8c7888a0478fec9ff2a
+Merge: 48f1e98 75f33eb
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 14:59:09 2022 -0700
+
+    Merge pull request #485 from StoneCypher/DocIsFinalAndStateIsFinal
+
+    Document is_final and state_is_final, fixes StoneCypher/fsl#796, fixes StoneCypher/fsl#797
+
+commit 75f33ebba2446c48990e268a8a8e5f28bdd62efb
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 14:44:19 2022 -0700
+
+    Document is_final and state_is_final, fixes StoneCypher/fsl#796, fixes StoneCypher/fsl#797
+
+commit 48f1e984eb79d1b0ebd0cfb91621628d13f4032f
+Merge: 7705f10 022ff38
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 13:09:26 2022 -0700
+
+    Merge pull request #484 from StoneCypher/DocCss
+
+    Doc css
+
+commit 022ff389c8d6fd6791a370acb0b48601a7a103f2
+Merge: d4e8bbb 7705f10
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 10:39:40 2022 -0700
+
+    Basic CSS chain for docs, fixes StoneCypher/fsl#794
+
+commit d4e8bbb38e2ed7a42c2eab83d994d43494ea9380
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 10:35:12 2022 -0700
+
+    underway
+
+commit 7705f10269f39cab9ee5cbfb28d76cf739c3edb7
+Merge: d486935 7e3e2e9
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 09:27:34 2022 -0700
+
+    Merge pull request #483 from StoneCypher/Doc_State_States_HasState
+
+    Document state, has_state, states; fixes StoneCypher/fsl#791, fixes StoneCypher/fsl#792, fixes StoneCypher/fsl#793
+
+commit 7e3e2e9e20bdacbf66bf47b971620c595eeacf2c
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 09:23:53 2022 -0700
+
+    Document state, has_state, states; fixes StoneCypher/fsl#791, fixes StoneCypher/fsl#792, fixes StoneCypher/fsl#793
+
+commit d4869358e9fb7b92769020d5c6832c8063201383
+Merge: 208ad8e 7c337af
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 09:11:05 2022 -0700
+
+    Merge pull request #482 from StoneCypher/DocArrUniqP
+
+    Document arr_uniq_p; fix merge mess; fixes StoneCypher/fsl#799
+
+commit 7c337af4305c6947944d09df54356dd72fcdfbd4
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 09:07:03 2022 -0700
+
+    Document arr_uniq_p; fix merge mess; fixes StoneCypher/fsl#799
+
+commit 4dbe3833d503a7f5af7563e487ab6f722b01220f
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 09:07:03 2022 -0700
+
+    Document arr_uniq_p; fix merge mess
+
+commit 208ad8ebb2b315090407b9b4626cfa31b8feac34
+Merge: fdb3369 bc9f107
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 08:52:51 2022 -0700
+
+    Merge pull request #481 from StoneCypher/MoreDocumentation
+
+    Document from and sm, fixes StoneCypher/fsl#784, fixes StoneCypher/fsl#785
+
+commit 9c6982187896ea62e1a7bdc989d4d16e57975f8a
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 08:52:35 2022 -0700
+
+    Document hook_name, fixes StoneCypher/#788, and named_hook_name, fixes StoneCypher/#789
+
+commit cc3b7dda265226ef7ca818d387c06628132673ef
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 08:43:42 2022 -0700
+
+    document seq/1, document histo/1, a little extra testing, fixes StoneCypher/fsl#786, fixes StoneCypher/fsl#787
+
+commit 9dbc57da37b83d3fc2a26c7de17aae8fe976a025
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 08:43:42 2022 -0700
+
+    document seq/1, document histo/1, a little extra testing
+
+commit 780cc714651030e2a89343620dff20669d317e62
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 08:43:42 2022 -0700
+
+    seq/1, a little extra testing
+
+commit bc9f10712955eb32f2eff9fda7a5236d877ef02c
+Merge: 7473afd fdb3369
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 08:41:28 2022 -0700
+
+    Merge branch 'main' into MoreDocumentation
+
+commit fdb3369ce4983580b69fbf80f1bd839e45cc0973
+Merge: eac57da 22230f0
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 08:18:43 2022 -0700
+
+    Merge pull request #480 from StoneCypher/DocFromSm
+
+    Document .from and sm, fixes StoneCypher/fsl#784, fixes StoneCypher/fsl#785
+
+commit 22230f02097b344f15301e68f1384a4351a2a1a5
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 08:15:13 2022 -0700
+
+    Document .from and sm, fixes StoneCypher/fsl#784, fixes StoneCypher/fsl#785
+
+commit 7473afdf4caa6cc41abcca9fd88b4b718d714ea2
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 07:57:33 2022 -0700
+
+    Document from and sm, fixes StoneCypher/fsl#784, fixes StoneCypher/fsl#785
+
+commit eac57da67490d9d54ed374cbc6bbf1bb8fc32cce
+Merge: 0fd6005 539f203
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 07:33:18 2022 -0700
+
+    Merge pull request #479 from StoneCypher/MoreDocumentation
+
+    Document make, compile, transfer_state_properties, compile_rule_handler, compile_rule_handle_transition, compile_rule_transition_step
+
+commit 539f203cf4ee7c5cc124152a2c95b4f3696e7e55
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 07:29:57 2022 -0700
+
+    Document make, compile, transfer_state_properties, compile_rule_handler, compile_rule_handle_transition, compile_rule_transition_step
+
+commit 0fd6005e7e39e3d0b0c6c7789743ca0fbf1e9b79
+Merge: c9b40b1 63bb525
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 06:40:28 2022 -0700
+
+    Merge pull request #478 from StoneCypher/DocumentArrowDirection
+
+    Document arrow direction fixes StoneCypher/fsl#773, arrow_left_kind fixes StoneCypher/fsl#774, arrow_right_kind fixes StoneCypher/fsl#775, wrap_parse fixes StoneCypher/fsl#776, makeTransition fixes StoneCypher/fsl#777
+
+commit 63bb52566b530ee36c0d8182a32356e45a2533a0
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 06:40:05 2022 -0700
+
+    forgot version bump
+
+commit 27112f0cb739a4b5a9351369d7c9da61d58df27a
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 22 06:34:53 2022 -0700
+
+    Document arrow direction fixes StoneCypher/fsl#773, arrow_left_kind fixes StoneCypher/fsl#774, arrow_right_kind fixes StoneCypher/fsl#775, wrap_parse fixes StoneCypher/fsl#776, makeTransition fixes StoneCypher/fsl#777
+
+commit c9b40b1f065690554fabdc1cef6baea5d540a04d
+Merge: e337e6a d30bbdd
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 21 21:20:45 2022 -0700
+
+    Merge pull request #477 from StoneCypher/PropertiesSupportStringDefaults
+
+    Add support for string defaults, fixes StoneCypher/fsl#769
+
+commit d30bbddb3579128f20034ea475880b8293ff8997
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 21 21:17:31 2022 -0700
+
+    Add support for string defaults, fixes StoneCypher/fsl#769
+
+commit e337e6aa086b761a9c47cf682f070fb2ec3ad3a7
+Merge: 9480ef7 3a527ad
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Fri May 20 21:16:30 2022 -0700
+
+    Merge pull request #476 from StoneCypher/PropertiesInGrammar
+
+    Properties in grammar
+
+commit 3a527ada63bc49b5d688805f59f60a8f457a3d7c
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Fri May 20 18:05:47 2022 -0700
+
+    Needed a version bump
+
+commit 2f9c60bc853919cc52b0705cda617caa62b02e00
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Fri May 20 18:00:35 2022 -0700
+
+    Properties are in the grammar; with and without default; numbers, booleans, nulls, undefined. Fixes Stonecypher/fsl#763, fixes Stonecypher/fsl#764, fixes Stonecypher/fsl#765, fixes Stonecypher/fsl#766, fixes Stonecypher/fsl#767, fixes Stonecypher/fsl#768
+
+commit 9480ef7818a4695100a1742cbcb24f67dc998b7d
+Merge: 71d7cc6 aee8181
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 19 20:40:36 2022 -0700
+
+    Merge pull request #475 from StoneCypher/ImproveGhActionsParallelism
+
+    Improve gh actions parallelism
+
+commit aee81818bb51a0912e8270973fe8d8cfada195e3
+Merge: 8e60b80 71d7cc6
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 19 20:37:01 2022 -0700
+
+    Merge for parallelism cleanup
+
+commit 8e60b80d62d215ef5ef184f5fff0828644e439d4
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 19 20:01:33 2022 -0700
+
+    Breaks benny out to distinct step, fixes StoneCypher/fsl#759; unblocks version bump, fixes StoneCypher/fsl#758; chains release on build and version, fixes StoneCypher/fsl#760
+
+commit 71d7cc69b5afd67fe678472ad68cf8e68b263b00
+Merge: 2b72a30 7424e53
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 19 19:58:31 2022 -0700
+
+    Merge pull request #474 from StoneCypher/ExposeColors
+
+    Expose colors, fixes StoneCypher/fsl#539
+
+commit 7424e53deeaf8e7161b442bcaf85b9e7df251fa2
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 19 19:51:46 2022 -0700
+
+    Expose colors, fixes StoneCypher/fsl#539
+
+commit 2b72a30cd1d2c49bb6502bebec274544db37c589
+Merge: 9cbc5d7 07cf833
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 19 19:08:49 2022 -0700
+
+    Merge pull request #473 from StoneCypher/ExposeShapes
+
+    Shapes are now exposed, fixes StoneCypher/fsl#538
+
+commit 07cf833a15d46a6a5590fedd30d63558a0719dfa
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 19 19:02:53 2022 -0700
+
+    Shapes are now exposed, fixes StoneCypher/fsl#538
+
+commit 9cbc5d72246d160c9568abcfcca42db7eb393efb
+Merge: 4c208fc 53e9566
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 15 22:37:03 2022 -0700
+
+    Merge pull request #472 from StoneCypher/ErrorObject
+
+    Error object
+
+commit 53e95660d5dd587109acd91c7875192dd443ff57
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 15 22:31:17 2022 -0700
+
+    JssmError extension, fixes StoneCypher/fsl#755; instance name on error object, fixes StoneCypher/fsl#746; state at error time, fixes StoneCypher/fsl#742; target state at error time, fixes StoneCypher/fsl#743base message, fixes StoneCypher/fsl#741; materialized error, fixes StoneCypher/fsl#740
+
+commit 9db9bad5242f635d4a69db3dca4caeeb6013af1e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 15 07:25:27 2022 -0700
+
+    Base error object, fixes StoneCypher/fsl#752
+
+commit 4c208fcbdea83eaf336e8c154946dc0d633a7e9c
+Merge: 6e2e7f8 94a26af
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 14 20:23:45 2022 -0700
+
+    Merge pull request #471 from StoneCypher/ImproveErrorsAndCreateInstanceNamesAndMakeFrom
+
+    Adds instance names, fixes StoneCypher/fsl#428; puts them in errors, fixes StoneCypher/fsl#429; multiplexes errors, fixes StoneCypher/fsl#739; makes .from, fixes StoneCypher/fsl#753
+
+commit 94a26af4e85c6d39aab1252b588796c02d72c64b
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 14 20:15:13 2022 -0700
+
+    Adds pseudo-constructors to .from, fixes StoneCypher/fsl#754
+
+commit 2f7e8cb441419f67073b2cf65606469f4e018ff1
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 14 19:54:15 2022 -0700
+
+    Adds instance names, fixes StoneCypher/fsl#428; puts them in errors, fixes StoneCypher/fsl#429; multiplexes errors, fixes StoneCypher/fsl#739; makes .from, fixes StoneCypher/fsl#753
+
+commit 6e2e7f84f4e2633eeac53891cc88c6fb61799725
+Merge: cba8919 2d2385e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Fri May 13 11:20:56 2022 -0700
+
+    Merge pull request #470 from StoneCypher/AddHooksToReadme
+
+    Adding hooks to the readme, no big
+
+commit 2d2385e13b83c49185a02991fc7be530e030ddec
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Fri May 13 11:10:06 2022 -0700
+
+    resolve merge conflict and forgotten bump
+
+commit 46c5ab4b5e375ddd2b15ee39e5ac5ee4620791cd
+Merge: ee39784 cba8919
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Fri May 13 10:54:54 2022 -0700
+
+    resolve merge conflict
+
+commit ee397849215258b5630370c3e6ace9d11678d193
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Fri May 13 10:46:20 2022 -0700
+
+    Adding hooks to the readme, no big
+
+commit cba89193f5bada368acb6cbe37db9b6f3f7e6263
+Merge: f41d7b6 0e3e3f4
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Fri May 13 08:52:49 2022 -0700
+
+    Merge pull request #469 from StoneCypher/AddKitchenSinkBenchmark
+
+    Kitchen sink benchmark, fixes StoneCypher/fsl#738
+
+commit 0e3e3f48d710fb3ad80ce808c05caf00c6c660c0
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 12 21:23:49 2022 -0700
+
+    needed bump
+
+commit 024f2e2944f0b888c6cbd9f287df7296abcaedd4
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 12 21:01:05 2022 -0700
+
+    Kitchen sink benchmark, fixes StoneCypher/fsl#738
+
+commit f41d7b68925539eb82141dfe97e7141cd76f6f9b
+Merge: 0f1535b 6dbad3d
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 12 18:51:45 2022 -0700
+
+    Merge pull request #468 from StoneCypher/ImproveFlagGatingHooks
+
+    Active flag hooks, fixes StoneCypher/fsl#716
+
+commit 6dbad3d4a1a6e04a7b4ce409f2e3b324dcecdcdc
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 12 18:46:05 2022 -0700
+
+    needed bump
+
+commit 9f3fa470bcccfdee0db090be545f738cc0846b9c
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 12 18:36:24 2022 -0700
+
+    Active flag hooks, fixes StoneCypher/fsl#716
+
+commit 0f1535bb1d5be22817f6a09da4ae992dd552aa50
+Merge: c61e59e bca3384
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 12 17:03:08 2022 -0700
+
+    Merge pull request #467 from StoneCypher/ImproveBenchmark
+
+    Improve benchmark, fixes StoneCypher/fsl#737
+
+commit bca33843abdc3c360a7b754451f00ffa16458257
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 12 16:57:37 2022 -0700
+
+    Improve benchmark, fixes StoneCypher/fsl#737
+
+commit c61e59ecb5a2d75900593b6dfc6bd6481b70105a
+Merge: aab4f29 f2c361e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 12 14:27:53 2022 -0700
+
+    Merge pull request #466 from StoneCypher/FluentTransitionHooks
+
+    Fluent transition hooks, fixes StoneCypher/fsl#684, fixes StoneCypher/fsl#685, fixes StoneCypher/fsl#686
+
+commit f2c361ea7c04fcd22ee37193a2c9b903c46758cc
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 12 14:22:30 2022 -0700
+
+    Fluent transition hooks, fixes StoneCypher/fsl#684, fixes StoneCypher/fsl#685, fixes StoneCypher/fsl#686
+
+commit aab4f29a49f8b1d25c5d11aec536ba76e46d4c54
+Merge: bd28733 f7371c9
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 12 14:21:45 2022 -0700
+
+    Merge pull request #465 from StoneCypher/ApiForcedTransitionHook
+
+    Api forced transition hook
+
+commit f7371c97fc72d2cd367a958bd014bb8cc048c4fd
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 12 14:04:02 2022 -0700
+
+    API forced transition hooks, fixes StoneCypher/fsl#667
+
+commit ceb93d5920113d309409f75f12ddcfb7fc6ceb90
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 12 13:54:55 2022 -0700
+
+    API main transitions, fixes StoneCypher/fsl#660
+
+commit bd2873347d5c49850979fa686339586e490dc795
+Merge: 5f75d87 3584702
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 12 13:42:37 2022 -0700
+
+    Merge pull request #464 from StoneCypher/ApiStandardTransitionHook
+
+    Api standard transition hook
+
+commit 35847022e67dd34ee24dccac6c1d3a44f323bbf5
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 12 13:28:16 2022 -0700
+
+    API standard transitions, fixes StoneCypher/fsl#666
+
+commit 4efc8227a41e3cbf7a9f0e3e1c0b75d169d90cf5
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 12 12:41:29 2022 -0700
+
+    badly broken attempt
+
+commit 56e3433e2a45913a6ea03c07e321c404bd67ce04
+Merge: 7c6fff9 5f75d87
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 12 11:30:14 2022 -0700
+
+    Merge branch 'main' into FmtAndCleanup
+
+commit 7c6fff914710157222e844e68b5aa5f7126f34fe
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 12 11:29:48 2022 -0700
+
+    Some formatting
+
+commit 5f75d87f6a114dd2f8d877c432f17c40d17c8465
+Merge: fa860a6 3c0d18c
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 12 11:01:20 2022 -0700
+
+    Merge pull request #463 from StoneCypher/FluentGlobalNamedHooks
+
+    Fluent global named hooks, fixes StoneCypher/fsl#687
+
+commit 3c0d18cade8ea76d5411d15f3a2f1950ad3c4f9d
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 12 10:55:48 2022 -0700
+
+    Fluent global named hooks, fixes StoneCypher/fsl#687
+
+commit fa860a6b17b256da2550599c5c79445f46b82041
+Merge: 1c18d04 d269d66
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 12 10:54:43 2022 -0700
+
+    Merge pull request #462 from StoneCypher/ApiGlobalNamedHooks
+
+    API global named hooks, fixes StoneCypher/fsl#669
+
+commit d269d66f287adfeee5bedc8cdcb723e33d78313f
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 12 10:46:40 2022 -0700
+
+    API global named hooks, fixes StoneCypher/fsl#669
+
+commit 1c18d04480200ace12515d3ae536d8033bf9c0a0
+Merge: 4840482 1b8acfb
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed May 11 21:02:39 2022 -0700
+
+    Merge pull request #461 from StoneCypher/FluentAllActionHook
+
+    Fluent all action hook
+
+commit 48404829adac76e51a7f1ee6fa1de2fe9cf5bb75
+Merge: 3840469 3b54f74
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed May 11 21:02:22 2022 -0700
+
+    Merge pull request #460 from StoneCypher/ApiAllActionHook
+
+    API All-Action hook, fixes StoneCypher/fsl#670
+
+commit 1b8acfb37f74654c12f266f96f7a2df8aa0b6d8b
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed May 11 20:50:43 2022 -0700
+
+    Fluent All-Action hook, fixes StoneCypher/fsl#689
+
+commit 3b54f74d27dbb7199d1b10571b194bf271777c95
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed May 11 20:44:51 2022 -0700
+
+    API All-Action hook, fixes StoneCypher/fsl#670
+
+commit 3840469f34e4c6075d044d04023520eb4206704e
+Merge: 99fccf0 63d5b33
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 9 10:10:11 2022 -0700
+
+    Merge pull request #459 from StoneCypher/FluentExitHooks
+
+    Exit fluent hooks, fixes StoneCypher/fsl#682
+
+commit 63d5b33632a1ab99aafe7058ad3068654d8dd692
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 9 10:04:48 2022 -0700
+
+    Exit fluent hooks, fixes StoneCypher/fsl#682
+
+commit 99fccf02531d82d83ff6aceecd2c0c394169fa05
+Merge: e7fdb06 4ce87db
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 9 10:03:44 2022 -0700
+
+    Merge pull request #458 from StoneCypher/ApiExitHooks
+
+    API exit hooks, fixes StoneCypher/fsl#664
+
+commit 4ce87db80807f10fb16a6f9f679223f07a99a6fd
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 9 09:56:57 2022 -0700
+
+    API exit hooks, fixes StoneCypher/fsl#664
+
+commit e7fdb06e01b2e12b7cd275a079856cc22ed5ef17
+Merge: c6438ab 06f3709
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 9 09:31:42 2022 -0700
+
+    Merge pull request #457 from StoneCypher/FluentEntryHooks
+
+    Fluent entry hooks
+
+commit 06f3709f24d082e67fab67f2250fa17533924bbd
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 9 09:14:38 2022 -0700
+
+    needed a bump
+
+commit af441da35ad44264579808e12137acd1e96bcb41
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 9 09:07:27 2022 -0700
+
+    Fluent entry hooks
+
+commit c6438ab7b286fc3d7c9b822ca4bc17854d8286a2
+Merge: 63736ef 8e20d05
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 9 09:07:22 2022 -0700
+
+    Merge pull request #456 from StoneCypher/ApiEntryHooks
+
+    Api entry hooks
+
+commit 8e20d056aa82a08268fcf32d22b1fe5cb4d559ab
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 9 09:02:21 2022 -0700
+
+    needed a build
+
+commit d965a37532755373e3647e925e8664bd36ae3585
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 9 08:59:25 2022 -0700
+
+    Working API entry hooks, fixes StoneCypher/fsl#663
+
+commit 6f68f82516475c74e9ae958b0b9d9d9ea8496742
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 15:31:19 2022 -0700
+
+    Bumps eslint, fixes StoneCypher/fsl#723
+
+commit 7985afdecc47ec9247357e386efa126a705f6e7b
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 15:14:51 2022 -0700
+
+    was pinned by ts-jest, re-bumped
+
+commit ee261f9ce626b0df70932c82fe5e599abd4f1225
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 15:09:14 2022 -0700
+
+    Bumps jest, fixes StoneCypher/fsl#719
+
+commit 63736ef83bb21ac838deca66a334bd82aa66a52a
+Merge: d9853ee c7b93af
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 14:52:41 2022 -0700
+
+    Merge pull request #454 from StoneCypher/BumpTsAndTooling
+
+    Bump ts and tooling
+
+commit c7b93afa237222022dc1e24eb8f8f123871d986e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 14:46:28 2022 -0700
+
+    Bumps tscheck, fixes StoneCypher/fsl#722
+
+commit 7b4c2bad6cb3f3d609ca66b597bbaedef606683c
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 14:43:30 2022 -0700
+
+    Bumps typedoc, fixes StoneCypher/fsl#724
+
+commit 5d08dc6919b53f215b525c5458732b95b1230763
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 14:37:53 2022 -0700
+
+    Bumps terser, fixes StoneCypher/fsl#720
+
+commit 6bf62167e0b79834f7e0bdffad5af4ff47c60f9d
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 14:19:59 2022 -0700
+
+    Bumps rollup and rollup plugins, adds preventAssignment, fixes StoneCypher/fsl#718
+
+commit 20f2ddbd395d3580a971fcb6512041cc1653f7b4
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 14:13:51 2022 -0700
+
+    Bumps typescript, fixes StoneCypher/fsl#717
+
+commit d9853ee28881b7ec98648631d168f56a6c3d0446
+Merge: f4c8e35 dc6557f
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 13:42:23 2022 -0700
+
+    Merge pull request #452 from StoneCypher/CleanUpTsConfig
+
+    Adds export map to package.json, fixes StoneCypher/fsl#713; modernize tsconfig, fixes StoneCypher/#715
+
+commit dc6557f2bbe1c09421f2e0b0a374d0c70f0f4801
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 13:38:28 2022 -0700
+
+    Adds export map to package.json, fixes StoneCypher/fsl#713; modernize tsconfig, fixes StoneCypher/#715
+
+commit f4c8e35705c7dea556a7f492cbdb9acd000536fc
+Merge: e993d6b 23c50e2
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 03:11:52 2022 -0700
+
+    Merge pull request #451 from StoneCypher/AttemptToCorrectQualityDrop2
+
+    Re-attempt to correct quality drop (managed to lose .npmignore change,) re- fixes StoneCypher/fsl#711
+
+commit fbcda324d66dd8b569a4e60b93794af1a3fea8f0
+Merge: 23c50e2 e993d6b
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 03:09:04 2022 -0700
+
+    Merge branch 'main' into AttemptToCorrectQualityDrop2
+
+commit 23c50e205b2ced7236af859487e1b086ebddd8d7
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 03:07:48 2022 -0700
+
+    Re-attempt to correct quality drop (managed to lose .npmignore change,) re- fixes StoneCypher/fsl#711
+
+commit e993d6b1f4d0d5ab18d015b88e87674c62e649fe
+Merge: 4d31172 1e3d722
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 02:46:51 2022 -0700
+
+    Merge pull request #450 from StoneCypher/AttemptToCorrectQualityDrop
+
+    Attempt to correct quality drop
+
+commit 1e3d722ec81ed45e87528b3a993f5e5776ee047d
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 02:42:42 2022 -0700
+
+    forgot version bump
+
+commit 9be7e046e5918d2bb042b5d2e2f97c82a1d8690c
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 02:39:59 2022 -0700
+
+    Attempt to correct quality drop, fixes StoneCypher/fsl#711
+
+commit 4d311729dc4ec58f0f5a56c7a5ccea91f1799c56
+Merge: 7a17ace ab5836a
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 02:35:14 2022 -0700
+
+    Merge pull request #449 from StoneCypher/UnifyTransitionAndAction
+
+    Unified transition and action, fixes StoneCypher/fsl#709
+
+commit ab5836a28c5f67eab17dc55c5a3488131b02977b
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 02:28:05 2022 -0700
+
+    Unified transition and action, fixes StoneCypher/fsl#709
+
+commit 7a17acea1058691b3ff925add727f3b77b59f1ec
+Merge: 191ce28 8b8e675
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 02:05:05 2022 -0700
+
+    Merge pull request #448 from StoneCypher/UnifyTransitionAndForceTransition
+
+    Unify transition and force transition
+
+commit 8b8e675b2175a8bc561f91b254d81a7f8750a77d
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 01:48:38 2022 -0700
+
+    Unified transition and force_transition, fixes StoneCypher/fsl#707
+
+commit c89d67e0d732c6a3ad764d79d5511d6689392c9e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 01:45:27 2022 -0700
+
+    unified but let's eliminate those fcalls
+
+commit 191ce281b56673005e6e07572d2a70bfdc0523df
+Merge: c1200b9 ec455c7
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 01:09:05 2022 -0700
+
+    Merge pull request #447 from StoneCypher/HookAllTransitions
+
+    Hook all transitions
+
+commit ec455c72ef81b7b3977936ea60077e4503a5fa1d
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 01:05:27 2022 -0700
+
+    All-transition hooks, fixes StoneCypher/fsl#665, fixes StoneCypher/fsl#683
+
+commit d5cc00ee73b211e09f2afc243c76da639cd595d1
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 8 00:37:39 2022 -0700
+
+    working implementation of .hook_all_transitions, needs tests
+
+commit 508a5eb13b7a840de8e615dae860364894944070
+Merge: bdaa94c c1200b9
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 7 22:20:40 2022 -0700
+
+    Merge branch 'main' into HookAllTransitions
+
+commit c1200b987f345ce9eab936e01a660ee0c5cb2d09
+Merge: 29e6d6f bc63923
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 7 22:20:00 2022 -0700
+
+    Merge pull request #446 from StoneCypher/HookActionsConvenienceApi
+
+    Fluent hooking API for actions, fixes StoneCypher/fsl#680
+
+commit bc63923dd19af7fe452c035ec9c90a041590ba95
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 7 22:05:00 2022 -0700
+
+    Fluent hooking API for actions, fixes StoneCypher/fsl#680
+
+commit bdaa94cd43af8387833e40ddf8a6c5487306f15e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 7 22:00:54 2022 -0700
+
+    underway
+
+commit 29e6d6fce841cb59180d0915f93e1125c692557b
+Merge: a72652c 4f44dff
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 5 14:09:38 2022 -0700
+
+    Merge pull request #445 from StoneCypher/HookActionsConvenienceApi
+
+    Convenience hook action call in fluent api
+
+commit 4f44dff471dc0e73d6edd110841048adfa87b3b6
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 5 13:59:47 2022 -0700
+
+    Convenience hook action call in fluent api
+
+commit a72652c31d93173c454db80328936eae13843b3e
+Merge: bd684b2 fa1bf46
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 5 13:08:00 2022 -0700
+
+    Merge pull request #444 from StoneCypher/HooksConvenienceApi
+
+    Hooks convenience api
+
+commit fa1bf463cfe39f0c97e1008faf14f4b6c331b944
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 5 13:00:06 2022 -0700
+
+    missed the test updates, oops
+
+commit 40caf515b66807719e240cb6c778be6461d44fc0
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 5 12:59:23 2022 -0700
+
+    Here we gooooooo, .hook, fixes StoneCypher/fsl#679
+
+commit bd684b210c19752665824bea584849db68144ff3
+Merge: b5389e3 c346541
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed May 4 13:31:54 2022 -0700
+
+    Merge pull request #443 from StoneCypher/CleanupStuff
+
+    Cleanup stuff
+
+commit c346541bd314df9edd7dae91b70ee2e80648de20
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed May 4 13:22:46 2022 -0700
+
+    small cleanup stuff
+
+commit 8ed642e9a90fa04edf1dcd0155b668325270134f
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 3 20:46:48 2022 -0700
+
+    clean up some source notes
+
+commit 9531ff4df6308d79fdfa9f5d1e5a45d24c8f9aff
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 3 20:37:14 2022 -0700
+
+    remove viz.js, fixes StoneCypher/fsl#650
+
+commit b5389e3b905559dbdee13cabb2f1b20c6f58298b
+Merge: 5e0a801 3041204
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 3 17:51:11 2022 -0700
+
+    Merge pull request #442 from StoneCypher/SetHooksWithExplicitAction
+
+    set_hook(...) basics
+
+commit 30412045f8f1444594a965f18a5140048a11312e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 3 17:40:22 2022 -0700
+
+    Working external API hooks with rejection, fixes StoneCypher/fsl#701, fixes StoneCypher/fsl#660
+
+commit 58f4df20b9ca9d24da525a49c231b7cf7e1f048e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 3 16:15:27 2022 -0700
+
+    Basic working external api hooks, fixes StoneCypher/fsl#661, and api action hooks, fixes StoneCypher/fsl#662
+
+commit f7e0dd94d368fdbd918b55311e5b53bdf830a2cd
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 3 12:20:21 2022 -0700
+
+    Add setup support for this._has_hooks, fixes StoneCypher/fsl#657; add performance differentiation tests for hooks, fixes StoneCypher/fsl#656
+
+commit 401e993895dbdd54ebd5e25d154d38aa8ad68679
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 3 12:20:21 2022 -0700
+
+    Add setup support for this._has_hooks; add performance differentiation tests for hooks
+
+commit f1534eeae47b10c7847762f560de25cfee5813e9
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 3 12:01:52 2022 -0700
+
+    Trivial implementation on just .action; gated off for efficiency fixes StoneCypher/fsl#655
+
+commit c95411f2a86da0857f7927fa0fc63a7256b0f296
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 2 22:39:05 2022 -0700
+
+    underway
+
+commit 330a670aaf0b8b793ad5d2c10d3321c9b1dd1b43
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Apr 26 00:26:11 2022 -0700
+
+    will get started here
+
+commit 5e0a8011521db098fdbb0d10ec8f741a8b7ac496
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Apr 25 23:52:03 2022 -0700
+
+    Set theme jekyll-theme-cayman
+
+commit e282c60fa77e9a48ea0e0b1c8d935587a6bb1c90
+Merge: e0045ef 4fea20f
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Apr 25 23:38:12 2022 -0700
+
+    Merge pull request #441 from StoneCypher/TryBenchingWithBenny
+
+    Try benching with benny
+
+commit 4fea20f7072d64dfcdaf9a71634c06fc204ab41f
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Apr 25 23:32:19 2022 -0700
+
+    omg that still said flowtype
+
+commit 35cda8b77fb99a039665f0c33736d6e4d54844e5
+Merge: e2cacd2 e0045ef
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Apr 25 23:29:40 2022 -0700
+
+    merged
+
+commit e0045ef686797f0d49ff7a1e522cb9edf7d15599
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Apr 19 13:21:40 2022 -0700
+
+    Moved envvar export of tag to correct block; version bump and rebuild
+
+commit 9933f5d94f899ef251b3175a332f3d8a8dd18179
+Merge: 74c9526 c2a50d0
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Apr 19 13:14:37 2022 -0700
+
+    Merge pull request #440 from StoneCypher/GateOffBranchDeploy2
+
+    Gate off branch deploy2
+
+commit c2a50d0577e5202c067f1d6d61b12b71343dc3d2
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Apr 19 12:52:10 2022 -0700
+
+    Cleaned up attribution, staging; version bump
+
+commit 0c883301122ed58ed7fc5395d9162adbb07315c6
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Apr 19 12:46:15 2022 -0700
+
+    forgot to needs-gate vvr
+
+commit 7d12c2fdd60b152518e1214b79dd2e6a60682f2e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Apr 19 12:16:17 2022 -0700
+
+    Okay, it can verify the version for whoever, just gate the bump and release
+
+commit 74c952634a3ed06ff2306e0540714a826f95bc78
+Merge: bf49490 ecffd4f
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Apr 19 11:59:15 2022 -0700
+
+    Merge pull request #439 from StoneCypher/GateOffBranchDeploy
+
+    Gate off branch deploy.  Move main build from 17 to 18.
+
+commit ecffd4feb56f405862217ecc65288163accf2f24
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Apr 19 11:54:46 2022 -0700
+
+    Gate off branch deploy.  Move main build from 17 to 18.
+
+commit e2cacd293ccafe98431ecd9ae016703959713498
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Apr 19 11:50:52 2022 -0700
+
+    getting ready to diff the benchmarks too
+
+commit 660d34f48de8139e6593fd941513314e30c3435e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Apr 19 11:50:39 2022 -0700
+
+    getting ready to diff the benchmarks too
+
+commit 1d15b0c87fd14ef94a7037041cae070c5302b752
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Apr 19 11:31:40 2022 -0700
+
+    version bump, straightened up scripts
+
+commit 32c93dac533547dbce9c30085b431a40657711c8
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Apr 19 09:31:42 2022 -0700
+
+    hopefully that fixed the package-lock issue
+
+commit c0e5d9ea644d6437ce90327d231431cfd830ce31
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Apr 19 09:26:25 2022 -0700
+
+    Basic benchmarks now on disk
+
+commit bcbc03e4817178b9c3dfb25f9cce771b9f1d1203
+Merge: fbe88ef bf49490
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Apr 19 09:08:33 2022 -0700
+
+    Pulling the Benny branch back
+
+commit bf494900b7b47560ed8dd801fab089a57e743b1d
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Apr 18 15:47:38 2022 -0700
+
+    another fake bump to try to trigger npm publish step correctly
+
+commit e4992995d55f1d640f31bfdefc337ad3c9a32629
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Apr 18 15:07:01 2022 -0700
+
+    rephrase the token
+
+commit b20c3da50d6c69d2af0a1e3e3883767d4d6d9d67
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Apr 18 15:00:51 2022 -0700
+
+    forgot the version bump
+
+commit e155cd8eb6494ff37387561d800355a3118496ce
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Apr 18 14:55:31 2022 -0700
+
+    a different source advises npmrc (committed too early)
+
+commit 7887a77c6c65be7363ea889268e6947a4cec7b3a
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Apr 18 14:53:44 2022 -0700
+
+    a different source advises npmrc
+
+commit b7265f28765b21ce3def37470ba2517fb33e7ff8
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Apr 18 13:36:02 2022 -0700
+
+    another facile commit to trigger first attempt at automatic NPM publish
+
+commit 515b271be5011f31abf570d464f55d4a8f98ca7e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Apr 18 13:27:16 2022 -0700
+
+    facile commit to trigger first attempt at automatic NPM publish
+
+commit 6cd5b8bbf4d0eb515c6989859f2b8e70ae5f4afa
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Apr 18 13:04:47 2022 -0700
+
+    Trying to push package version into env from cli in ci/cd for auto release; rebuild and version bump
+
+commit 3d8f9e47c6816cd80ea120a0456338f6c7b8c85f
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Apr 18 12:10:47 2022 -0700
+
+    you need checkout v2 to commit
+
+commit 10003babdd88b4c50f5706f416d008ba6499b0d9
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Apr 18 11:42:43 2022 -0700
+
+    ok maybe you don't commit tags
+
+commit 583762c2b1244a46c80969b75e57b8b49aaea6bb
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Apr 18 11:38:55 2022 -0700
+
+    let's see what the error was in attempt 5 full automatic release, attempt 3
+
+commit 775829affb743e82172667eb1afeabe907aaef62
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Apr 18 11:32:10 2022 -0700
+
+    let's see what the error was in attempt 5 full automatic release, attempt 2
+
+commit 4e5a72ede9184c7d02f49c67b70a1edaacebded7
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Apr 18 11:05:22 2022 -0700
+
+    let's see what the error was in attempt 5 full automatic release
+
+commit 14cf8f85ffab48e386664f2e9686a986f4e98e04
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Apr 18 11:00:05 2022 -0700
+
+    attempt 5 full automatic release
+
+commit 1fc7bea94aac655098944f69c6b43c2ef1b6a3c8
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Apr 18 00:03:21 2022 -0700
+
+    attempt 4 full automatic release
+
+commit 91b66521f9b2ba8cbf9154a6616f2134e6bfcc0b
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Apr 17 23:59:35 2022 -0700
+
+    attempt 3 full automatic release
+
+commit 26879647120567e37c932c55eafb536d572a4264
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Apr 17 23:43:22 2022 -0700
+
+    attempt 2 full automatic release
+
+commit 8aba7402976218bb634a18cb75d4ff612d818d7e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Apr 17 23:38:15 2022 -0700
+
+    attempted full automatic release
+
+commit bcc126d9ff7ea1a31d57a961dcf74d669a087ce7
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Apr 17 23:29:48 2022 -0700
+
+    need a 2nd pass install, derp
+
+commit 824475829668b88c1cc87fb9014d5da11cca314d
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Apr 17 23:27:19 2022 -0700
+
+    first attempt at an automatic tag and release in CI
+
+commit aeaf6a5ff73b8d268fc440f2493125ea6a66a43a
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Apr 17 22:59:56 2022 -0700
+
+    first steps towards automating tags, releases, and npm publishes
+
+commit 5454fdba5cc0a4f0cd493766331ede43be8c71bd
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Apr 17 22:15:25 2022 -0700
+
+    Update packages; remove dying tsdoc theme
+
+commit d50ba6895529b9fd7f30a4e1ba8c233b6691c4f2
+Merge: e94598e 1b9f4a0
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Apr 17 22:06:25 2022 -0700
+
+    Merge branch 'UpdateTime'
+
+commit 1b9f4a01143e2e7bcea1c4b88fedb1b0d9ac1427
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Apr 17 22:05:35 2022 -0700
+
+    before updates pulled
+
+commit e94598e5478a12da748a28860ff6862e74103dd7
+Merge: 06f486f 40c22f0
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Fri Apr 15 19:34:18 2022 -0700
+
+    Merge pull request #438 from StoneCypher/dependabot/npm_and_yarn/node-fetch-2.6.7
+
+    Bump node-fetch from 2.6.5 to 2.6.7
+
+commit 06f486f49aa5756810038bdc94d58806d9860aa5
+Merge: f4d79c3 db72fff
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Fri Apr 15 19:34:10 2022 -0700
+
+    Merge pull request #435 from StoneCypher/dependabot/npm_and_yarn/minimist-1.2.6
+
+    Bump minimist from 1.2.5 to 1.2.6
+
+commit f4d79c38e5d09b446afc015475453cee4cc09bcc
+Merge: ea88820 81b3226
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Fri Apr 15 19:18:10 2022 -0700
+
+    Merge pull request #437 from StoneCypher/dependabot/npm_and_yarn/shelljs-0.8.5
+
+    Bump shelljs from 0.8.4 to 0.8.5
+
+commit 40c22f0a3218fc5475f20fd1c20eff17a124f106
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Fri Apr 15 20:06:24 2022 +0000
+
+    Bump node-fetch from 2.6.5 to 2.6.7
+
+    Bumps [node-fetch](https://github.com/node-fetch/node-fetch) from 2.6.5 to 2.6.7.
+    - [Release notes](https://github.com/node-fetch/node-fetch/releases)
+    - [Commits](https://github.com/node-fetch/node-fetch/compare/v2.6.5...v2.6.7)
+
+    ---
+    updated-dependencies:
+    - dependency-name: node-fetch
+      dependency-type: indirect
+    ...
+
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 81b322645cf6b15dfba36829f7d2b817a01a9214
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Fri Apr 15 20:06:18 2022 +0000
+
+    Bump shelljs from 0.8.4 to 0.8.5
+
+    Bumps [shelljs](https://github.com/shelljs/shelljs) from 0.8.4 to 0.8.5.
+    - [Release notes](https://github.com/shelljs/shelljs/releases)
+    - [Changelog](https://github.com/shelljs/shelljs/blob/master/CHANGELOG.md)
+    - [Commits](https://github.com/shelljs/shelljs/compare/v0.8.4...v0.8.5)
+
+    ---
+    updated-dependencies:
+    - dependency-name: shelljs
+      dependency-type: indirect
+    ...
+
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit ea888208e6a78d80aca2cdaba96f46a3c992aee8
+Merge: 0c9eb40 1e63533
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Fri Apr 15 13:05:45 2022 -0700
+
+    Merge pull request #436 from StoneCypher/dependabot/npm_and_yarn/async-3.2.3
+
+    Bump async from 3.2.1 to 3.2.3
+
+commit 1e6353393a08be0528c312c247c4e0b1e13bab79
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Wed Apr 13 00:06:48 2022 +0000
+
+    Bump async from 3.2.1 to 3.2.3
+
+    Bumps [async](https://github.com/caolan/async) from 3.2.1 to 3.2.3.
+    - [Release notes](https://github.com/caolan/async/releases)
+    - [Changelog](https://github.com/caolan/async/blob/master/CHANGELOG.md)
+    - [Commits](https://github.com/caolan/async/compare/v3.2.1...v3.2.3)
+
+    ---
+    updated-dependencies:
+    - dependency-name: async
+      dependency-type: indirect
+    ...
+
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit db72fffa827ed106b115b67ff78d9e3bf917eb55
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Fri Apr 8 22:31:10 2022 +0000
+
+    Bump minimist from 1.2.5 to 1.2.6
+
+    Bumps [minimist](https://github.com/substack/minimist) from 1.2.5 to 1.2.6.
+    - [Release notes](https://github.com/substack/minimist/releases)
+    - [Commits](https://github.com/substack/minimist/compare/1.2.5...1.2.6)
+
+    ---
+    updated-dependencies:
+    - dependency-name: minimist
+      dependency-type: indirect
+    ...
+
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 0c9eb403afe116744b4fbe3b42845b0db7b97fc2
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Mar 15 10:17:01 2022 -0700
+
+    the discord banner wasn't a link
+
+commit 924fa77e5ffea974413dc2b218357b5220506b01
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Nov 29 17:26:02 2021 -0800
+
+    Stashing whatever the fuck I was doing, not sure, need to demo for mooksmart
+
+commit 4be74ac799167a2f79df3e6785a042608dd23166
+Merge: 50ea9f6 952072e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Nov 28 12:11:34 2021 -0800
+
+    Merge pull request #433 from StoneCypher/HooksOpenHooksClosedInGrammar
+
+    Hooks open and hooks closed are in grammar; tests suppressed because they still throw in the compiler.  Fixes StoneCypher/fsl#644
+
+commit 50ea9f66f3a6cd4a55cdeba18d274ab89ce52fe0
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat Nov 13 10:38:04 2021 -0800
+
+    redo because the widget was off and the number got cached
+
+commit efc9c99ec88c0fbcba5e4b5baface91e225a529b
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat Nov 13 10:37:38 2021 -0800
+
+    Update README.md
+
+commit 88e03669004b61d1541442e7c2d8d2279397c474
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat Nov 13 10:36:43 2021 -0800
+
+    ok try the other way
+
+commit f23e0de7ccf6069dbfe63b4b33feae51eab5354c
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat Nov 13 10:36:09 2021 -0800
+
+    update discord link, add widget
+
+commit 952072e8ce281bedf6ad2042fe888db7af2352b8
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Fri Oct 29 13:47:58 2021 -0700
+
+    Hooks open and hooks closed are in grammar; tests suppressed because they still throw in the compiler.  Fixes StoneCypher/fsl#644
+
+commit 302646ac3039a8b3ad43db7f8befa2b97efe6719
+Merge: d078888 f0869e0
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Fri Oct 29 00:04:11 2021 -0700
+
+    Merge pull request #432 from StoneCypher/AddEmptyStateForbiddanceTests
+
+    Tests to ensure empty state names are forbidden in string and datastr…
+
+commit f0869e0de60bd5711144c132063aa42f396b6a2e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu Oct 28 23:55:21 2021 -0700
+
+    Tests to ensure empty state names are forbidden in string and datastructure, fixes StoneCypher/fsl#598
+
+commit b7492b87c96ec5d13daf4dccada82d07aee3d84e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu Oct 28 23:55:21 2021 -0700
+
+    Tests to ensure empty state names are forbidden in string and datastructure, fixes StoneCypher/fsl#598
+
+commit 84b6f9e41003e4786c50098d785cb830f6b307f1
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu Oct 28 23:55:21 2021 -0700
+
+    Tests to ensure empty state names are forbidden in string and datastructure, fixes StoneCypher/fsl#598
+
+commit a09a58aa3f7d21cd02d4211262cc8ac1927d0628
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu Oct 28 23:55:21 2021 -0700
+
+    Tests to ensure empty state names are forbidden in string and datastructure, fixes StoneCypher/fsl#598
+
+commit d07888857d95df81fac0f3d039a39dde2812874e
+Merge: 50eb6f8 8ee2796
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed Oct 20 13:48:21 2021 -0700
+
+    Merge pull request #431 from StoneCypher/UpdateToClearSecurityIssues
+
+    Update to clear security issues
+
+commit 8ee279641b6bf9ce587c2ad4a4c5fa50ce62c6ee
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed Oct 20 13:44:13 2021 -0700
+
+    remove double test process; remove docs and site from ci build
+
+commit 069b8807af083b6eae1d76a80688bd5bb0321c2f
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed Oct 20 13:44:13 2021 -0700
+
+    remove double test process; remove docs and site from ci build
+
+commit e4d3752f4b8f2fee5813e5a61a299a797af1dd76
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed Oct 20 13:38:02 2021 -0700
+
+    recreate package lock; regen docs
+
+commit 6809964ac88c82808d285864dd1f5db5f98d8072
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Oct 19 11:20:03 2021 -0700
+
+    Audit fix automatic, no force; will continue
+
+commit 50eb6f8c06d937c04b8b76e79883251a405ccb4f
+Merge: dd472db cdedc1e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Oct 19 11:07:09 2021 -0700
+
+    Merge branch 'BumpTypedocAndBumpCiNodeVersion'
+
+commit dd472db88e66f3093cd29b1de86dbb2f1caaff10
+Merge: 53f01ab 15d06a6
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Oct 19 11:07:02 2021 -0700
+
+    Merge branch 'main' of github.com:StoneCypher/jssm
+
+commit cdedc1e270b9ad678f16e54d1b0f4357b500f764
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Oct 19 10:55:51 2021 -0700
+
+    Bump Typedoc; bump CI to node 17
+
+commit 15d06a6e9541c0cfdaf8075e1b8dbe9841e281ce
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Oct 19 00:11:56 2021 -0700
+
+    Update README.md
+
+commit 53f01abed397540a31c14d131e32a2ebf2cc0ce9
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Aug 29 10:55:57 2021 -0700
+
+    merge nonsense
+
+commit ea4767de2a309ddd9977295fb872ae6b92ef8231
+Merge: f74f12c 7b72373
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Aug 29 10:52:38 2021 -0700
+
+    Merge pull request #430 from StoneCypher/AddLineStyleTests
+
+    adds tests for line styles
+
+commit 7b723733ad86de55e9ca93854114932f4d4a98c8
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Aug 29 10:49:30 2021 -0700
+
+    adds tests for line styles
+
+commit f74f12cbcc6355a73239ef6e6e3a401a0ec37f97
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Apr 27 13:04:27 2021 -0700
+
+    update node polyhead to 16 in ci, add 15 to fallbacks
+
+commit 871753e71ccaf49682b6fa4b5d5f45c251c5dbae
+Merge: 1d0e38e 0fd677b
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Apr 18 15:51:46 2021 -0700
+
+    Merge pull request #429 from machinshin/name-theory
+
+    Punjabi Name Theory;closes StoneCypher/fsl#607
+
+commit 0fd677b8c0a62c568017e0109affcef050b5fd20
+Author: Vat Raghavan <machinshin@gmail.com>
+Date:   Sun Apr 18 15:32:09 2021 -0700
+
+    Punjabi Name Theory;closes StoneCypher/fsl#607
+
+commit 1d0e38e4cb945e67631880246a07cbb705b8fe37
+Merge: b557a87 49415ad
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed Apr 14 15:26:21 2021 -0700
+
+    Merge pull request #428 from machinshin/why_because_analysis
+
+    Why-because analysis
+
+commit 49415ad91484d21637e81014019285b3f2827d84
+Author: Vat Raghavan <machinshin@gmail.com>
+Date:   Wed Apr 14 15:22:27 2021 -0700
+
+    Why-because analysis, closes StoneCypher/fsl#49
+
+commit e391c46259380cdf6ac7f2d97fc0cf8415a8ece2
+Author: Vat Raghavan <machinshin@gmail.com>
+Date:   Wed Apr 14 15:21:52 2021 -0700
+
+    typo fix
+
+commit b557a87ec0148da47ae232797a96234e89012b5a
+Merge: 24ce4f1 bc2ca51
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Apr 12 15:24:40 2021 -0700
+
+    Merge pull request #426 from machinshin/think_rhino
+
+    Unprisoning your Think Rhino; cloes StoneCypher/fsl#502
+
+commit bc2ca51e2313195ed80e3296cb06507b18025178
+Author: Vat Raghavan <machinshin@gmail.com>
+Date:   Mon Apr 12 15:23:42 2021 -0700
+
+    CR1
+
+commit 24ce4f1c7d8685485a559643570f7617e2a6c06a
+Merge: 715a1b4 c1c1cff
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Apr 12 15:11:37 2021 -0700
+
+    Merge pull request #427 from machinshin/unit_chains
+
+    Unit Chains, closes StoneCypher/fsl#520
+
+commit c1c1cff6face8dc212b6aef0630ac41500bfc333
+Author: Vat Raghavan <machinshin@gmail.com>
+Date:   Mon Apr 12 14:56:38 2021 -0700
+
+    Unit Chains, closes StoneCypher/fsl#520
+
+commit 990363e32a7d27877f17ffe0a8057f8fbf1ce6d5
+Author: Vat Raghavan <machinshin@gmail.com>
+Date:   Mon Apr 12 14:09:01 2021 -0700
+
+    Unprisoning your Think Rhino; cloes StoneCypher/fsl#502
+
+commit 715a1b461f232541c38aeaecbbdb11c6f4cacdb5
+Merge: b69d705 c149f25
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu Apr 8 15:07:34 2021 -0700
+
+    Merge pull request #424 from machinshin/seq_function_chart
+
+    closes StoneCypher/fsl#41
+
+commit c149f259fa6d8dc112c01cf921cb9b1bb58e0cf0
+Author: Vat Raghavan <machinshin@gmail.com>
+Date:   Wed Apr 7 14:43:24 2021 -0700
+
+    closes StoneCypher/fsl#41
+
+commit b69d70575742a22956c3bbe374cb870214a33ea4
+Merge: 8c3d261 c7da077
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed Apr 7 13:23:39 2021 -0700
+
+    Merge pull request #423 from machinshin/comedy-flowcharts
+
+    closes StoneCypher/fsl#48
+
+commit c7da077acbca0d2b071125a334a244f0b7a1c43c
+Author: Vat Raghavan <machinshin@gmail.com>
+Date:   Wed Apr 7 11:59:01 2021 -0700
+
+    CR1
+
+commit 31b5f5b9e71acebe02facd2039d25111004c0f1d
+Author: Vat Raghavan <machinshin@gmail.com>
+Date:   Wed Apr 7 11:10:11 2021 -0700
+
+    closes StoneCypher/fsl#48
+
+commit 8c3d26196f78e4c300fd8531cb7233d7b572a771
+Merge: 5a4f8b7 ef5b954
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Apr 6 23:37:31 2021 -0700
+
+    Merge pull request #422 from machinshin/main
+
+    partially fixes StoneCypher/fsl#48
+
+commit ef5b954e0604ab5f63f9fcafeb457d7b77e522a5
+Author: Vat Raghavan <machinshin@gmail.com>
+Date:   Tue Apr 6 23:24:05 2021 -0700
+
+    partially fixes StoneCypher/fsl#48
+
+commit fbe88ef08bb9880cb0f4edd810993656c8f496bb
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu Mar 4 07:30:38 2021 -0800
+
+    underway
+
+commit 5a4f8b7d898b52bc4680aa49dd466dcb40ab86e9
+Merge: 909ccaf 5e9b93d
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Jan 24 16:02:23 2021 -0800
+
+    Merge pull request #421 from StoneCypher/SetUpFastCheck
+
+    running stoch tests for seq, but not yet part of the mainline build
+
+commit 5e9b93d0ccf1c0a87833461bab26586cd1d80fb2
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat Jan 23 18:45:06 2021 -0800
+
+    running stoch tests for seq, but not yet part of the mainline build
+
+commit 909ccaf6f0e88cafa66c8790edcd2ca3abcc6b41
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu Jan 21 12:36:47 2021 -0800
+
+    notes touch-up
+
+commit 2e4f599175c0cce540bae3427d94ccacb5dca4cc
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jan 19 11:56:13 2021 -0800
+
+    Moar docs
+
+commit 19cd4a3b69fd9fe54dcf0f79803848a2a3bcbea1
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jan 19 11:02:53 2021 -0800
+
+    minor readme touchup
+
+commit baf1ff610f7ccf248f7aef2387a33beae5ccf905
+Merge: 32a4e2b 90efa97
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jan 19 10:23:37 2021 -0800
+
+    Merge pull request #420 from StoneCypher/ReadmeImprovementsAgain
+
+    Some small readme improvements
+
+commit 90efa977049dd8c0b4bd817e9773c57a6bbe5e2c
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jan 19 10:22:37 2021 -0800
+
+    Some small readme improvements
+
+commit 32a4e2b66b36a49c9505aa5a5b26329920509c1c
+Merge: 3db22c2 5f1d7b6
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jan 19 09:22:31 2021 -0800
+
+    Merge pull request #419 from StoneCypher/AddTypeDoc
+
+    Put docgen back in automation, fixes @stonecypher/fsl#544
+
+commit 5f1d7b63c37b4fe014787379e7e564d08e4d6246
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jan 19 08:57:49 2021 -0800
+
+    Put docgen back in automation, fixes @stonecypher/fsl#544
+
+commit 3db22c2d28ed21590b3f8b6b36a7543039414899
+Merge: 18b0113 bbd99f5
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jan 19 08:49:01 2021 -0800
+
+    Merge pull request #418 from StoneCypher/AddTypeDoc
+
+    Better docs with TypeDoc
+
+commit bbd99f50e2281fd1b4d3d9a3d77973eaf0f8cbb7
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jan 19 08:32:39 2021 -0800
+
+    Better docs with TypeDoc
+
+commit 18b0113f0f79ffbf5b2edf8649c1d9ee56df35a5
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jan 19 08:16:22 2021 -0800
+
+    Reacquire 100% coverage, fixes #555
+
+commit 5b4f4274668267fabab336df9d405c33b6d788f6
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jan 19 08:16:22 2021 -0800
+
+    Reacquire 100% coverage
+
+commit fe14695a0cefbb1caa6421c9d64c7221c38a1868
+Merge: 99bd09e f8016ad
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Jan 18 23:45:05 2021 -0800
+
+    Merge pull request #417 from StoneCypher/MoveFromAvaToJest
+
+    Move from ava to jest
+
+commit f8016ad1e280169f1f7013df852da308e78c4dbc
+Merge: a92e1df 99bd09e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Jan 18 23:44:42 2021 -0800
+
+commit a1d9e7c0055e6694bde4928d749906fa92486591
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 11 16:59:14 2017 -0700
+
+    let's see if just moving things to deps wholesale solves the downstream build problem
+
+commit 4748e3751a62089949d280a23d9c8115e2a6cfc5
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed Jul 5 15:39:24 2017 -0700
+
+    three lines of coverage left :D :D
+
+commit ea9fe406dddb497d53a07da4a67b5ac3355c3717
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed Jul 5 14:33:31 2017 -0700
+
+    lol all that drama around throwing a string, huh
+
+commit 6f22cc476a2a24476a10f6d5c8f75bead619f48e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed Jul 5 09:07:19 2017 -0700
+
+    what about with no lockfile
+
+commit 0ca33e3a612475859aff6eb602b721e7fa56bbc6
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed Jul 5 08:54:14 2017 -0700
+
+    the lockfile shouldn't cause a build fail on 8, should it?
+
+commit 9b461f1052aeba47f5a9958d235ae608fc199eab
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed Jul 5 08:26:36 2017 -0700
+
+    improve coverage; retrigger build because of npm mess from this morning
+
+commit 7e74b21ef0cf5cb2ae479ef80ac0f27d79157d04
+Merge: 1c8f98e e8b68ad
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed Jul 5 07:50:51 2017 -0700
+
+    closing in on full coverage :D
+
+commit 1c8f98ed0eda80ed727a72bb0439aa91018dbae5
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 4 23:33:11 2017 -0700
+
+    flip spread with new obj to throw on list_exit_actions and probable_action_exits
+
+commit e8b68adc7047111876d805b53341f07153554078
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 4 23:33:11 2017 -0700
+
+    flip spread with new obj to throw on list_exit_actions and probable_action_exits
+
+commit 9b30e347cdf0cf205d6241a15f6d8dae987674d9
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 4 23:21:01 2017 -0700
+
+    negative coverage tests for actions/0,1 and list_states_having_action
+
+commit 391b6a5962fff128ee75173177de0ab3045b0806
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 4 23:17:26 2017 -0700
+
+    list states having action coverage
+
+commit 4c09b8d40de563142999c7118522507210d77a9a
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 4 23:09:14 2017 -0700
+
+    cover actions/0,1
+
+commit 876168689c8e1768ed836a32036c3a7fd2ff5c6c
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 4 22:55:46 2017 -0700
+
+    probabilistic_histo_walk coverage
+
+commit 99c4fc746cdbcb6cae724c07f6f7fb5f0853b8d4
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 4 22:43:21 2017 -0700
+
+    coverage, probabilistic walk bugfix
+
+commit ed3771d93ded350182c7d712fc29d2fb44a62de6
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 4 22:27:40 2017 -0700
+
+    coverage, small tweaks, testing
+
+commit ebc092d9dc7011757051f88f6933cfa9de918c6e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 4 21:35:21 2017 -0700
+
+    rearrangement and coverage
+
+commit f9795799f4c98632e5944dcacd1162c91d06e3b9
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 4 21:09:09 2017 -0700
+
+    coverage of probable_exits_for
+
+commit 20ef6b74fd7f317a9614563bff0c6d84f6fa7dd8
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 4 20:43:42 2017 -0700
+
+    basic parser complete (declaring inputs and outputs)
+
+commit b4844b59761a2fffe09a1a065a0b8e6f5b7fe7fb
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 4 19:43:23 2017 -0700
+
+    suppress load_machine_state while we're at it
+
+commit 9fedbd272860529e752a23156081fb98f1c04c7e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 4 19:42:21 2017 -0700
+
+    temporarily suppress load_machine_state/1
+
+commit f6c188352dd1c06c366b472d6050dee9cb57b752
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 4 19:38:34 2017 -0700
+
+    temporarily suppress force_transition/2 and valid_force_transition/2
+
+commit f27f7b6dd4e8f6cfb02dd518e74f45bd59380339
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 4 19:19:10 2017 -0700
+
+    remove is_changing/0 for now; up coverage
+
+commit e3212a8f7d72462ce49cf3de6499d93cd8cf82cd
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 4 18:42:18 2017 -0700
+
+    coverage for _new_state/1 and machine_state/0
+
+commit 09ed3ccb9a18c55486f998391c4c6a2c4f64ba2e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 4 18:37:30 2017 -0700
+
+    remove redundant insertion test
+
+commit 3bbc7681d19bd654fd8515bd136a41acec752850
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 4 18:30:22 2017 -0700
+
+    rephrase action/raction map gen for coverage
+
+commit 3fd12b6e299e5cee3aaeab62529ff35b2e729c99
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 4 12:06:45 2017 -0700
+
+    guess who's working on coverage
+
+commit b724796e5e37c55c2db5b1739df393ca7d147d6d
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 4 09:14:52 2017 -0700
+
+    stiiiillllllll working on coverage
+
+commit 93af4fef22d1c8103dff3dece4eb2e3edee5ef7f
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jul 4 08:55:57 2017 -0700
+
+    more coverage pls
+
+commit 1a2d0c9924708cf9c0fc3bf29f0c54e8dd8d784f
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Jul 3 17:52:04 2017 -0700
+
+    fix two context bugs; more test coverage
+
+commit a1bd797a8106a4955c3fd8eb93d44e6e171deab6
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Jul 3 17:27:33 2017 -0700
+
+    some fix on several; context fix on has_unenterables/0; many more tests
+
+commit bad6b32a87aa3bc3293a1cd1172dc6c27cb55f54
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Jul 3 16:42:45 2017 -0700
+
+    nyc and del-cli were out of date
+
+commit 79c2e85bdf7cd57877e14b8d088f4a45af9ee1c1
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Jul 3 16:35:40 2017 -0700
+
+    even better testing coverage
+
+commit a6076529e180da2f1134ba71bef72637d4a90a89
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Jul 3 16:03:15 2017 -0700
+
+    still better testing coverage
+
+commit b60e95c4fe492dda39f575deedc91e021943120b
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Jul 3 16:00:31 2017 -0700
+
+    better testing coverage
+
+commit bf3a538be37e3d6d47252ad011a522ed915883e4
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Jul 3 15:36:23 2017 -0700
+
+    ok let's bump ava then
+
+commit 5f18f74b0bca117e939cff0fb342014bd0000e64
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Jul 3 15:31:06 2017 -0700
+
+    actually maybe it's a legit flow error
+
+commit 64821cd52de55a50b9e11e191b974a1dcba7f8fe
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Jul 3 15:18:21 2017 -0700
+
+    ok let's try the install first
+
+commit fe58795dfc9cd8450f7618c54441cad1d1b919d2
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Jul 3 15:16:59 2017 -0700
+
+    why is flow erroring in the way i'd expect for a prior version though
+
+commit 27db55f8d8e693841f95e3ef59e36f85f1a16069
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Jul 3 14:49:47 2017 -0700
+
+    ah, it's because i locked flow then didn't update it, lawl
+
+commit c15c66e7f015b4d1df0901c757bae9c6ad5e649f
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Jul 3 14:45:40 2017 -0700
+
+    meaningless change to get travis to trigger
+
+commit 11dd41da13e6c69d7cf84c403b5304e0bf19ca70
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Jul 3 13:56:54 2017 -0700
+
+    remove viz (in favor of new package jssm-viz)
+
+commit 02dcc6c6106355ca3cbf9d96dae4a6a6f6fffa93
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jun 27 20:10:16 2017 -0700
+
+    attempt to LCOV_EXCL_LINE to cope with spurious flow throws
+
+commit 73e40d9080de9727274e2c96a9671d516c0f327c
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jun 27 20:04:37 2017 -0700
+
+    modernize the tests for fixed labels; make them more data driven
+
+commit c4e5fb82c97176b1e8bbeb5ad9bab5846903852e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jun 27 18:55:06 2017 -0700
+
+    full coverage of jssm-util
+
+commit 2561a66c6f25046e70307c46a80822308988785c
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jun 27 18:31:59 2017 -0700
+
+    rearrangement, comments, and a shoddy test for weighted_rand_select
+
+commit fbc4f0bfc9c89a97e5ddb27dda7593159fbad2f0
+Merge: 834e385 ac9afdb
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jun 27 18:12:48 2017 -0700
+
+    Merge branch 'master' of github.com:StoneCypher/jssm
+
+commit 834e385aef9b685f40d4be0502dcd625e032a1fb
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jun 27 18:12:40 2017 -0700
+
+    action labels as backticks; readmitting docs formally; bump to 2.7.0
+
+commit ac9afdba70924b1506d99f93be08fbf05c85fd16
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jun 27 17:10:06 2017 -0700
+
+    Update README.md
+
+commit c2de4d46405ad9936303e6f446187c051b00e2e4
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jun 27 14:47:07 2017 -0700
+
+    some name clarifications.  readding the docs dir to see if codeclimate chokes.  one fake test.
+
+commit c8bfce82a2c4f832c48bd87b0536076d35b51b35
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jun 27 14:20:05 2017 -0700
+
+    guess i should add the tests directory, huh
+
+commit 85b3f164777084e2d257db2aa061a86d0f0363cf
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jun 27 14:18:53 2017 -0700
+
+    okay let's try one of their sourced ymls
+
+commit 0ec645313d499681ea1f307a3fd0ca2ced6f8b86
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jun 27 11:38:53 2017 -0700
+
+    fix whitespace in graph items as a pretext to trigger codeclimate
+
+commit 0400c95dbed8b0e486601d93a796a161bf2f1410
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jun 27 11:32:43 2017 -0700
+
+    What happens to CodeClimate if I just nuke the entire docs directory
+
+commit f40c6de57989d861033dbdfd66a0e8deaaa54c1a
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jun 27 11:24:56 2017 -0700
+
+    does removing the .yml retrigger analysis?
+
+commit b2806aa785303af098d76828eb7ae2bb8916b62c
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Jun 26 14:56:49 2017 -0700
+
+    wow, it was.  trying a simpler .yml
+
+commit 1c1963a7929ede9ada26b453bd6f53a4afe57793
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Jun 26 14:55:10 2017 -0700
+
+    is the .codeclimate.yml why codeclimate isn't firing anymore?
+
+commit f3578f5ac47e6b4c49ef4d472a915c30a1e00c51
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Jun 26 13:28:21 2017 -0700
+
+    add graph layout to peg
+
+commit f6da593f33025989aff68f5bed829fa91b45fa13
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Jun 26 08:24:43 2017 -0700
+
+    it's .yml, not .yaml
+
+commit dac225f0802e0f6f0ffdacdfd6b7189c2a22bbde
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Jun 26 08:22:39 2017 -0700
+
+    ok try a different notation.  also should be removing tests
+
+commit 33b7e45359e5727d1db796bd03fd77fef607006b
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon Jun 26 08:21:07 2017 -0700
+
+    remove docs/ from codeclimate coverage
+
+commit 693bb54b7736250a1d73681af85ad6cd8e1b15e5
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Jun 25 23:10:13 2017 -0700
+
+    Min transitions per state; max transitions per state; more cleanup
+
+commit e7e2637bb0e02b496981c3af00209a0ce47755aa
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Jun 25 22:57:54 2017 -0700
+
+    ditch hexo
+
+commit 1b53038953d21768d286d632fd50c026eccf179a
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Jun 25 22:46:49 2017 -0700
+
+    rebuild
+
+commit c9d6f57b9ac422ca852d61f86393f8137b1ac184
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Jun 25 22:35:20 2017 -0700
+
+    bit of rearranging
+
+commit c8fbe9c4ce7355e92db1d6d28e15e15fa8dc7416
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Jun 25 22:27:01 2017 -0700
+
+    start making the config items explicit; introduce a node shape type
+
+commit b3781473907c05fb72eb51082f7456fc56e90cf3
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Jun 25 22:25:49 2017 -0700
+
+    start making the config items explicit; introduce a node shape type
+
+commit 534a698fb1c2e1470701a6fe037048a8bab73af9
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Jun 25 22:08:30 2017 -0700
+
+    add node_shape to graph config types
+
+commit aa875d6f239bc14fe87dfa67edde5738ee317cd4
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat Jun 24 21:49:12 2017 -0700
+
+    eslint still down in v4 :/
+
+commit 2f0420717ad4026445d97e0579f3298362162451
+Merge: 4144c1f d9b1050
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat Jun 10 16:25:36 2017 -0700
+
+    Merge branch 'master' of github.com:StoneCypher/jssm
+
+commit d9b10500fba99ad6305e6b7a16e7c3c77a4e442a
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed Jun 7 11:17:10 2017 -0700
+
+    Update .nycrc
+
+    lol fucking what?  screw you tabs
+
+commit 4144c1f902e21909f9590521d743331226baba57
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue Jun 6 16:59:39 2017 -0700
+
+    differentiated token paths for direct config parsing
+
+commit e5029748bd3d00003fda5cbb10547cbf730812b5
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Jun 4 21:44:19 2017 -0700
+
+    test double arrows, sequences, and chains; bump to 2.4
+
+commit fe1528c9062f6b03815ea33f695c2b606ef7c452
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Jun 4 20:11:40 2017 -0700
+
+    clean up spurious .se; bring tests into line
+
+commit e7e9cb051296893f9ede67742fe156768c5341a1
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Jun 4 19:47:47 2017 -0700
+
+    remove optionals
+
+commit 35a961fca7935982e2bc142675f33af07da0076f
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Jun 4 19:43:14 2017 -0700
+
+    support for descitems
+
+commit 43729ef9a3d5103b2e56835a9a4976e2f686f717
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Jun 4 19:39:04 2017 -0700
+
+    bump ver; better single item description tests
+
+commit 0676f1f16bfe8f5333b7170b83151886a0e586ed
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Jun 4 19:36:59 2017 -0700
+
+    add atoms; remove useless subexpitem; remove < > from atoms; add tests for empty arrow descriptions and single item descriptions
+
+commit 687bbacea1ba6a53eea6ed20707190235c4c4a78
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Jun 4 19:12:10 2017 -0700
+
+    fix atom parsing; get basic tests up and running for parser
+
+commit 64e3e31f2351244e861f7e1e0f6c1922f2611530
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Jun 4 18:23:26 2017 -0700
+
+    dot now produced again; modified build w/o flow, eslint, audit
+
+commit 607222fec6240066ccce19a1776e1c08ae8c9ffe
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun Jun 4 18:10:57 2017 -0700
+
+    sigh portability and node
+
+commit b33c5731f6347a4f0581a94edc8dc6647fcc8ea5
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 30 14:40:15 2017 -0700
+
+    add 8 to travis; also remove site again because reasons
+
+commit 74e32314828b7cbbdf38a789e7b8c00eca1c31bc
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 29 19:36:26 2017 -0700
+
+    re-remove hexo from build
+
+commit 3c9acb6566471effb6e16f543cb5db46ecdef15c
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 29 18:21:19 2017 -0700
+
+    maybe i explicitly need a local copy?  honestly :/
+
+commit c410f2773724a8db47fb8478ff27d154163563e7
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 29 18:16:47 2017 -0700
+
+    maybe i need hexo-cli too
+
+commit 324fd613e41f7c1f811ad970d69d367a894e85bc
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 29 18:12:04 2017 -0700
+
+    maybe i need to ginstall hexo first?
+
+commit d4e08dbf17b22492f18fe9985182fbcd76796352
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 29 18:07:37 2017 -0700
+
+    remove site from build until we know more about hexo and travis
+
+commit 28d56136bd5d5b41959b05baa6a73405c1660742
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 28 02:41:08 2017 -0700
+
+    Style improvements; trying to fix hexo on travis
+
+commit 2afa4a5f509aabffed25d168dea0f09cc8cdcf1e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 28 02:26:12 2017 -0700
+
+    missing dep
+
+commit d4b050823cdc6ec5b9114bd9100dcd836218ad4c
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 28 02:12:13 2017 -0700
+
+    site builds automatically now
+
+commit 06cc19bdcca9ec58d543b928e1c9532d23370351
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 28 01:18:13 2017 -0700
+
+    public site works
+
+commit 2c1def6dffce10ba1b99497812dccee7afe6160c
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 28 01:12:17 2017 -0700
+
+    alt path in readme
+
+commit daf36bd05a7caeaaaf5a2ab8798d7c9ca76806d7
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 28 01:09:14 2017 -0700
+
+    build && version bump
+
+commit b2f8bd01f14fabe1ebcb718aec53481799a2c501
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 28 01:07:46 2017 -0700
+
+    placement mistake
+
+commit 413e40d804d498257b581ba49589840c9a62ba6c
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 28 01:06:50 2017 -0700
+
+    ugh, the things we do for urls on gh pages
+
+commit 6303be6df8e896b1e933e6669053b8187dc30788
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 28 00:47:45 2017 -0700
+
+    omitted the hexo dep
+
+commit e16ba533fb86b9ed9307c0119492d8b1233ec9e1
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 28 00:41:53 2017 -0700
+
+    lawl there was a second themes directory
+
+commit fca89d668ba9ea532fa63ff4b03e68f1a9473f08
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 28 00:36:31 2017 -0700
+
+    Version bump to attempt to recycle gh pages cache
+
+commit 239044f2a2391dd71c4059371b746242afb27e45
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 28 00:23:36 2017 -0700
+
+    config bumps
+
+commit 3bb4f908e033767ca193592736efb403795095a5
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 28 00:19:02 2017 -0700
+
+    Trying pushing the main README into the default theme
+
+commit 65d106b656e387bb90365eb6043fd2e53ee0461b
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 28 00:10:21 2017 -0700
+
+    theme change attempt
+
+commit 70efba8235137b4390016a389622318126c98574
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 27 23:57:14 2017 -0700
+
+    maybe better site?
+
+commit 43d0b6bbb73225f91fc68518714d6e7ccab340f9
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 27 23:52:27 2017 -0700
+
+    attempting a hexo site
+
+commit add7e0c89d7dbc43e822d234b9fa753bcd1ebe22
+Merge: 80d09be 33c8b96
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 27 22:24:21 2017 -0700
+
+    Merge branch 'master' of github.com:StoneCypher/jssm
+
+commit 80d09be177bc59d76d5f9ee1e835170dc2d54c9e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 27 22:24:12 2017 -0700
+
+    Prepping for Jekyll site
+
+commit 33c8b96b3afe7f0d132d835fc845c96abcb11d43
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 27 22:22:37 2017 -0700
+
+    Set theme jekyll-theme-dinky
+
+commit 249cbc2be75abbcef4ba7061af4d18ce19aa309a
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 27 22:15:02 2017 -0700
+
+    documentation generation ahoy
+
+commit 335e0f73a4a34ce470c133279e1b8c2fb8e199c1
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 27 21:49:13 2017 -0700
+
+    dist folder; minification with uglify 3
+
+commit ba0632b1bc1315d2a3c21c8c7b4a23b8a965dd60
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 27 21:19:28 2017 -0700
+
+    get generated peg parsing code out of coverage analysis
+
+commit 3b3bbd0ee4f1545468bf21160a15f2564c105c3a
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 27 19:06:07 2017 -0700
+
+    api name changes; defaults; peg in the build chain
+
+commit f5c32a06da15268305c17a60dac5ce7cdea2fa31
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 27 16:45:48 2017 -0700
+
+    audit step, improved api, tweaks, more tests
+
+commit 31aafd1c424329ef19fc699543f7b9aea987f8c5
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 27 16:31:39 2017 -0700
+
+    update build, oops
+
+commit 7a9ec4789485368aca9b6ee3331a8c9c4d2f1608
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 27 16:30:43 2017 -0700
+
+    naming improvements; starting to break util functions out into pure module; testing improvements
+
+commit 7dd738f4a8d87ef5b93098dbe7acec7f8c0fdd25
+Merge: 1a246fa a9b0e97
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 27 15:01:13 2017 -0700
+
+    Merge branch 'master' of github.com:StoneCypher/jssm
+
+commit 1a246fa315f496797c326e42459e90f344b7b3fd
+Merge: 2f80399 79e07b7
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 27 15:00:10 2017 -0700
+
+    Merge branch 'master' of github.com:StoneCypher/jssm
+
+commit a9b0e975392ba6d022f72f45d9402b8c9396fee3
+Merge: 2f80399 79e07b7
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 27 15:00:10 2017 -0700
+
+    Merge branch 'master' of github.com:StoneCypher/jssm
+
+commit 2f8039952f57f428e2d684ebb0681eddb104bae0
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 27 14:23:23 2017 -0700
+
+    improvements to DOT-like PEG; move viz/1 to jssm-viz.js
+
+commit 79e07b7f0830ac317a6b50768e8dff34bb104a31
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 27 14:23:23 2017 -0700
+
+    improvements to DOT-like PEG; move viz/1 to jssm-viz.js
+
+commit c8ff548ada40adbf0bee4681976100bb4c7e995a
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 25 23:55:59 2017 -0700
+
+    wait that was the old one
+
+commit d92e6efbf0c2df599cbc1d5988fa800ecdf5c037
+Merge: 0b78992 738b546
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 25 23:54:42 2017 -0700
+
+    Merge branch 'master' of github.com:StoneCypher/jssm
+
+commit 0b78992d755002fbda486c380f282e41e239b360
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 25 23:52:45 2017 -0700
+
+    ok it was the spaces.  simple cleanup
+
+commit 738b546654ed003aa03d53f6580963038ed923d3
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 25 23:52:45 2017 -0700
+
+    ok it was the spaces.  simple cleanup
+
+commit 9e4b298a4693b6718d083b3d2e567b59a14ed137
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 25 23:45:57 2017 -0700
+
+    do i have to urlencode the spaces?
+
+commit c9bfc57ee5fd87fd9a705fec0671fff134d1fd73
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 25 23:44:05 2017 -0700
+
+    maybe with double-embed notation?
+
+commit 658f96dedbdf852109cb78132a57debcf6ca8b4f
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 25 23:43:03 2017 -0700
+
+    maybe it wants text before the header?
+
+commit 7811884f27a667a3085bb61dd57c3583088fc144
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 25 23:42:01 2017 -0700
+
+    maybe it wants a relative path?
+
+commit 5534309fddc4506e4df26047f1f18b040020e798
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed May 24 21:26:42 2017 -0700
+
+    does it need interstitial text to render?
+
+commit bb9ba2bedf3571e4b2bbd826a7d2db50c00f325d
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 23 23:39:53 2017 -0700
+
+    transitions in readme
+
+commit 9b869557fe80241a11fcfd4628baeb2f27086aa3
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 22 14:16:11 2017 -0700
+
+    Update README.md
+
+commit da562b43b97bac4c6fe725f46f312d7debd5be58
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 22 12:36:48 2017 -0700
+
+    fix empties, wraps
+
+commit 8861742bdc89e62e638e9cd65da2ee1b2c461adb
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 22 12:21:36 2017 -0700
+
+    move desc values to strings
+
+commit d1fb4d935a1b85d9cb440d87d4b06926805e20ce
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 22 11:31:40 2017 -0700
+
+    apparently nyc runs in stages
+
+commit f81b77c00a84cd5617c194175378e1b39b08cdad
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 22 11:23:01 2017 -0700
+
+    distinguish nyc tests from ava
+
+commit a1552251d96e50a49fe207261650727e78ded6bb
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 22 11:14:15 2017 -0700
+
+    guess pwd should be before the run
+
+commit 7419df9467631b9e1015a8bf971cc01aa12134a4
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 22 11:08:56 2017 -0700
+
+    add arrow descriptions; increase relevant label characterset
+
+commit f676303648014be511ae0ad8a46606a5a7156302
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 21 16:33:15 2017 -0700
+
+    labels joined, wrong arrays removed
+
+commit 21600eb25e328919dfc1d30a6c1f81625a349b04
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 21 16:08:36 2017 -0700
+
+    basic recursive parser
+
+commit 18d4cf244eaf81a45b359021d7cfd5258db5a79e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 21 15:29:51 2017 -0700
+
+    add pwd in hope to diagnose weird problem
+
+commit 0f284572ed7f655e1bfad45c421039c1ccd374e5
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 21 15:25:26 2017 -0700
+
+    attempt to move coverage exclusively to CI/CD
+
+commit 36273e946c2a32d5f69bea15e34b44022e5d3ef7
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 21 14:56:51 2017 -0700
+
+    sourcemaps and sourcemap removal from cjs; better badges; node minimum
+
+commit 40848f2444ebcd299904e140ccee6b6a4037f643
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 18 21:23:16 2017 -0700
+
+    We apparently do need no steenkeng badges
+
+commit 030c22f18b49143ff9bcc16b3f791d05acf6cf7f
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 18 21:06:56 2017 -0700
+
+    remove io.js from travis
+
+commit 32bc6688d251935e9eeeb6f414a0a18ef328769e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 18 21:01:59 2017 -0700
+
+    specify min node; first try at a .travis.yml
+
+commit 41235c5d10a2d4a948f7cd245c5f3cdd2f8edd64
+Merge: dd7b5f6 cb2a6b0
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 18 20:40:35 2017 -0700
+
+    Merge branch 'master' of github.com:StoneCypher/jssm
+
+commit dd7b5f6878b10ef450ed4b00834ac909de4bfeee
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 18 20:40:31 2017 -0700
+
+    More NPM tags
+
+commit cb2a6b0742e36fa40ea69dce993ebadf634d73a4
+Merge: 058398c edb9906
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 18 20:37:01 2017 -0700
+
+    Merge branch 'master' of github.com:StoneCypher/jssm
+
+commit 058398c443f4d429df518f57e4c8593aa9e77f3f
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 18 20:36:54 2017 -0700
+
+    screenshot add
+
+commit edb9906ab5649fe359d918dd137a327e706f9d01
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Thu May 18 20:30:30 2017 -0700
+
+    Update README.md
+
+commit e59ef17d786f02cf2eeb68ea3696366559580e3b
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed May 17 09:15:03 2017 -0700
+
+    small bits in do want
+
+commit 3b0bdcaa2b1191cefbf8164361cc3b636b3ff47d
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed May 17 07:27:58 2017 -0700
+
+    probabilistic histo walk, histograph, histo_key
+
+commit dd98d63091801242dc46d7ebaf5adad28fc8d055
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 13 23:45:38 2017 -0700
+
+    slightly nicer impl
+
+commit 39955f3c8f6f2f0a521f0dbf293cbb0f8f3bf689
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 13 23:39:27 2017 -0700
+
+    bugfix: yeah, that shouldn't be the empty string liter
+
+commit e0b64b645d083a023d27d1b3d936eb59ae8ec35e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed May 10 01:56:16 2017 -0700
+
+    probabilistics
+
+commit a5e6e608d85f7b997b397deb671cb1dbedb4f29a
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed May 10 00:00:06 2017 -0700
+
+    random action exits, bugfixes, tests, formatting
+
+commit 2f9eb45b25369595c87a695ebcad159a627966b9
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 9 23:39:50 2017 -0700
+
+    action and transition/action tests
+
+commit 3d9abb3b9b8cf0e900592da3c506a3775dbd0592
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 9 23:11:17 2017 -0700
+
+    actions\!
+
+commit b2f1cb050d46be5bcb5917f921071bb0f7407297
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 9 22:15:35 2017 -0700
+
+    wildly improved graphing
+
+commit 88bd317312a43e05744c1a199dc970a5e0503c35
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 9 18:14:13 2017 -0700
+
+    much improved visualizations
+
+commit be73cbb6721276b224cfc01a8e3695cc473db8b9
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 9 16:33:52 2017 -0700
+
+    basic transitions working
+
+commit a1bc086ba148dce17d7bcad07c55c2da09059229
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 9 15:30:04 2017 -0700
+
+    state saving
+
+commit 899fef29cbbb3e0ba1d161c855ebe2b524444133
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 9 15:11:23 2017 -0700
+
+    state machine completeness; improved checklist; more type stuff; bump
+
+commit 94e7405e3b055f7b3b2129cf542e31d7b99f52ed
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 9 14:28:17 2017 -0700
+
+    tests, types, bump
+
+commit 69ed67457c08822c24e569fe57970f1607a9126f
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 9 13:57:47 2017 -0700
+
+    this type situation is getting rapidly better
+
+commit 048649ba2cbd3dfc8874b8a2035fe9f7297b7aca
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 9 13:51:55 2017 -0700
+
+    and yet more type shenanigans
+
+commit e7f178275ec2e879a124ea8ae2faf745e1886ebb
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 9 13:50:58 2017 -0700
+
+    and yet more type shenanigans
+
+commit 08ae3b87e062f29d32de9f0cfaa295dfca933523
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 9 13:48:43 2017 -0700
+
+    still more type shenanigans
+
+commit 6a801ef06e00716f301b4b5c17565930f946077e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 9 13:10:06 2017 -0700
+
+    more type repair
+
+commit 5aee8dbc8a9f7591165c747d4af489b2a04a0123
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 9 12:45:03 2017 -0700
+
+    start fixing the flowtype types
+
+commit f29e2ed218367d37904e0326ed9fe31b3fe3b176
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 9 12:44:28 2017 -0700
+
+    start fixing the flowtype types
+
+commit 926f42f799938d49e3828a62c768a126bdfa331c
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Mon May 8 10:58:24 2017 -0700
+
+    comments
+
+commit 827aac37c4c0f44b8fd3849b20f7c79db1d911d9
+Merge: 571d8e1 691169c
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 7 23:12:02 2017 -0700
+
+    Merge branch 'master' of github.com:StoneCypher/jssm
+
+commit 571d8e1a044d428a7b4c84097874a6b10052cb54
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 7 23:11:54 2017 -0700
+
+    now makes fairly reasonable SVGs in viz.js online thing
+
+commit 691169c27185612069ef923b8761a88ad6fd291a
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 7 21:44:25 2017 -0700
+
+    Update do want.md
+
+commit d13fb5d94d69c749440ed0b191c59682bc6cdd2d
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 7 21:40:25 2017 -0700
+
+    Update do want.md
+
+commit eb8bd8a238d8c4cc245d31f5cddb876c7c698140
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 7 21:37:45 2017 -0700
+
+    Update do want.md
+
+commit 997d82e960b1e225e697629bd51390275da0e91c
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 7 21:36:44 2017 -0700
+
+    Update do want.md
+
+commit dce8d966b50abeb95036d48ff2f44cde0f733932
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 7 21:01:31 2017 -0700
+
+    catchup and cleanup
+
+commit afad873c277f2d5cfeab29245b797977d1178eae
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 7 20:37:33 2017 -0700
+
+    fixed up throws; better naming scheme; ava-spec; npm run audit
+
+commit c2f9e34f2046d0fa481ef6ff2e463cb0fbba0166
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 7 19:35:41 2017 -0700
+
+    remove the forced parallelism stuff
+
+commit 07234cadc15e0afa249d3eeb781e820b3abc393e
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 7 19:35:15 2017 -0700
+
+    first test
+
+commit 543aeebec77a3f9d6502b8c92808d58f2991f4b7
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 7 19:19:11 2017 -0700
+
+    improved build assembly
+
+commit 236586cc1d175ba6978326f272a7c593aab24493
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 7 18:13:43 2017 -0700
+
+    too much of a hassle to maintain, downgrading
+
+commit eebc78841fafa4774f862ebe4bce77a075ca1ff7
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 7 15:44:02 2017 -0700
+
+    history in config, rename jssm internal instance to machine
+
+commit 791328b08dbc0fce25435adef4fdd1d3212ecfbc
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 7 15:25:38 2017 -0700
+
+    Rudimentary demo page in place.  Browserify now exporting.  Basic API.
+
+commit c1c78f659a04824d0c12e5c00b1b20e6b9e4b3e0
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 7 12:13:55 2017 -0700
+
+    Update README.md
+
+commit 8e6051d53b584221b1a44a4787bf83c4b560a214
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sun May 7 12:13:40 2017 -0700
+
+    Update README.md
+
+commit 9cd518f43a3be77adf010203c4f636ce48307b28
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Sat May 6 09:58:44 2017 -0700
+
+    test parallelism in place
+
+commit 288e21b858b0591a7728cba8abc1dac8733b03b7
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed May 3 09:36:12 2017 -0700
+
+    Update initial plan.md
+
+commit 05a7ba646cc62143c899432c3e92f874a205fd20
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed May 3 01:59:56 2017 -0700
+
+    modest cleanup, type extension
+
+commit 42fbd576f201d1e108e420429d379173b931c319
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Wed May 3 01:33:11 2017 -0700
+
+    flow, flow-aware eslint
+
+commit 9721c4ef7427c5c3e47395963f6be9a138b00ffa
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 2 23:54:50 2017 -0700
+
+    flow checking and stripping now both working parts of build
+
+commit 35992a5cef36fc8080a1ac9d21d808f602ed5462
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 2 23:28:46 2017 -0700
+
+    simple testing in place
+
+commit 28f9a2f12c43e0deef5babcb94f026da4b6a0c8f
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 2 23:17:16 2017 -0700
+
+    simple build chain
+
+commit 8b8451d476a0b698538fe369c3d057cd8bbdd7ac
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 2 22:04:51 2017 -0700
+
+    initial plan
+
+commit fe7538c312aa3e105ad7de8459d31216f76be54d
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 2 22:03:34 2017 -0700
+
+    npm project
+
+commit 82b83dcc8d5a5aae34e293dc44b69a9a3e59d3c1
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 2 21:58:37 2017 -0700
+
+    Create README.md
+
+commit dc63c392c1395b81a9c0bd2fe3d45b059ee1250b
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 2 21:58:20 2017 -0700
+
+    Update LICENSE.md
+
+commit 2fffc7dcb41621a6fed1cffc8972c14b10489453
+Author: John Haugeland <stonecypher@gmail.com>
+Date:   Tue May 2 21:58:10 2017 -0700
+
+    Update .gitignore
+

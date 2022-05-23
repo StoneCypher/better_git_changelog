@@ -1,0 +1,33 @@
+{
+  "name": "better_git_changelog",
+  "version": "0.1.0",
+  "description": "Make a changelog from git commits, tags, and releases",
+  "main": "src/js/index.js",
+  "scripts": {
+    "clean": "rm -f ./src/js/reflog_parser.js",
+    "peg": "npx pegjs -o ./src/js/reflog_parser.js ./src/peg/reflog_parser.peg",
+    "build": "npm run clean && npm run peg",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StoneCypher/better_git_changelog.git"
+  },
+  "keywords": [
+    "changelog",
+    "git",
+    "release",
+    "commit",
+    "reference",
+    "tag"
+  ],
+  "author": "John Haugeland <stonecypher@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/StoneCypher/better_git_changelog/issues"
+  },
+  "homepage": "https://github.com/StoneCypher/better_git_changelog#readme",
+  "devDependencies": {
+    "pegjs": "^0.10.0"
+  }
+}

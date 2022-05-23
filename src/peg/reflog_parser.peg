@@ -1,0 +1,46 @@
+
+Doc
+  = Commit*
+
+Hex
+  = [a-fA-F0-9]
+
+Hash
+  = Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex
+    Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex { return text(); }
+
+ShortHash
+  = Hex Hex Hex Hex Hex Hex Hex { return text(); }
+
+CommitRow
+  = 'commit ' hash:Hash '\n' { return hash; }
+
+MergeRow
+  = 'Merge: ' hash1:ShortHash ' ' hash2:ShortHash '\n' { return [hash1, hash2]; }
+
+AuthorRow
+  = 'Author: ' author:[^\n]* '\n' { return author.join(''); }
+
+DateRow
+  = 'Date:   ' date:[^\n]* '\n' { return new Date(date.join('')).getTime(); }
+
+BlankRow
+  = '\n' { return undefined; }
+
+CommitTextRow
+  = '    ' text:[^\n]* '\n' { return text.join(''); }
+
+CommitTextBlock
+  = rows:CommitTextRow* { return rows.join('\n'); }
+
+CommitText
+  = ctr:CommitTextBlock appendix:('\n' CommitTextBlock)* {
+    return [ctr, ...appendix.map(r => r[1])].filter(t => t.length > 0)
+  }
+
+Commit
+  = commit_hash:CommitRow merge:MergeRow? author_row:AuthorRow date:DateRow BlankRow commit_text:CommitText {
+    const ret = { commit_hash, author_row, date, commit_text };
+    if (merge && merge !== null) { ret.merge = merge };
+    return ret;
+  };
