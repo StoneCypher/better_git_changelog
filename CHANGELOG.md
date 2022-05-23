@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-8 merges
+9 merges; 1 releases
 
 
 
@@ -12,8 +12,25 @@ All notable changes to this project will be documented in this file.
 
 Published tags:
 
+<a href="#1__0__0">1.0.0</a>
 
 
+
+
+
+&nbsp;
+
+&nbsp;
+
+<a name="1__0__0" />
+
+## [1.0.0] - 5/23/2022 1:05:40 PM
+
+Commit [dcd8246c7e8cb2181cc7a25d90d07f1e627105eb](https://github.com/StoneCypher/jssm/commit/dcd8246c7e8cb2181cc7a25d90d07f1e627105eb)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * Initial release
 
 
 
