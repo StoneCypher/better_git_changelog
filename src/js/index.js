@@ -18,7 +18,11 @@ const default_preface = "# Changelog\n\nAll notable changes to this project will
 
 
 function sem_sort(l, r) {
-  return sv.lt(l, r)? -1 : (sv.gt(l, r)? 1 : 0);
+  return sv.lt(l, r)
+    ? -1
+    : (sv.gt(l, r)
+      ? 1
+      : 0);
 }
 
 

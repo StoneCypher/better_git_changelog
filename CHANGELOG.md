@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-4 merges
+8 merges
 
 
 
@@ -14,6 +14,69 @@ Published tags:
 
 
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - 5/23/2022 12:52:03 PM
+
+Commit [72cfe947c64edf1e4f61fa8a851aeac463246eee](https://github.com/StoneCypher/jssm/commit/72cfe947c64edf1e4f61fa8a851aeac463246eee)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+Merges [26b16b6, 00a0691]
+
+  * Merge pull request #1 from StoneCypher/StoneCypher-patch-readme
+  * Update README.md
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - 5/23/2022 12:51:55 PM
+
+Commit [00a0691e5b260aa5ab8641b9ce9ef966567ad4cb](https://github.com/StoneCypher/jssm/commit/00a0691e5b260aa5ab8641b9ce9ef966567ad4cb)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * Update README.md
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - 5/23/2022 12:50:14 PM
+
+Commit [26b16b6c80d4f22f44ecf41ffe95edcb20084246](https://github.com/StoneCypher/jssm/commit/26b16b6c80d4f22f44ecf41ffe95edcb20084246)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * Basic readme
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - 5/23/2022 12:40:41 PM
+
+Commit [d57e1d4e459beee60f4d1de13e0d2f464e87baa0](https://github.com/StoneCypher/jssm/commit/d57e1d4e459beee60f4d1de13e0d2f464e87baa0)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * workable
 
 
 

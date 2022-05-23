@@ -1,6 +1,6 @@
 {
   "name": "better_git_changelog",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "Make a changelog from git commits, tags, and releases",
   "main": "src/js/index.js",
   "bin": { "better_git_changelog": "./src/js/cli.js" },
