@@ -17,6 +17,11 @@ to relevant branches.
 
 So, I made a zero-config CHANGELOG tool.
 
+This is generally intended to be used as a step in the ends of build chains.  The author uses
+it by making a command `changelog` in the scripts block of any project's `package.json`, then
+writing `better_git_changelog` in there, and can now issue `npm run changelog` to receive
+bacon.
+
 &nbsp; 
 
 &nbsp; 
