@@ -39,8 +39,8 @@ CommitText
   }
 
 Commit
-  = commit_hash:CommitRow merge:MergeRow? author_row:AuthorRow date:DateRow BlankRow commit_text:CommitText {
-    const ret = { commit_hash, author_row, date, commit_text };
+  = commit_hash:CommitRow merge:MergeRow? author:AuthorRow date:DateRow BlankRow commit_text:CommitText {
+    const ret = { commit_hash, author, date, commit_text };
     if (merge && merge !== null) { ret.merge = merge };
     return ret;
   };

@@ -170,8 +170,8 @@ function peg$parse(input, options) {
       peg$c26 = function(ctr, appendix) {
           return [ctr, ...appendix.map(r => r[1])].filter(t => t.length > 0)
         },
-      peg$c27 = function(commit_hash, merge, author_row, date, commit_text) {
-          const ret = { commit_hash, author_row, date, commit_text };
+      peg$c27 = function(commit_hash, merge, author, date, commit_text) {
+          const ret = { commit_hash, author, date, commit_text };
           if (merge && merge !== null) { ret.merge = merge };
           return ret;
         },
