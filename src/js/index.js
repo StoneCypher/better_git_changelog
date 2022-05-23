@@ -192,7 +192,7 @@ function default_formatter(item) {
   }${
 
     item.commit_hash
-      ? `\n\nCommit \`${item.commit_hash}\``
+      ? `\n\nCommit [${item.commit_hash}](https://github.com/StoneCypher/jssm/commit/${item.commit_hash})`
       : ''
 
   }${
@@ -227,6 +227,14 @@ function default_separator(item) {
 
 
 
+function to_link(tag) {
+  return `<a href="#${slug(tag)}">${tag}</a>`;
+}
+
+
+
+
+
 function convert_to_md({ target, data, item_formatter, item_separator, preface }) {
 
   const formatter = item_formatter || default_formatter,
@@ -235,8 +243,8 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface }
 
   let md = prefix;
 
-  if (data.tags) {
-    prefix += '\n\n' + data.tags.join(', ') + '\n\n';
+  if (data.tag_list) {
+    md += '\n\n\n\n&nbsp;\n\n&nbsp;\n\nPublished tags:\n\n' + data.tag_list.map(to_link).join(', ') + '\n';
   }
 
   data.reflog.map( (rli, i) => {
