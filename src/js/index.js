@@ -2,6 +2,8 @@
 const cp = require('child_process');
       fs = require('fs');
 
+const sv = require('semver');
+
 const reflog_parser = require('./reflog_parser.js'),
       parse_rl      = reflog_parser.parse;
 
@@ -10,6 +12,14 @@ const reflog_parser = require('./reflog_parser.js'),
 
 
 const default_preface = "# Changelog\n\nAll notable changes to this project will be documented in this file.\n\n";
+
+
+
+
+
+function sem_sort(l, r) {
+  return sv.lt(l, r)? -1 : (sv.gt(l, r)? 1 : 0);
+}
 
 
 
@@ -63,7 +73,7 @@ function tags_to_hashes(tags) {
 
 function get_tags_as_hashes() {
 
-  return tags_to_hashes(get_tag_list());
+  return tags_to_hashes( get_tag_list() );
 
 }
 
@@ -92,18 +102,6 @@ function scan_all() {
   return { tag_list, tag_hashes, reflog };
 
 }
-
-
-
-
-
-// function get_branch_name_for_hash(hash) {
-
-//   return cp.execSync(`git name-rev ${hash}`)
-//     .toString()
-//     .trim();
-
-// }
 
 
 
@@ -243,8 +241,18 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface }
 
   let md = prefix;
 
+  const merge_ct = data.reflog.length,
+        rel_ct   = data.tag_list.length,
+        notes    = [];
+
+  if (merge_ct) { notes.push(`${merge_ct} merges`); }
+  if (rel_ct)   { notes.push(`${rel_ct} releases`); }
+
+  md += notes.join('; ');
+
   if (data.tag_list) {
-    md += '\n\n\n\n&nbsp;\n\n&nbsp;\n\nPublished tags:\n\n' + data.tag_list.map(to_link).join(', ') + '\n';
+    const sorted = data.tag_list.sort(sem_sort).reverse();
+    md += '\n\n\n\n&nbsp;\n\n&nbsp;\n\nPublished tags:\n\n' + sorted.map(to_link).join(', ') + '\n';
   }
 
   data.reflog.map( (rli, i) => {
