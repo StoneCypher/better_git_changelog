@@ -278,6 +278,7 @@ function write_short_md(target) {
         u_target = target || './CHANGELOG.md';
 
   fs.writeFileSync( u_target, convert_to_md({ u_target, data }), { flag: 'w' } );
+  fs.writeFileSync( './tempo.rary', JSON.stringify(data), { flag: 'w' } );
 
 }
 
