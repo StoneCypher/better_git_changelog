@@ -237,11 +237,13 @@ function to_link(tag) {
 
 
 
-function convert_to_md({ target, data, item_formatter, item_separator, preface }) {
+function convert_to_md({ target, data, item_formatter, item_separator, preface, short, short_length }) {
 
   const formatter = item_formatter || default_formatter,
         separator = item_separator || default_separator,
-        prefix    = preface        || default_preface;
+        prefix    = preface        || default_preface,
+        is_short  = short          ?? false,
+        use_sl    = short_length   ?? 10;
 
   let md = prefix;
 
@@ -251,6 +253,7 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface }
 
   if (merge_ct) { notes.push(`${merge_ct} merges`); }
   if (rel_ct)   { notes.push(`${rel_ct} releases`); }
+  if (is_short) { notes.push(`Changlogging the last ${use_sl} commits`); }
 
   md += notes.join('; ');
 
@@ -258,6 +261,8 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface }
     const sorted = data.tag_list.sort(sem_sort).reverse();
     md += '\n\n\n\n&nbsp;\n\n&nbsp;\n\nPublished tags:\n\n' + sorted.map(to_link).join(', ') + '\n';
   }
+
+  const urefs = is_short? data.reflog.slice(0, use_sl) : data.reflog;
 
   data.reflog.map( (rli, i) => {
     md += default_separator(rli);
@@ -277,8 +282,7 @@ function write_short_md(target) {
   const data     = scan(),
         u_target = target || './CHANGELOG.md';
 
-  fs.writeFileSync( u_target, convert_to_md({ u_target, data }), { flag: 'w' } );
-  fs.writeFileSync( './tempo.rary', JSON.stringify(data), { flag: 'w' } );
+  fs.writeFileSync( u_target, convert_to_md({ u_target, data, short: true }), { flag: 'w' } );
 
 }
 

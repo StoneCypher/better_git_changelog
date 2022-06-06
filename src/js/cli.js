@@ -8,7 +8,8 @@ const { program } = require('commander');
 
 program
   .option('-l, --long-form',             'Include all commits in the changelog')
-  .option('-s, --short-form',            'Include only the current and previous commit in the changelog')
+  .option('-s, --short-form',            'Include only the previous ten commits (adjustable) in the changelog')
+//.option('-S, --short-length',          'Set the count of commits to include in the short form')
   .option('-b, --both-forms [filename]', 'Write both forms.  Optionally, include the long form filename as an argument', 'CHANGELOG.long.md')
   .option('-f, --filename <filename>',   'Set the filename for output', 'CHANGELOG.md');
 
@@ -25,6 +26,8 @@ let long  = false,
     fn    = opts.filename,
     fn2   = opts.bothForms;
 
+if (fn2 === true) { fn2 = 'CHANGELOG.long.md'; }
+
 if (opts.longForm)  { long  = true; }
 if (opts.shortForm) { short = true; }
 if (opts.bothForms) { short = true; long = true; }
@@ -34,17 +37,19 @@ if ( (!(long)) && (!(short)) ) { long = true; }
 
 
 if (long && short) {
-  console.log('Generating ${fn}...');
+
+  console.log(`Generating ${fn}...`);
   api.write_short_md(fn);
-  console.log('Generating ${fn2}...');
+
+  console.log(`Generating ${fn2}...`);
   api.write_long_md(fn2);
 
 } else if (long) {
-  console.log('Generating ${fn}...');
+  console.log(`Generating ${fn}...`);
   api.write_long_md(fn);
 
 } else if (short) {
-  console.log('Generating ${fn}...');
+  console.log(`Generating ${fn}...`);
   api.write_short_md(fn);
 }
 

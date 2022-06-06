@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-15 merges; 2 releases; Changlogging the last 10 commits
+15 merges; 2 releases
 
 
 

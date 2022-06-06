@@ -1,6 +1,6 @@
 {
   "name": "better_git_changelog",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "Make a changelog from git commits, tags, and releases",
   "main": "src/js/index.js",
   "bin": {
@@ -9,7 +9,8 @@
   "scripts": {
     "clean": "rm -f ./src/js/reflog_parser.js",
     "peg": "npx pegjs -o ./src/js/reflog_parser.js ./src/peg/reflog_parser.peg",
-    "build": "npm run clean && npm run peg",
+    "self": "node ./src/js/cli.js -- -b",
+    "build": "npm run clean && npm run peg && npm run self",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
