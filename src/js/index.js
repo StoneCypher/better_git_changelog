@@ -279,12 +279,12 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface, 
 
 
 
-function write_short_md(target, has_both, longname) {
+function write_short_md(target, has_both, short_length, longname) {
 
   const data     = scan(),
         u_target = target || './CHANGELOG.md';
 
-  fs.writeFileSync( u_target, convert_to_md({ u_target, data, short: true, has_both, longname }), { flag: 'w' } );
+  fs.writeFileSync( u_target, convert_to_md({ u_target, data, short: true, has_both, short_length, longname }), { flag: 'w' } );
 
 }
 

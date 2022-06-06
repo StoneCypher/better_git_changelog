@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-16 merges; 2 releases
+17 merges; 2 releases
 
 
 
@@ -14,6 +14,21 @@ Published tags:
 
 <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - 6/6/2022 11:40:38 AM
+
+Commit [ec266b5239fba0bca072e9e9a0e152c94b44fc1d](https://github.com/StoneCypher/jssm/commit/ec266b5239fba0bca072e9e9a0e152c94b44fc1d)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * Add ability to set short length; better logging; bugfixes
 
 
 

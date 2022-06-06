@@ -40,7 +40,7 @@ if ( (!(long)) && (!(short)) ) { long = true; }
 if (long && short) {
 
   console.log(`Generating ${fn} with ${ulen} entries...`);
-  api.write_short_md(fn, true, ulen);
+  api.write_short_md(fn, true, ulen, fn2);
 
   console.log(`Generating ${fn2}...`);
   api.write_long_md(fn2);

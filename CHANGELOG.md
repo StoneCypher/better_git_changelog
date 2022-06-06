@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-16 merges; 2 releases; Changlogging the last 10 commits; Full changelog at [10](10)
+17 merges; 2 releases; Changlogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
 
 
 
@@ -14,6 +14,21 @@ Published tags:
 
 <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - 6/6/2022 11:40:38 AM
+
+Commit [ec266b5239fba0bca072e9e9a0e152c94b44fc1d](https://github.com/StoneCypher/jssm/commit/ec266b5239fba0bca072e9e9a0e152c94b44fc1d)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * Add ability to set short length; better logging; bugfixes
 
 
 
@@ -155,19 +170,4 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 Merges [26b16b6, 00a0691]
 
   * Merge pull request #1 from StoneCypher/StoneCypher-patch-readme
-  * Update README.md
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - 5/23/2022 12:51:55 PM
-
-Commit [00a0691e5b260aa5ab8641b9ce9ef966567ad4cb](https://github.com/StoneCypher/jssm/commit/00a0691e5b260aa5ab8641b9ce9ef966567ad4cb)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
   * Update README.md
