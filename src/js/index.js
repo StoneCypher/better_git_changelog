@@ -237,13 +237,14 @@ function to_link(tag) {
 
 
 
-function convert_to_md({ target, data, item_formatter, item_separator, preface, short, short_length }) {
+function convert_to_md({ target, data, item_formatter, item_separator, preface, short, short_length, has_both, longname }) {
 
   const formatter = item_formatter || default_formatter,
         separator = item_separator || default_separator,
         prefix    = preface        || default_preface,
         is_short  = short          ?? false,
-        use_sl    = short_length   ?? 10;
+        use_sl    = short_length   ?? 10,
+        use_both  = has_both       ?? false;
 
   let md = prefix;
 
@@ -251,9 +252,10 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface, 
         rel_ct   = data.tag_list.length,
         notes    = [];
 
-  if (merge_ct) { notes.push(`${merge_ct} merges`); }
-  if (rel_ct)   { notes.push(`${rel_ct} releases`); }
-  if (is_short) { notes.push(`Changlogging the last ${use_sl} commits`); }
+  if (merge_ct)             { notes.push(`${merge_ct} merges`); }
+  if (rel_ct)               { notes.push(`${rel_ct} releases`); }
+  if (is_short)             { notes.push(`Changlogging the last ${use_sl} commits`); }
+  if (is_short && has_both) { notes.push(`Full changelog at [${longname}](${longname})`)}
 
   md += notes.join('; ');
 
@@ -264,7 +266,7 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface, 
 
   const urefs = is_short? data.reflog.slice(0, use_sl) : data.reflog;
 
-  data.reflog.map( (rli, i) => {
+  urefs.map( (rli, i) => {
     md += default_separator(rli);
     md += formatter(rli);
   } );
@@ -277,12 +279,12 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface, 
 
 
 
-function write_short_md(target) {
+function write_short_md(target, has_both, longname) {
 
   const data     = scan(),
         u_target = target || './CHANGELOG.md';
 
-  fs.writeFileSync( u_target, convert_to_md({ u_target, data, short: true }), { flag: 'w' } );
+  fs.writeFileSync( u_target, convert_to_md({ u_target, data, short: true, has_both, longname }), { flag: 'w' } );
 
 }
 

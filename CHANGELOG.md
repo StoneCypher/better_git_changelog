@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-15 merges; 2 releases; Changlogging the last 10 commits
+16 merges; 2 releases; Changlogging the last 10 commits; Full changelog at [10](10)
 
 
 
@@ -14,6 +14,21 @@ Published tags:
 
 <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - 6/6/2022 9:21:23 AM
+
+Commit [95c6e63dd19e0739240e37367aa9468f77e4e137](https://github.com/StoneCypher/jssm/commit/95c6e63dd19e0739240e37367aa9468f77e4e137)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * Self-run in build.  Fix various bugs.  Support for short length control.
 
 
 
@@ -156,93 +171,3 @@ Commit [00a0691e5b260aa5ab8641b9ce9ef966567ad4cb](https://github.com/StoneCypher
 Author: `John Haugeland <stonecypher@gmail.com>`
 
   * Update README.md
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - 5/23/2022 12:50:14 PM
-
-Commit [26b16b6c80d4f22f44ecf41ffe95edcb20084246](https://github.com/StoneCypher/jssm/commit/26b16b6c80d4f22f44ecf41ffe95edcb20084246)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * Basic readme
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - 5/23/2022 12:40:41 PM
-
-Commit [d57e1d4e459beee60f4d1de13e0d2f464e87baa0](https://github.com/StoneCypher/jssm/commit/d57e1d4e459beee60f4d1de13e0d2f464e87baa0)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * workable
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - 5/22/2022 11:42:45 PM
-
-Commit [7b3a3dc5e3a1b582bc068ee6f2553d32b1bcb74f](https://github.com/StoneCypher/jssm/commit/7b3a3dc5e3a1b582bc068ee6f2553d32b1bcb74f)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * workable
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - 5/22/2022 11:23:56 PM
-
-Commit [576bc5936492227936fea24aa6e94f0269dfb1cf](https://github.com/StoneCypher/jssm/commit/576bc5936492227936fea24aa6e94f0269dfb1cf)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * draft output
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - 5/22/2022 9:42:12 PM
-
-Commit [358351ec22b615bf74fb8df90e999b64defd304f](https://github.com/StoneCypher/jssm/commit/358351ec22b615bf74fb8df90e999b64defd304f)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * Able to produce appropriate datastructure from .scan()
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - 5/22/2022 7:34:01 PM
-
-Commit [a2ea0ad7c24dd5fca235fabf7f270b71d346fded](https://github.com/StoneCypher/jssm/commit/a2ea0ad7c24dd5fca235fabf7f270b71d346fded)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * Initial commit
