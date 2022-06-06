@@ -272,10 +272,23 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface }
 
 
 
-function write_md(target) {
+function write_short_md(target) {
 
   const data     = scan(),
         u_target = target || './CHANGELOG.md';
+
+  fs.writeFileSync( u_target, convert_to_md({ u_target, data }), { flag: 'w' } );
+
+}
+
+
+
+
+
+function write_long_md(target) {
+
+  const data     = scan(),
+        u_target = target || './CHANGELOG.long.md';
 
   fs.writeFileSync( u_target, convert_to_md({ u_target, data }), { flag: 'w' } );
 
@@ -302,7 +315,8 @@ module.exports = {
   default_formatter,
   default_separator,
 
-  write_md,
+  write_short_md,
+  write_long_md,
 
   parse_rl
 

@@ -1,9 +1,11 @@
 {
   "name": "better_git_changelog",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Make a changelog from git commits, tags, and releases",
   "main": "src/js/index.js",
-  "bin": { "better_git_changelog": "./src/js/cli.js" },
+  "bin": {
+    "better_git_changelog": "./src/js/cli.js"
+  },
   "scripts": {
     "clean": "rm -f ./src/js/reflog_parser.js",
     "peg": "npx pegjs -o ./src/js/reflog_parser.js ./src/peg/reflog_parser.peg",
@@ -29,6 +31,7 @@
   },
   "homepage": "https://github.com/StoneCypher/better_git_changelog#readme",
   "devDependencies": {
+    "commander": "^9.2.0",
     "pegjs": "^0.10.0"
   },
   "dependencies": {
