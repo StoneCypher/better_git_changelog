@@ -1,6 +1,6 @@
 {
   "name": "better_git_changelog",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "Make a changelog from git commits, tags, and releases",
   "main": "src/js/index.js",
   "bin": {
@@ -32,11 +32,11 @@
   },
   "homepage": "https://github.com/StoneCypher/better_git_changelog#readme",
   "devDependencies": {
-    "pegjs": "^0.10.0"
+    "pegjs": "^0.10.0",
+    "semver": "^7.5.4"
   },
   "dependencies": {
-    "commander": "^9.2.0",
     "arg-parser": "^1.2.0",
-    "semver": "^7.3.7"
+    "commander": "^9.2.0"
   }
 }

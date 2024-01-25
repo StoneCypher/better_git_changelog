@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-17 merges; 2 releases
+19 merges; 6 releases
 
 
 
@@ -12,7 +12,7 @@ All notable changes to this project will be documented in this file.
 
 Published tags:
 
-<a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
+<a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
 
 
@@ -22,7 +22,43 @@ Published tags:
 
 &nbsp;
 
-## [Untagged] - 6/6/2022 11:40:38 AM
+<a name="1__6__2" />
+
+## [1.6.2] - 6/18/2022 7:29:38 AM
+
+Commit [f51a3dc23ed3109ed13e6c4674cc97bd9edf1c39](https://github.com/StoneCypher/jssm/commit/f51a3dc23ed3109ed13e6c4674cc97bd9edf1c39)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * commander shouldn't be a devdep because we aren't bundling
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+<a name="1__6__1" />
+
+## [1.6.1] - 6/6/2022 12:43:11 PM
+
+Commit [67b161ca1272aaf3e04dcf7fa5b5978df587485c](https://github.com/StoneCypher/jssm/commit/67b161ca1272aaf3e04dcf7fa5b5978df587485c)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * Link in short to long was wrong
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+<a name="1__6__0" />
+
+## [1.6.0] - 6/6/2022 11:40:38 AM
 
 Commit [ec266b5239fba0bca072e9e9a0e152c94b44fc1d](https://github.com/StoneCypher/jssm/commit/ec266b5239fba0bca072e9e9a0e152c94b44fc1d)
 
@@ -37,7 +73,9 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
 &nbsp;
 
-## [Untagged] - 6/6/2022 9:21:23 AM
+<a name="1__5__0" />
+
+## [1.5.0] - 6/6/2022 9:21:23 AM
 
 Commit [95c6e63dd19e0739240e37367aa9468f77e4e137](https://github.com/StoneCypher/jssm/commit/95c6e63dd19e0739240e37367aa9468f77e4e137)
 
