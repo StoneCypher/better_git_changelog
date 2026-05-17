@@ -1,0 +1,40 @@
+{
+  "ui": {
+    "optLongForm": "Incluir todos los commits en el registro de cambios",
+    "optShortForm": "Incluir solo los commits más recientes en el registro de cambios",
+    "optShortLength": "Establecer el número de commits que se incluyen en la forma corta",
+    "optBothForms": "Escribir ambas formas.  Opcionalmente, incluir el nombre del archivo de la forma larga como argumento",
+    "optFilename": "Establecer el nombre del archivo de salida",
+    "optUiLang": "Idioma del texto de ayuda y la salida de consola",
+    "optChangelogLang": "Idioma del registro de cambios generado",
+    "optTranslator": "Traductor del contenido del registro ('claude' o el nombre de un ejecutable)",
+    "optHelp": "mostrar la ayuda del comando",
+    "usageLabel": "Uso:",
+    "optionsLabel": "Opciones:",
+    "generating": "Generando {file}...",
+    "generatingWithEntries": {
+      "one": "Generando {file} con {n} entrada...",
+      "other": "Generando {file} con {n} entradas..."
+    },
+    "finished": "¡terminado!",
+    "errUnknownLocale": "Idioma desconocido '{code}'; se usará inglés.",
+    "errUnknownOption": "error: opción desconocida '{option}'",
+    "errTranslatorNotFound": "Comando de traductor no encontrado: {command}",
+    "errTranslatorFailed": "El comando de traductor falló: {detail}"
+  },
+  "changelog": {
+    "changelogHeading": "Registro de cambios",
+    "prefaceSentence": "Todos los cambios notables de este proyecto se documentarán en este archivo.",
+    "publishedTags": "Etiquetas publicadas:",
+    "untagged": "Sin etiqueta",
+    "author": "Autor:",
+    "mergesLabel": "Fusiona {list}",
+    "fullChangelogAt": "Registro de cambios completo en {link}",
+    "merges":   { "one": "{n} fusión",  "other": "{n} fusiones" },
+    "releases": { "one": "{n} versión", "other": "{n} versiones" },
+    "shortNote": {
+      "one": "Registrando el último {n} commit",
+      "other": "Registrando los últimos {n} commits"
+    }
+  }
+}

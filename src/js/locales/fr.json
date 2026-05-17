@@ -1,4 +1,42 @@
 {
-  "ui": { "greet": "Bonjour" },
-  "changelog": { "merges": { "one": "{n} fusion", "other": "{n} fusions" } }
+  "ui": {
+    "optLongForm": "Inclure tous les commits dans le journal des modifications",
+    "optShortForm": "Inclure uniquement les commits les plus récents dans le journal des modifications",
+    "optShortLength": "Définir le nombre de commits à inclure dans la forme courte",
+    "optBothForms": "Écrire les deux formes.  Inclure éventuellement le nom du fichier de la forme longue comme argument",
+    "optFilename": "Définir le nom du fichier de sortie",
+    "optUiLang": "Langue du texte d'aide et de la sortie console",
+    "optChangelogLang": "Langue du journal des modifications généré",
+    "optTranslator": "Traducteur du contenu du journal ('claude' ou un nom d'exécutable)",
+    "optHelp": "afficher l'aide de la commande",
+    "usageLabel": "Utilisation :",
+    "optionsLabel": "Options :",
+    "generating": "Génération de {file}...",
+    "generatingWithEntries": {
+      "one": "Génération de {file} avec {n} entrée...",
+      "many": "Génération de {file} avec {n} entrées...",
+      "other": "Génération de {file} avec {n} entrées..."
+    },
+    "finished": "terminé !",
+    "errUnknownLocale": "Langue inconnue '{code}' ; retour à l'anglais.",
+    "errUnknownOption": "erreur : option inconnue '{option}'",
+    "errTranslatorNotFound": "Commande de traducteur introuvable : {command}",
+    "errTranslatorFailed": "La commande de traducteur a échoué : {detail}"
+  },
+  "changelog": {
+    "changelogHeading": "Journal des modifications",
+    "prefaceSentence": "Tous les changements notables apportés à ce projet seront documentés dans ce fichier.",
+    "publishedTags": "Étiquettes publiées :",
+    "untagged": "Sans étiquette",
+    "author": "Auteur :",
+    "mergesLabel": "Fusionne {list}",
+    "fullChangelogAt": "Journal des modifications complet sur {link}",
+    "merges":   { "one": "{n} fusion",  "many": "{n} fusions",  "other": "{n} fusions" },
+    "releases": { "one": "{n} version", "many": "{n} versions", "other": "{n} versions" },
+    "shortNote": {
+      "one": "Enregistrement du dernier {n} commit",
+      "many": "Enregistrement des derniers {n} commits",
+      "other": "Enregistrement des derniers {n} commits"
+    }
+  }
 }

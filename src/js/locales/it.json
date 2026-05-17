@@ -1,0 +1,42 @@
+{
+  "ui": {
+    "optLongForm": "Includere tutti i commit nel registro delle modifiche",
+    "optShortForm": "Includere solo i commit più recenti nel registro delle modifiche",
+    "optShortLength": "Impostare il numero di commit da includere nella forma breve",
+    "optBothForms": "Scrivere entrambe le forme.  Includere facoltativamente il nome del file della forma lunga come argomento",
+    "optFilename": "Impostare il nome del file di output",
+    "optUiLang": "Lingua per il testo della guida e l'output della console",
+    "optChangelogLang": "Lingua per il registro delle modifiche generato",
+    "optTranslator": "Traduttore per il contenuto del registro ('claude' o un nome di eseguibile)",
+    "optHelp": "visualizzare la guida del comando",
+    "usageLabel": "Utilizzo:",
+    "optionsLabel": "Opzioni:",
+    "generating": "Generazione di {file}...",
+    "generatingWithEntries": {
+      "one": "Generazione di {file} con {n} voce...",
+      "many": "Generazione di {file} con {n} voci...",
+      "other": "Generazione di {file} con {n} voci..."
+    },
+    "finished": "completato!",
+    "errUnknownLocale": "Lingua sconosciuta '{code}'; verrà utilizzato l'inglese.",
+    "errUnknownOption": "errore: opzione sconosciuta '{option}'",
+    "errTranslatorNotFound": "Comando traduttore non trovato: {command}",
+    "errTranslatorFailed": "Il comando traduttore ha avuto esito negativo: {detail}"
+  },
+  "changelog": {
+    "changelogHeading": "Registro delle modifiche",
+    "prefaceSentence": "Tutte le modifiche significative a questo progetto saranno documentate in questo file.",
+    "publishedTags": "Tag pubblicati:",
+    "untagged": "Senza tag",
+    "author": "Autore:",
+    "mergesLabel": "Unisce {list}",
+    "fullChangelogAt": "Registro delle modifiche completo su {link}",
+    "merges":   { "one": "{n} unione",  "many": "{n} unioni",   "other": "{n} unioni" },
+    "releases": { "one": "{n} versione","many": "{n} versioni",  "other": "{n} versioni" },
+    "shortNote": {
+      "one": "Registrazione dell'ultimo {n} commit",
+      "many": "Registrazione degli ultimi {n} commit",
+      "other": "Registrazione degli ultimi {n} commit"
+    }
+  }
+}

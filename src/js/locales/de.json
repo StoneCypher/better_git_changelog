@@ -1,0 +1,40 @@
+{
+  "ui": {
+    "optLongForm": "Alle Commits in das Änderungsprotokoll aufnehmen",
+    "optShortForm": "Nur die neuesten Commits in das Änderungsprotokoll aufnehmen",
+    "optShortLength": "Anzahl der Commits für die Kurzform festlegen",
+    "optBothForms": "Beide Formen schreiben.  Optional den Dateinamen der Langform als Argument angeben",
+    "optFilename": "Dateinamen für die Ausgabe festlegen",
+    "optUiLang": "Sprache für Hilfetext und Konsolenausgabe",
+    "optChangelogLang": "Sprache für das generierte Änderungsprotokoll",
+    "optTranslator": "Übersetzer für den Änderungsprotokoll-Inhalt ('claude' oder ein ausführbarer Name)",
+    "optHelp": "Hilfe zum Befehl anzeigen",
+    "usageLabel": "Verwendung:",
+    "optionsLabel": "Optionen:",
+    "generating": "{file} wird generiert...",
+    "generatingWithEntries": {
+      "one": "{file} wird mit {n} Eintrag generiert...",
+      "other": "{file} wird mit {n} Einträgen generiert..."
+    },
+    "finished": "fertig!",
+    "errUnknownLocale": "Unbekannte Sprache '{code}'; Rückfall auf Englisch.",
+    "errUnknownOption": "Fehler: unbekannte Option '{option}'",
+    "errTranslatorNotFound": "Übersetzer-Befehl nicht gefunden: {command}",
+    "errTranslatorFailed": "Übersetzer-Befehl fehlgeschlagen: {detail}"
+  },
+  "changelog": {
+    "changelogHeading": "Änderungsprotokoll",
+    "prefaceSentence": "Alle nennenswerten Änderungen an diesem Projekt werden in dieser Datei dokumentiert.",
+    "publishedTags": "Veröffentlichte Tags:",
+    "untagged": "Ohne Tag",
+    "author": "Autor:",
+    "mergesLabel": "Führt {list} zusammen",
+    "fullChangelogAt": "Vollständiges Änderungsprotokoll unter {link}",
+    "merges":   { "one": "{n} Zusammenführung",  "other": "{n} Zusammenführungen" },
+    "releases": { "one": "{n} Version",           "other": "{n} Versionen" },
+    "shortNote": {
+      "one": "Letzten {n} Commit protokollieren",
+      "other": "Letzte {n} Commits protokollieren"
+    }
+  }
+}
