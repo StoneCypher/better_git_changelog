@@ -1,6 +1,6 @@
 {
   "name": "better_git_changelog",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "description": "Make a changelog from git commits, tags, and releases",
   "main": "src/js/index.js",
   "bin": {
@@ -11,7 +11,8 @@
     "peg": "npx pegjs -o ./src/js/reflog_parser.js ./src/peg/reflog_parser.peg",
     "self": "node ./src/js/cli.js -- -b",
     "build": "npm run clean && npm run peg && npm run self",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test \"src/js/test/*.test.js\"",
+    "coverage": "node --test --experimental-test-coverage --test-coverage-exclude=\"src/js/reflog_parser.js\" \"src/js/test/*.test.js\""
   },
   "repository": {
     "type": "git",
@@ -33,7 +34,9 @@
   "homepage": "https://github.com/StoneCypher/better_git_changelog#readme",
   "devDependencies": {
     "pegjs": "^0.10.0",
-    "semver": "^7.5.4"
+    "semver": "^7.5.4",
+    "typescript": "^6.0.3",
+    "typescript-language-server": "^5.2.0"
   },
   "dependencies": {
     "arg-parser": "^1.2.0",

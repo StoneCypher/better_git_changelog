@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-19 merges; 6 releases
+20 merges; 7 releases
 
 
 
@@ -12,8 +12,25 @@ All notable changes to this project will be documented in this file.
 
 Published tags:
 
-<a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
+<a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+<a name="1__6__3" />
+
+## [1.6.3] - 1/25/2024 11:54:44 AM
+
+Commit [4fcab911dbaaba057a3dfd3e3f2f2d93500c5d36](https://github.com/StoneCypher/jssm/commit/4fcab911dbaaba057a3dfd3e3f2f2d93500c5d36)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * address sember bump
 
 
 
