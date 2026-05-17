@@ -58,12 +58,31 @@ function tag_to_hash(tag) {
 
 function tags_to_hashes(tags) {
 
+  // Resolve every tag to its commit in a single git call.  Spawning one
+  // `git rev-list` per tag costs ~130ms of process-creation time each on
+  // Windows; for-each-ref returns the whole set at once.  For annotated
+  // tags the commit is the dereferenced `*objectname`; for lightweight
+  // tags it is `objectname` directly.
+  const resolved = new Map();
+
+  cp.execFileSync('git', [ 'for-each-ref',
+                           '--format=%(refname:short) %(objectname) %(objecttype) %(*objectname)',
+                           'refs/tags' ])
+    .toString()
+    .trim()
+    .split('\n')
+    .filter(row => row.length > 0)
+    .forEach(row => {
+      const [name, objectname, objecttype, deref] = row.trim().split(' ');
+      resolved.set(name, objecttype === 'tag' ? deref : objectname);
+    });
+
   return tags.reduce(
 
     (acc, cur) =>
-      acc.has(cur)
+      (acc.has(cur) || !resolved.has(cur))
         ? acc
-        : (acc.set(cur, tag_to_hash(cur)), acc),
+        : (acc.set(cur, resolved.get(cur)), acc),
 
     new Map()
 
@@ -279,12 +298,12 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface, 
 
 
 
-function write_short_md(target, has_both, short_length, longname) {
+function write_short_md(target, has_both, short_length, longname, data) {
 
-  const data     = scan(),
+  const u_data   = data || scan(),
         u_target = target || './CHANGELOG.md';
 
-  fs.writeFileSync( u_target, convert_to_md({ u_target, data, short: true, has_both, short_length, longname }), { flag: 'w' } );
+  fs.writeFileSync( u_target, convert_to_md({ u_target, data: u_data, short: true, has_both, short_length, longname }), { flag: 'w' } );
 
 }
 
@@ -292,12 +311,12 @@ function write_short_md(target, has_both, short_length, longname) {
 
 
 
-function write_long_md(target) {
+function write_long_md(target, data) {
 
-  const data     = scan(),
+  const u_data   = data || scan(),
         u_target = target || './CHANGELOG.long.md';
 
-  fs.writeFileSync( u_target, convert_to_md({ u_target, data }), { flag: 'w' } );
+  fs.writeFileSync( u_target, convert_to_md({ u_target, data: u_data }), { flag: 'w' } );
 
 }
 
