@@ -13,6 +13,12 @@ const i18n = require('./i18n.js');
 
 
 
+/**
+ * Build the default changelog preface (the heading and intro sentence).
+ *
+ * @param t  A translator's `t(namespace, key)` lookup function.
+ * @returns The Markdown preface string, ending in a blank line.
+ */
 function default_preface(t) {
   return `# ${t('changelog', 'changelogHeading')}\n\n${t('changelog', 'prefaceSentence')}\n\n`;
 }
@@ -209,6 +215,17 @@ function slug(text) {
 
 
 
+/**
+ * Render one parsed reflog entry as a Markdown changelog section.
+ *
+ * @param item  A reflog entry: `commit_hash` and `commit_text`, plus optional
+ *              `tag`, `date`, `author`, and `merge`.
+ * @param tr    A translator from i18n.make_translator; defaults to English.
+ * @returns The entry rendered as Markdown.
+ *
+ * @example
+ *   default_formatter({ commit_hash: 'abc', commit_text: ['Fix a bug'] });
+ */
 function default_formatter(item, tr) {
   tr = tr || i18n.make_translator('en');
   const t = tr.t;
@@ -277,6 +294,21 @@ function to_link(tag) {
 
 
 
+/**
+ * Render scanned changelog data as a complete Markdown document.
+ *
+ * @param target          Output path; informational only, nothing is written here.
+ * @param data            A scan result: `{ reflog, tag_list, tag_hashes }`.
+ * @param item_formatter  Optional per-entry renderer; defaults to default_formatter.
+ * @param item_separator  Optional separator renderer; defaults to default_separator.
+ * @param preface         Optional preface string; defaults to the localized preface.
+ * @param short           When true, include only the most recent `short_length` entries.
+ * @param short_length    Entry count for the short form (default 10).
+ * @param has_both        When true (and `short`), append a link to the long-form file.
+ * @param longname        Long-form filename, used by the `has_both` link.
+ * @param translator      A translator for the changelog language; defaults to English.
+ * @returns The complete changelog as a Markdown string.
+ */
 function convert_to_md({ target, data, item_formatter, item_separator, preface, short, short_length, has_both, longname, translator }) {
 
   const tr        = translator      || i18n.make_translator('en'),
@@ -285,8 +317,7 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface, 
         separator = item_separator  || default_separator,
         prefix    = preface         || default_preface(t),
         is_short  = short           ?? false,
-        use_sl    = short_length    ?? 10,
-        use_both  = has_both        ?? false;
+        use_sl    = short_length    ?? 10;
 
   let md = prefix;
 
@@ -308,7 +339,7 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface, 
 
   const urefs = is_short ? data.reflog.slice(0, use_sl) : data.reflog;
 
-  urefs.map( (rli, i) => {
+  urefs.forEach( (rli) => {
     md += default_separator(rli);
     md += formatter(rli, tr);
   } );
@@ -321,6 +352,16 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface, 
 
 
 
+/**
+ * Scan the repository (or use supplied data) and write the short-form changelog.
+ *
+ * @param target        Output path; defaults to './CHANGELOG.md'.
+ * @param has_both      When true, append a link to the long-form file.
+ * @param short_length  Number of recent entries to include.
+ * @param longname      Long-form filename, used by the `has_both` link.
+ * @param data          Optional pre-computed scan result; the repo is scanned if omitted.
+ * @param translator    A translator for the changelog language; defaults to English.
+ */
 function write_short_md(target, has_both, short_length, longname, data, translator) {
 
   const u_data   = data || scan(),
@@ -334,6 +375,13 @@ function write_short_md(target, has_both, short_length, longname, data, translat
 
 
 
+/**
+ * Scan the repository (or use supplied data) and write the full-history changelog.
+ *
+ * @param target      Output path; defaults to './CHANGELOG.long.md'.
+ * @param data        Optional pre-computed scan result; the repo is scanned if omitted.
+ * @param translator  A translator for the changelog language; defaults to English.
+ */
 function write_long_md(target, data, translator) {
 
   const u_data   = data || scan(),
