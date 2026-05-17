@@ -24,7 +24,7 @@ Each locale JSON holds both, namespaced: `{ "ui": { ... }, "changelog": { ... } 
 
 ## Selection mechanism
 
-- **UI language:** `--ui-lang <code>` → else `LC_ALL` / `LC_MESSAGES` / `LANG` env (parsed to a language code) → else `en`.
+- **UI language:** `--ui-lang <code>` → else `LC_ALL` / `LC_MESSAGES` / `LANG` env (POSIX; parsed off any `.encoding` suffix) → else `Intl.DateTimeFormat().resolvedOptions().locale` (the OS-resolved default locale; cross-platform, and the only one of these that detects on Windows, where the POSIX variables are normally unset) → else `en`.
 - **Changelog language:** `--changelog-lang <code>` → else the resolved UI language.
 - **Unknown / unsupported code:** warn to stderr, fall back to `en`.
 
