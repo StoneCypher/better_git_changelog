@@ -1,4 +1,40 @@
 {
-  "ui": { "greet": "Hello", "missingInFr": "only in english" },
-  "changelog": { "merges": { "one": "{n} merge", "other": "{n} merges" } }
+  "ui": {
+    "optLongForm": "Include all commits in the changelog",
+    "optShortForm": "Include only the most recent commits in the changelog",
+    "optShortLength": "Set the count of commits to include in the short form",
+    "optBothForms": "Write both forms.  Optionally, include the long form filename as an argument",
+    "optFilename": "Set the filename for output",
+    "optUiLang": "Language for help text and console output",
+    "optChangelogLang": "Language for the generated changelog",
+    "optTranslator": "Translator for changelog content ('claude' or an executable name)",
+    "optHelp": "display help for command",
+    "usageLabel": "Usage:",
+    "optionsLabel": "Options:",
+    "generating": "Generating {file}...",
+    "generatingWithEntries": {
+      "one": "Generating {file} with {n} entry...",
+      "other": "Generating {file} with {n} entries..."
+    },
+    "finished": "finished!",
+    "errUnknownLocale": "Unknown language '{code}'; falling back to English.",
+    "errUnknownOption": "error: unknown option '{option}'",
+    "errTranslatorNotFound": "Translator command not found: {command}",
+    "errTranslatorFailed": "Translator command failed: {detail}"
+  },
+  "changelog": {
+    "changelogHeading": "Changelog",
+    "prefaceSentence": "All notable changes to this project will be documented in this file.",
+    "publishedTags": "Published tags:",
+    "untagged": "Untagged",
+    "author": "Author:",
+    "mergesLabel": "Merges {list}",
+    "fullChangelogAt": "Full changelog at {link}",
+    "merges":    { "one": "{n} merge",   "other": "{n} merges" },
+    "releases":  { "one": "{n} release", "other": "{n} releases" },
+    "shortNote": {
+      "one": "Changelogging the last {n} commit",
+      "other": "Changelogging the last {n} commits"
+    }
+  }
 }

@@ -4,14 +4,14 @@ const assert = require('node:assert');
 const i18n = require('../i18n.js');
 
 test('make_translator looks up a key in the requested locale', () => {
-  const tr = i18n.make_translator('fr');
-  assert.strictEqual(tr.code, 'fr');
-  assert.strictEqual(tr.t('ui', 'greet'), 'Bonjour');
+  const tr = i18n.make_translator('en');
+  assert.strictEqual(tr.code, 'en');
+  assert.strictEqual(tr.t('changelog', 'untagged'), 'Untagged');
 });
 
 test('a missing key falls back to the English string', () => {
-  const tr = i18n.make_translator('fr');
-  assert.strictEqual(tr.t('ui', 'missingInFr'), 'only in english');
+  const tr = i18n.make_translator('fr');           // fr.json is still the Task 1 stub
+  assert.strictEqual(tr.t('changelog', 'untagged'), 'Untagged');
 });
 
 test('an unknown key returns the namespaced key name', () => {
