@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-20 merges; 7 releases
+21 merges; 7 releases
 
 
 
@@ -14,6 +14,27 @@ Published tags:
 
 <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - 5/16/2026 9:34:30 PM
+
+Commit [64587df21be113fdc5f3ebc1b3be3f96c2a275b7](https://github.com/StoneCypher/jssm/commit/64587df21be113fdc5f3ebc1b3be3f96c2a275b7)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * test: add node:test suite for parser, formatter, and integration paths
+  * Replace the placeholder test script with a real suite of 19 tests
+covering the PEG parser (against the example_data.txt fixture), the
+pure markdown formatters, and the git-backed integration functions.
+  * Add a coverage script that excludes the generated reflog_parser.js,
+and install typescript and typescript-language-server as dev
+dependencies for editor LSP support.
 
 
 
