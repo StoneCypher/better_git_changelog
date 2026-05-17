@@ -1,7 +1,7 @@
 'use strict';
 
-const fs   = require('fs');
-const path = require('path');
+const fs   = require('node:fs');
+const path = require('node:path');
 
 const LOCALES_DIR = path.join(__dirname, 'locales');
 const FALLBACK    = 'en';
@@ -41,18 +41,19 @@ function make_translator(requested) {
     return undefined;
   }
 
-  function t(ns, key, params) {
-    params = params || {};
+  function select_plural(entry, n) {
+    const cat = plural.select(Number(n));
+    if (cat in entry)              { return entry[cat]; }
+    if (entry.other !== undefined) { return entry.other; }
+    return Object.values(entry)[0];
+  }
+
+  function t(ns, key, params = {}) {
     const entry = lookup(ns, key);
     if (entry === undefined) { return `${ns}.${key}`; }
-    let str;
-    if (entry && typeof entry === 'object') {
-      const cat = plural.select(Number(params.n));
-      str = (cat in entry) ? entry[cat]
-          : (entry.other !== undefined ? entry.other : Object.values(entry)[0]);
-    } else {
-      str = entry;
-    }
+    const str = (entry !== null && typeof entry === 'object')
+      ? select_plural(entry, params.n)
+      : entry;
     return interpolate(str, params);
   }
 

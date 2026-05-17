@@ -23,6 +23,10 @@ test('interpolation substitutes named placeholders', () => {
   assert.strictEqual(i18n.interpolate('hi {name}', { name: 'Sam' }), 'hi Sam');
 });
 
+test('interpolate leaves unmatched placeholders intact', () => {
+  assert.strictEqual(i18n.interpolate('{x} {y}', { x: 'a' }), 'a {y}');
+});
+
 test('plural selection picks the correct form', () => {
   const tr = i18n.make_translator('en');
   assert.strictEqual(tr.t('changelog', 'merges', { n: 1 }), '1 merge');
