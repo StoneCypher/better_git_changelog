@@ -183,7 +183,7 @@ function convert_to_json({ target, data }) {
 
 
 function slug(text) {
-  return text.replace( /[^a-zA-Z0-9-_]/g, '__' );
+  return text.replace( /[^\p{L}\p{N}_-]/gu, '__' );
 }
 
 
@@ -337,6 +337,8 @@ module.exports = {
 
   convert_to_json,
   convert_to_md,
+
+  slug,
 
   default_formatter,
   default_separator,

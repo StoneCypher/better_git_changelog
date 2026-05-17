@@ -1,7 +1,7 @@
 const test   = require('node:test');
 const assert = require('node:assert');
 
-const { default_formatter, default_separator, convert_to_md } = require('../index.js');
+const { default_formatter, default_separator, convert_to_md, slug } = require('../index.js');
 
 test('default_separator returns the fixed spacer block', () => {
   assert.strictEqual(default_separator({}), '\n\n\n\n\n&nbsp;\n\n&nbsp;\n\n');
@@ -68,6 +68,12 @@ test('convert_to_md emits the default preface, counts, and tag index', () => {
   assert.match(md, /Published tags:/);
   assert.match(md, /  \* one/);
   assert.match(md, /  \* two/);
+});
+
+test('slug preserves non-ASCII letters and digits', () => {
+  assert.strictEqual(slug('versión-2'), 'versión-2');
+  assert.strictEqual(slug('リリース'), 'リリース');
+  assert.strictEqual(slug('v1.0/beta'), 'v1__0__beta');
 });
 
 test('convert_to_md in short form truncates to short_length commits', () => {
