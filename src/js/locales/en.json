@@ -1,0 +1,4 @@
+{
+  "ui": { "greet": "Hello", "missingInFr": "only in english" },
+  "changelog": { "merges": { "one": "{n} merge", "other": "{n} merges" } }
+}

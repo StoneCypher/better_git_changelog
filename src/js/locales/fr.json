@@ -1,0 +1,4 @@
+{
+  "ui": { "greet": "Bonjour" },
+  "changelog": { "merges": { "one": "{n} fusion", "other": "{n} fusions" } }
+}
