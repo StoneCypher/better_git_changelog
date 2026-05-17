@@ -62,7 +62,7 @@ test('write_short_md writes a truncated changelog file', () => {
     api.write_short_md(target, false, 3);
     const out = fs.readFileSync(target, 'utf8');
     assert.ok(out.startsWith('# Changelog'));
-    assert.match(out, /Changlogging the last 3 commits/);
+    assert.match(out, /Changelogging the last 3 commits/);
   } finally {
     fs.rmSync(target, { force: true });
   }

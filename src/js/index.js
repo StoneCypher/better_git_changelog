@@ -7,11 +7,15 @@ const sv = require('semver');
 const reflog_parser = require('./reflog_parser.js'),
       parse_rl      = reflog_parser.parse;
 
+const i18n = require('./i18n.js');
 
 
 
 
-const default_preface = "# Changelog\n\nAll notable changes to this project will be documented in this file.\n\n";
+
+function default_preface(t) {
+  return `# ${t('changelog', 'changelogHeading')}\n\n${t('changelog', 'prefaceSentence')}\n\n`;
+}
 
 
 
@@ -205,7 +209,10 @@ function slug(text) {
 
 
 
-function default_formatter(item) {
+function default_formatter(item, tr) {
+  tr = tr || i18n.make_translator('en');
+  const t = tr.t;
+  const d = item.date ? new Date(item.date) : null;
 
   return `${
 
@@ -217,12 +224,12 @@ function default_formatter(item) {
 
     item.tag
       ? ` [${item.tag}]`
-      : ' [Untagged]'
+      : ` [${t('changelog', 'untagged')}]`
 
   }${
 
-    item.date
-      ? ` - ${new Date(item.date).toLocaleDateString()} ${new Date(item.date).toLocaleTimeString()}`
+    d
+      ? ` - ${tr.date(d)} ${tr.time(d)}`
       : ''
 
   }${
@@ -234,13 +241,13 @@ function default_formatter(item) {
   }${
 
     item.author
-      ? `\n\nAuthor: \`${item.author}\``
+      ? `\n\n${t('changelog', 'author')} \`${item.author}\``
       : ''
 
   }${
 
     item.merge
-      ? `\n\nMerges [${item.merge.join(', ')}]`
+      ? `\n\n${t('changelog', 'mergesLabel', { list: `[${item.merge.join(', ')}]` })}`
       : ''
 
   }\n\n${
@@ -248,7 +255,6 @@ function default_formatter(item) {
     item.commit_text.join('').split('\n\n').map(sp => `  * ${sp}`).join('\n')
 
   }`;
-
 }
 
 
@@ -271,14 +277,16 @@ function to_link(tag) {
 
 
 
-function convert_to_md({ target, data, item_formatter, item_separator, preface, short, short_length, has_both, longname }) {
+function convert_to_md({ target, data, item_formatter, item_separator, preface, short, short_length, has_both, longname, translator }) {
 
-  const formatter = item_formatter || default_formatter,
-        separator = item_separator || default_separator,
-        prefix    = preface        || default_preface,
-        is_short  = short          ?? false,
-        use_sl    = short_length   ?? 10,
-        use_both  = has_both       ?? false;
+  const tr        = translator      || i18n.make_translator('en'),
+        t         = tr.t,
+        formatter = item_formatter  || default_formatter,
+        separator = item_separator  || default_separator,
+        prefix    = preface         || default_preface(t),
+        is_short  = short           ?? false,
+        use_sl    = short_length    ?? 10,
+        use_both  = has_both        ?? false;
 
   let md = prefix;
 
@@ -286,23 +294,23 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface, 
         rel_ct   = data.tag_list.length,
         notes    = [];
 
-  if (merge_ct)             { notes.push(`${merge_ct} merges`); }
-  if (rel_ct)               { notes.push(`${rel_ct} releases`); }
-  if (is_short)             { notes.push(`Changlogging the last ${use_sl} commits`); }
-  if (is_short && has_both) { notes.push(`Full changelog at [${longname}](${longname})`)}
+  if (merge_ct)             { notes.push(t('changelog', 'merges',   { n: merge_ct })); }
+  if (rel_ct)               { notes.push(t('changelog', 'releases', { n: rel_ct   })); }
+  if (is_short)             { notes.push(t('changelog', 'shortNote', { n: use_sl  })); }
+  if (is_short && has_both) { notes.push(t('changelog', 'fullChangelogAt', { link: `[${longname}](${longname})` })); }
 
   md += notes.join('; ');
 
   if (data.tag_list) {
     const sorted = data.tag_list.sort(sem_sort).reverse();
-    md += '\n\n\n\n&nbsp;\n\n&nbsp;\n\nPublished tags:\n\n' + sorted.map(to_link).join(', ') + '\n';
+    md += '\n\n\n\n&nbsp;\n\n&nbsp;\n\n' + t('changelog', 'publishedTags') + '\n\n' + sorted.map(to_link).join(', ') + '\n';
   }
 
-  const urefs = is_short? data.reflog.slice(0, use_sl) : data.reflog;
+  const urefs = is_short ? data.reflog.slice(0, use_sl) : data.reflog;
 
   urefs.map( (rli, i) => {
     md += default_separator(rli);
-    md += formatter(rli);
+    md += formatter(rli, tr);
   } );
 
   return md;
@@ -313,12 +321,12 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface, 
 
 
 
-function write_short_md(target, has_both, short_length, longname, data) {
+function write_short_md(target, has_both, short_length, longname, data, translator) {
 
   const u_data   = data || scan(),
         u_target = target || './CHANGELOG.md';
 
-  fs.writeFileSync( u_target, convert_to_md({ u_target, data: u_data, short: true, has_both, short_length, longname }), { flag: 'w' } );
+  fs.writeFileSync( u_target, convert_to_md({ u_target, data: u_data, short: true, has_both, short_length, longname, translator }), { flag: 'w' } );
 
 }
 
@@ -326,12 +334,12 @@ function write_short_md(target, has_both, short_length, longname, data) {
 
 
 
-function write_long_md(target, data) {
+function write_long_md(target, data, translator) {
 
   const u_data   = data || scan(),
         u_target = target || './CHANGELOG.long.md';
 
-  fs.writeFileSync( u_target, convert_to_md({ u_target, data: u_data }), { flag: 'w' } );
+  fs.writeFileSync( u_target, convert_to_md({ u_target, data: u_data, translator }), { flag: 'w' } );
 
 }
 

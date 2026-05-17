@@ -2,6 +2,7 @@ const test   = require('node:test');
 const assert = require('node:assert');
 
 const { default_formatter, default_separator, convert_to_md, slug } = require('../index.js');
+const i18n = require('../i18n.js');
 
 test('default_separator returns the fixed spacer block', () => {
   assert.strictEqual(default_separator({}), '\n\n\n\n\n&nbsp;\n\n&nbsp;\n\n');
@@ -80,7 +81,14 @@ test('slug preserves non-ASCII letters and digits', () => {
 test('convert_to_md in short form truncates to short_length commits', () => {
   const md = convert_to_md({ data: sampleData(), short: true, short_length: 1 });
 
-  assert.match(md, /Changlogging the last 1 commits/);
+  assert.match(md, /Changelogging the last 1 commit/);
   assert.match(md, /  \* one/);
   assert.doesNotMatch(md, /  \* two/);
+});
+
+test('convert_to_md renders boilerplate in the changelog locale', () => {
+  const md = convert_to_md({ data: sampleData(), translator: i18n.make_translator('es') });
+  assert.ok(md.startsWith('# Registro de cambios'));
+  assert.match(md, /Etiquetas publicadas:/);
+  assert.match(md, /2 fusiones/);
 });
