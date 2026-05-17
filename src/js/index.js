@@ -182,6 +182,21 @@ function convert_to_json({ target, data }) {
 
 
 
+/**
+ * Turn a tag name into an HTML-anchor-safe slug.
+ *
+ * Every character that is not a Unicode letter, a Unicode digit, an
+ * underscore, or a hyphen is replaced with `__`, so non-Latin tag names
+ * survive while punctuation is escaped. Input is assumed to be NFC-normalized;
+ * a decomposed combining mark would be stripped.
+ *
+ * @param text  The tag name to convert.
+ * @returns The anchor-safe slug.
+ *
+ * @example
+ *   slug('v1.0/beta');   // 'v1__0__beta'
+ *   slug('versión-2');   // 'versión-2'
+ */
 function slug(text) {
   return text.replace( /[^\p{L}\p{N}_-]/gu, '__' );
 }

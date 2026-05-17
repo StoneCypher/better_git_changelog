@@ -74,6 +74,7 @@ test('slug preserves non-ASCII letters and digits', () => {
   assert.strictEqual(slug('versión-2'), 'versión-2');
   assert.strictEqual(slug('リリース'), 'リリース');
   assert.strictEqual(slug('v1.0/beta'), 'v1__0__beta');
+  assert.strictEqual(slug('build-١٢'), 'build-١٢');   // Arabic-Indic digits survive
 });
 
 test('convert_to_md in short form truncates to short_length commits', () => {
