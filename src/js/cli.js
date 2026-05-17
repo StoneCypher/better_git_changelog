@@ -7,10 +7,11 @@ const { program } = require('commander');
 
 
 program
+  .name('better_git_changelog')
   .option('-l, --long-form',             'Include all commits in the changelog')
   .option('-s, --short-form',            'Include only the previous ten commits (adjustable) in the changelog')
   .option('-S, --short-length <count>',  'Set the count of commits to include in the short form')
-  .option('-b, --both-forms [filename]', 'Write both forms.  Optionally, include the long form filename as an argument', 'CHANGELOG.long.md')
+  .option('-b, --both-forms [filename]', 'Write both forms.  Optionally, include the long form filename as an argument')
   .option('-f, --filename <filename>',   'Set the filename for output', 'CHANGELOG.md');
 
 program.parse();
@@ -39,11 +40,13 @@ if ( (!(long)) && (!(short)) ) { long = true; }
 
 if (long && short) {
 
+  const data = api.scan();
+
   console.log(`Generating ${fn} with ${ulen} entries...`);
-  api.write_short_md(fn, true, ulen, fn2);
+  api.write_short_md(fn, true, ulen, fn2, data);
 
   console.log(`Generating ${fn2}...`);
-  api.write_long_md(fn2);
+  api.write_long_md(fn2, data);
 
 } else if (long) {
   console.log(`Generating ${fn}...`);

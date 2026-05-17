@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "rm -f ./src/js/reflog_parser.js",
     "peg": "npx pegjs -o ./src/js/reflog_parser.js ./src/peg/reflog_parser.peg",
-    "self": "node ./src/js/cli.js -- -b",
+    "self": "node ./src/js/cli.js -b",
     "build": "npm run clean && npm run peg && npm run self",
     "test": "node --test \"src/js/test/*.test.js\"",
     "coverage": "node --test --experimental-test-coverage --test-coverage-exclude=\"src/js/reflog_parser.js\" \"src/js/test/*.test.js\""
