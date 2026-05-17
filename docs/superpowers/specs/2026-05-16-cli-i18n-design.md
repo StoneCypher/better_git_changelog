@@ -30,11 +30,11 @@ Each locale JSON holds both, namespaced: `{ "ui": { ... }, "changelog": { ... } 
 
 ## Changelog content translation (opt-in)
 
-- `--translator <preset|command>`. `claude` is a recognized built-in preset; any other value is treated as a shell command template.
+- `--translator <preset|program>`. `claude` is a recognized built-in preset; any other value is the name of an executable.
 - Content translation runs only when `--translator` is given **and** `--changelog-lang` is set. Default: off — boilerplate is localized, commit text is left as authored.
-- Command template placeholders: `{lang}` (target language) and `{text}` (the text). If `{text}` is absent, text is piped via stdin.
+- The translator is spawned with `execFileSync` (no shell): the program receives the target language code as its single argument and the text to translate on stdin, and emits the translation on stdout. Commit text is never interpolated into a command, so it cannot cause shell injection.
 - The `claude` preset invokes the `claude` CLI with a translation prompt to the target language; source language is auto-detected by the model.
-- Commits are translated in **batches** to limit subprocess calls (exact batching settled in the implementation plan). This is the slow path.
+- Commits are translated in a single batched call; their text sections are joined by a sentinel separator the translator is asked to preserve.
 - Translation caching is explicitly **out of scope** for v1.
 
 ## Components
