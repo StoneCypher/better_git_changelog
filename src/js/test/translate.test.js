@@ -13,6 +13,7 @@ test('resolve_argv expands the claude preset to a program + args array', () => {
   const argv = translate.resolve_argv('claude', 'fr');
   assert.strictEqual(argv[0], 'claude');
   assert.ok(argv.join(' ').includes('fr'));
+  assert.ok(argv.includes('-p'));
 });
 
 test('resolve_argv treats a non-preset value as the program name', () => {
@@ -23,6 +24,10 @@ test('translate_blocks round-trips through an echoing runner', () => {
   const blocks = ['first commit', 'second commit'];
   const out = translate.translate_blocks(blocks, 'fr', 'mytool', t, echo_runner);
   assert.deepStrictEqual(out, blocks);
+});
+
+test('translate_blocks returns an empty array for no blocks', () => {
+  assert.deepStrictEqual(translate.translate_blocks([], 'fr', 'mytool', t, echo_runner), []);
 });
 
 test('translate_blocks throws a localized error when the program is missing', () => {

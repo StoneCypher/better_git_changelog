@@ -1,6 +1,6 @@
 'use strict';
 
-const cp = require('child_process');
+const cp = require('node:child_process');
 
 const SEP = '\n<<<==BGC-SEP==>>>\n';
 
@@ -73,7 +73,10 @@ function default_runner(file, args, input) {
  *
  * Blocks are joined with `SEP` separators, sent to the translator on stdin,
  * then split back apart.  If the translator returns a different number of
- * sections than were sent, a localized error is thrown.
+ * sections than were sent, a localized error is thrown.  Blocks are joined
+ * for a single translator call by a sentinel separator line; a commit message
+ * that itself contains that exact sentinel line will produce a section-count
+ * mismatch and throw — there is no escaping mechanism.
  *
  * @param {string[]} blocks      Array of text blocks to translate (one per commit).
  * @param {string}   lang        BCP-47 target language code (e.g. 'fr').
@@ -93,13 +96,13 @@ function default_runner(file, args, input) {
  */
 function translate_blocks(blocks, lang, translator, t, runner) {
   if (blocks.length === 0) { return []; }
-  runner = runner || default_runner;
 
   const [file, ...args] = resolve_argv(translator, lang);
+  const effective_runner = runner ?? default_runner;
 
   let result;
   try {
-    result = runner(file, args, blocks.join(SEP));
+    result = effective_runner(file, args, blocks.join(SEP));
   } catch (e) {
     if (e.code === 'ENOENT') {
       throw new Error(t('ui', 'errTranslatorNotFound', { command: file }));
