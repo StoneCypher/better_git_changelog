@@ -46,7 +46,7 @@ function make_translator(requested, localeData) {
   const resolved = resolve_code(requested);
   const code     = resolved || FALLBACK;
   const data     = localeData || load_locale(code) || {};
-  const fallback = load_locale(FALLBACK) || {};
+  const fallback = (code === FALLBACK && !localeData) ? data : (load_locale(FALLBACK) || {});
   const plural   = new Intl.PluralRules(code);
 
   function lookup(ns, key) {
