@@ -14,6 +14,7 @@
     "generating": "Generando {file}...",
     "generatingWithEntries": {
       "one": "Generando {file} con {n} entrada...",
+      "many": "Generando {file} con {n} entradas...",
       "other": "Generando {file} con {n} entradas..."
     },
     "finished": "¡terminado!",
@@ -30,10 +31,11 @@
     "author": "Autor:",
     "mergesLabel": "Fusiona {list}",
     "fullChangelogAt": "Registro de cambios completo en {link}",
-    "merges":   { "one": "{n} fusión",  "other": "{n} fusiones" },
-    "releases": { "one": "{n} versión", "other": "{n} versiones" },
+    "merges":   { "one": "{n} fusión",  "many": "{n} fusiones", "other": "{n} fusiones" },
+    "releases": { "one": "{n} versión", "many": "{n} versiones", "other": "{n} versiones" },
     "shortNote": {
       "one": "Registrando el último {n} commit",
+      "many": "Registrando los últimos {n} commits",
       "other": "Registrando los últimos {n} commits"
     }
   }

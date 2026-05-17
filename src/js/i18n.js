@@ -28,11 +28,25 @@ function interpolate(str, params) {
   return String(str).replace(/\{(\w+)\}/g, (m, k) => (k in params ? String(params[k]) : m));
 }
 
-function make_translator(requested) {
+/**
+ * Build a translator bound to a single locale.
+ *
+ * @param requested  A language code such as 'fr' or 'pt-BR'. An unknown code
+ *                   resolves to English and is reported back via `unsupported`.
+ * @param localeData Optional pre-loaded locale object used instead of reading
+ *                   the locale file from disk. Intended for tests; production
+ *                   callers omit it.
+ * @returns A translator object `{ code, unsupported, t, date, time, number }`.
+ *
+ * @example
+ *   const tr = make_translator('fr');
+ *   tr.t('changelog', 'untagged');   // the French string, or English if absent
+ */
+function make_translator(requested, localeData) {
   const resolved = resolve_code(requested);
   const code     = resolved || FALLBACK;
-  const data     = load_locale(code) || {};
-  const fallback = code === FALLBACK ? data : (load_locale(FALLBACK) || {});
+  const data     = localeData || load_locale(code) || {};
+  const fallback = load_locale(FALLBACK) || {};
   const plural   = new Intl.PluralRules(code);
 
   function lookup(ns, key) {

@@ -9,12 +9,12 @@ test('make_translator looks up a key in the requested locale', () => {
   assert.strictEqual(tr.t('changelog', 'untagged'), 'Untagged');
 });
 
-test('a missing key falls back to the English string', () => {
-  // All shipped locales are now fully translated; test the fallback path by
-  // using an unsupported locale code which resolves entirely to the English
-  // data, confirming that any known key still returns its English string.
-  const tr = i18n.make_translator('xx');   // unsupported → resolves to en
-  assert.strictEqual(tr.t('changelog', 'untagged'), 'Untagged');
+test('a key missing from a locale falls back to the English string', () => {
+  // a deliberately partial locale: it has the namespace but not every key
+  const partial = { changelog: { changelogHeading: 'Journal' } };
+  const tr = i18n.make_translator('fr', partial);
+  assert.strictEqual(tr.t('changelog', 'changelogHeading'), 'Journal');  // present -> used
+  assert.strictEqual(tr.t('changelog', 'untagged'), 'Untagged');         // absent  -> English fallback
 });
 
 test('an unknown key returns the namespaced key name', () => {
