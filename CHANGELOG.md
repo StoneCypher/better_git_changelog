@@ -22,6 +22,21 @@ Published tags:
 
 &nbsp;
 
+## [Untagged] - May 18, 2026 3:41:17 PM
+
+Commit [80318800063d3480e736f1448c3e5cd89424d764](https://github.com/StoneCypher/better_git_changelog/commit/80318800063d3480e736f1448c3e5cd89424d764)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * tag under node 24
+
+
+
+
+&nbsp;
+
+&nbsp;
+
 ## [Untagged] - May 18, 2026 2:22:25 PM
 
 Commit [5ae8f70f0dca34e29de777379e07db06ad3b884d](https://github.com/StoneCypher/better_git_changelog/commit/5ae8f70f0dca34e29de777379e07db06ad3b884d)
@@ -170,19 +185,3 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
   * refactor: remove dead get_commit_message_for_hash
   * get_commit_message_for_hash was never called and never exported, so it was unreachable code — and it carried the same string-interpolated execSync injection pattern that was fixed in tag_to_hash. Removing it eliminates both. No test accompanies this change because there was nothing reachable to test; the existing suite still passes, confirming nothing depended on it.
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 18, 2026 9:45:29 AM
-
-Commit [fce0d5b67f5895be5bbb180cfaaed32f885eeb5e](https://github.com/StoneCypher/better_git_changelog/commit/fce0d5b67f5895be5bbb180cfaaed32f885eeb5e)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * fix: keep every tag when a commit has more than one
-  * scan() did reflog[idx].tag = tag, so when several tags pointed at the same commit each assignment overwrote the previous and only the last survived. scan() now collects them into an array. default_formatter accepts either a single tag or an array, emitting an anchor per tag and listing them all in the heading, so every tag's index link still resolves.

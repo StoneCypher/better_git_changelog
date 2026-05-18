@@ -3,32 +3,11 @@
 const api  = require('./index.js');
 const i18n = require('./i18n.js');
 
-const { program, InvalidArgumentError } = require('commander');
+const { program } = require('commander');
+
+const { prescan_ui_lang, parse_short_length, resolve_output_plan } = require('./cli_core.js');
 
 
-
-// Coerce and validate the -S/--short-length value: a positive integer.
-// An invalid value raises InvalidArgumentError so commander rejects the
-// run, instead of silently producing an empty changelog from slice(0, NaN).
-function parse_short_length(value) {
-  const n = Number(value);
-  if (!Number.isInteger(n) || n < 1) {
-    throw new InvalidArgumentError('must be a positive integer.');
-  }
-  return n;
-}
-
-
-
-function prescan_ui_lang(argv) {
-  for (const a of argv) {
-    if (a.startsWith('--ui-lang=')) { return a.slice('--ui-lang='.length); }
-  }
-  const i = argv.findIndex(a => a === '--ui-lang' || a === '-u');
-  return (i !== -1 && argv[i + 1] && !argv[i + 1].startsWith('-'))
-    ? argv[i + 1]
-    : null;
-}
 
 const uiLocale = i18n.detect_ui_locale(prescan_ui_lang(process.argv), process.env);
 const uiTr     = i18n.make_translator(uiLocale);
@@ -95,19 +74,7 @@ if (clTr.unsupported) {
 
 
 
-let long  = false,
-    short = false,
-    fn    = opts.filename,
-    fn2   = opts.bothForms,
-    ulen  = opts.shortLength ?? 10;
-
-if (fn2 === true) { fn2 = 'CHANGELOG.long.md'; }
-
-if (opts.longForm)  { long  = true; }
-if (opts.shortForm) { short = true; }
-if (opts.bothForms) { short = true; long = true; }
-
-if ( (!(long)) && (!(short)) ) { long = true; }
+const { long, short, fn, fn2, ulen } = resolve_output_plan(opts);
 
 
 
