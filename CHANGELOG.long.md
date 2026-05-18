@@ -22,6 +22,22 @@ Published tags:
 
 &nbsp;
 
+## [Untagged] - May 18, 2026 9:55:25 AM
+
+Commit [c5e90a724cdf065a41b7a08b6db20755d8b7a3f4](https://github.com/StoneCypher/better_git_changelog/commit/c5e90a724cdf065a41b7a08b6db20755d8b7a3f4)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * fix: count merge commits, not all commits, in the summary line
+  * The changelog summary rendered data.reflog.length through the 'merges' string, so it reported every commit as a merge (e.g. '441 merges' when 441 was the total entry count). It now counts only entries that actually carry a merge field.
+
+
+
+
+&nbsp;
+
+&nbsp;
+
 ## [Untagged] - May 18, 2026 9:48:07 AM
 
 Commit [1025797c006f88bb9f724467a9c636729cd22254](https://github.com/StoneCypher/better_git_changelog/commit/1025797c006f88bb9f724467a9c636729cd22254)

@@ -3,7 +3,20 @@
 const api  = require('./index.js');
 const i18n = require('./i18n.js');
 
-const { program } = require('commander');
+const { program, InvalidArgumentError } = require('commander');
+
+
+
+// Coerce and validate the -S/--short-length value: a positive integer.
+// An invalid value raises InvalidArgumentError so commander rejects the
+// run, instead of silently producing an empty changelog from slice(0, NaN).
+function parse_short_length(value) {
+  const n = Number(value);
+  if (!Number.isInteger(n) || n < 1) {
+    throw new InvalidArgumentError('must be a positive integer.');
+  }
+  return n;
+}
 
 
 
@@ -32,7 +45,7 @@ program
   .helpOption('-h, --help', ut('ui', 'optHelp'))
   .option('-l, --long-form',             ut('ui', 'optLongForm'))
   .option('-s, --short-form',            ut('ui', 'optShortForm'))
-  .option('-S, --short-length <count>',  ut('ui', 'optShortLength'))
+  .option('-S, --short-length <count>',  ut('ui', 'optShortLength'), parse_short_length)
   .option('-b, --both-forms [filename]', ut('ui', 'optBothForms'))
   .option('-f, --filename <filename>',   ut('ui', 'optFilename'), 'CHANGELOG.md')
   .option('-u, --ui-lang <code>',        ut('ui', 'optUiLang'))

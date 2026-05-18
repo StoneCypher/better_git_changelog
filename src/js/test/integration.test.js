@@ -76,6 +76,13 @@ test('write_short_md writes a truncated changelog file', () => {
   }
 });
 
+test('the CLI rejects a non-numeric --short-length instead of emptying the changelog', () => {
+  const child = require('node:child_process');
+  const cli   = path.join(__dirname, '..', 'cli.js');
+  const r     = child.spawnSync('node', [cli, '-S', 'abc'], { encoding: 'utf8' });
+  assert.notStrictEqual(r.status, 0);   // exits non-zero rather than silently succeeding
+});
+
 test('convert_to_json writes parseable JSON', () => {
   const target = tempPath('json', 'json');
   try {

@@ -22,6 +22,22 @@ Published tags:
 
 &nbsp;
 
+## [Untagged] - May 18, 2026 9:55:25 AM
+
+Commit [c5e90a724cdf065a41b7a08b6db20755d8b7a3f4](https://github.com/StoneCypher/better_git_changelog/commit/c5e90a724cdf065a41b7a08b6db20755d8b7a3f4)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * fix: count merge commits, not all commits, in the summary line
+  * The changelog summary rendered data.reflog.length through the 'merges' string, so it reported every commit as a merge (e.g. '441 merges' when 441 was the total entry count). It now counts only entries that actually carry a merge field.
+
+
+
+
+&nbsp;
+
+&nbsp;
+
 ## [Untagged] - May 18, 2026 9:48:07 AM
 
 Commit [1025797c006f88bb9f724467a9c636729cd22254](https://github.com/StoneCypher/better_git_changelog/commit/1025797c006f88bb9f724467a9c636729cd22254)
@@ -162,21 +178,3 @@ Merges [83f760f, 56638f0]
 
   * Merge pull request #5 from StoneCypher/fix_26-05-17_commit-url_2
   * fix: derive commit URLs from the git remote
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 17, 2026 10:08:44 PM
-
-Commit [56638f08a775de1d034a63250a7b1f382ec80184](https://github.com/StoneCypher/better_git_changelog/commit/56638f08a775de1d034a63250a7b1f382ec80184)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-Merges [1e403b0, 83f760f]
-
-  * Merge origin/main into fix_26-05-17_commit-url_2
-  * PR #4 (CLI i18n) merged to main and also rewrote default_formatter. Conflict resolved: default_formatter is now (item, tr, repo_url) — both translator-aware (from the i18n work) and repo-URL-aware (this branch's issue #2 fix). Also untracks .claude/settings.local.json, a per-machine file committed by mistake, and adds it to .gitignore.
