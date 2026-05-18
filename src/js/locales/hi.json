@@ -1,0 +1,40 @@
+{
+  "ui": {
+    "optLongForm": "चेंजलॉग में सभी कमिट शामिल करें",
+    "optShortForm": "चेंजलॉग में केवल सबसे हालिया कमिट शामिल करें",
+    "optShortLength": "संक्षिप्त रूप में शामिल किए जाने वाले कमिट की संख्या निर्धारित करें",
+    "optBothForms": "दोनों रूप लिखें।  वैकल्पिक रूप से लंबे रूप का फ़ाइल नाम तर्क के रूप में शामिल करें",
+    "optFilename": "आउटपुट के लिए फ़ाइल नाम निर्धारित करें",
+    "optUiLang": "सहायता पाठ और कंसोल आउटपुट की भाषा",
+    "optChangelogLang": "जेनरेट किए गए चेंजलॉग की भाषा",
+    "optTranslator": "चेंजलॉग सामग्री का अनुवादक ('claude' या एक एक्ज़ीक्यूटेबल नाम)",
+    "optHelp": "कमांड की सहायता प्रदर्शित करें",
+    "usageLabel": "उपयोग:",
+    "optionsLabel": "विकल्प:",
+    "generating": "{file} जेनरेट हो रहा है...",
+    "generatingWithEntries": {
+      "one": "{n} प्रविष्टि के साथ {file} जेनरेट हो रहा है...",
+      "other": "{n} प्रविष्टियों के साथ {file} जेनरेट हो रहा है..."
+    },
+    "finished": "पूर्ण!",
+    "errUnknownLocale": "अज्ञात भाषा '{code}'; अंग्रेज़ी पर वापस जा रहे हैं।",
+    "errUnknownOption": "त्रुटि: अज्ञात विकल्प '{option}'",
+    "errTranslatorNotFound": "अनुवादक कमांड नहीं मिला: {command}",
+    "errTranslatorFailed": "अनुवादक कमांड विफल: {detail}"
+  },
+  "changelog": {
+    "changelogHeading": "चेंजलॉग",
+    "prefaceSentence": "इस प्रोजेक्ट में सभी उल्लेखनीय परिवर्तन इस फ़ाइल में दर्ज किए जाएंगे।",
+    "publishedTags": "प्रकाशित टैग:",
+    "untagged": "बिना टैग",
+    "author": "लेखक:",
+    "mergesLabel": "{list} मर्ज करता है",
+    "fullChangelogAt": "{link} पर पूर्ण चेंजलॉग",
+    "merges":   { "one": "{n} मर्ज",    "other": "{n} मर्ज" },
+    "releases": { "one": "{n} रिलीज़",  "other": "{n} रिलीज़" },
+    "shortNote": {
+      "one": "अंतिम {n} कमिट का चेंजलॉग बन रहा है",
+      "other": "अंतिम {n} कमिट का चेंजलॉग बन रहा है"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "ui": {
+    "optLongForm": "Incluir todos os commits no registro de alterações",
+    "optShortForm": "Incluir apenas os commits mais recentes no registro de alterações",
+    "optShortLength": "Definir o número de commits a incluir na forma curta",
+    "optBothForms": "Escrever ambas as formas.  Incluir opcionalmente o nome do arquivo da forma longa como argumento",
+    "optFilename": "Definir o nome do arquivo de saída",
+    "optUiLang": "Idioma para o texto de ajuda e saída no console",
+    "optChangelogLang": "Idioma para o registro de alterações gerado",
+    "optTranslator": "Tradutor para o conteúdo do registro ('claude' ou um nome de executável)",
+    "optHelp": "exibir a ajuda do comando",
+    "usageLabel": "Uso:",
+    "optionsLabel": "Opções:",
+    "generating": "Gerando {file}...",
+    "generatingWithEntries": {
+      "one": "Gerando {file} com {n} entrada...",
+      "many": "Gerando {file} com {n} entradas...",
+      "other": "Gerando {file} com {n} entradas..."
+    },
+    "finished": "concluído!",
+    "errUnknownLocale": "Idioma desconhecido '{code}'; usando inglês como fallback.",
+    "errUnknownOption": "erro: opção desconhecida '{option}'",
+    "errTranslatorNotFound": "Comando do tradutor não encontrado: {command}",
+    "errTranslatorFailed": "O comando do tradutor falhou: {detail}"
+  },
+  "changelog": {
+    "changelogHeading": "Registro de alterações",
+    "prefaceSentence": "Todas as alterações notáveis neste projeto serão documentadas neste arquivo.",
+    "publishedTags": "Tags publicadas:",
+    "untagged": "Sem tag",
+    "author": "Autor:",
+    "mergesLabel": "Mescla {list}",
+    "fullChangelogAt": "Registro de alterações completo em {link}",
+    "merges":   { "one": "{n} mesclagem",  "many": "{n} mesclagens",  "other": "{n} mesclagens" },
+    "releases": { "one": "{n} versão",     "many": "{n} versões",     "other": "{n} versões" },
+    "shortNote": {
+      "one": "Registrando o último {n} commit",
+      "many": "Registrando os últimos {n} commits",
+      "other": "Registrando os últimos {n} commits"
+    }
+  }
+}
