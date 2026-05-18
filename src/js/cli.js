@@ -8,8 +8,13 @@ const { program } = require('commander');
 
 
 function prescan_ui_lang(argv) {
+  for (const a of argv) {
+    if (a.startsWith('--ui-lang=')) { return a.slice('--ui-lang='.length); }
+  }
   const i = argv.findIndex(a => a === '--ui-lang' || a === '-u');
-  return (i !== -1 && argv[i + 1]) ? argv[i + 1] : null;
+  return (i !== -1 && argv[i + 1] && !argv[i + 1].startsWith('-'))
+    ? argv[i + 1]
+    : null;
 }
 
 const uiLocale = i18n.detect_ui_locale(prescan_ui_lang(process.argv), process.env);
@@ -46,13 +51,14 @@ program.configureHelp({
   }
 });
 
+program.configureOutput({ writeErr: () => {} });
 program.exitOverride();
 
 try {
   program.parse();
 } catch (err) {
   if (err.code === 'commander.helpDisplayed' || err.code === 'commander.help') {
-    process.exit(0);
+    process.exit(0);   // --help (or a programmatic .help() call): not an error
   }
   if (err.code === 'commander.unknownOption') {
     const opt = (err.message.match(/'([^']+)'/) || [])[1] || '';
@@ -60,7 +66,7 @@ try {
   } else {
     console.error(err.message);
   }
-  process.exit(err.exitCode || 1);
+  process.exit(err.exitCode ?? 1);
 }
 
 const opts = program.opts();
