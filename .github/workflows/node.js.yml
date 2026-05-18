@@ -36,9 +36,9 @@ jobs:
     runs-on: ${{matrix.os}}
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and test
@@ -52,15 +52,19 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
 
+    permissions:
+      id-token: write     # required for npm trusted publishing (OIDC)
+      contents: write     # the job pushes tags and creates a release
+
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Export tag to envvars
       run: |
         export TAG=$(awk -F'"' '/"version": ".+"/{ print $4; exit; }' package.json)
         echo "TAG=$TAG" >> $GITHUB_ENV
     - name: Use Node.js 18.x
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
         node-version: 18.x
         registry-url: https://registry.npmjs.org/
@@ -77,8 +81,8 @@ jobs:
         release_name: ${{ env.TAG }}
         body_path: CHANGELOG.md
 
+    - name: Upgrade npm to a version that supports trusted publishing
+      run: npm install -g npm@latest
+
     - name: Publish to npm
-      run: |
-        npm publish
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.GH_ACTIONS_PUBLISH_TOKEN }}
+      run: npm publish
