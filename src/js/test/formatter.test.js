@@ -62,6 +62,15 @@ test('default_formatter renders a bare commit hash when no repo URL is known', (
   assert.doesNotMatch(md, /jssm/);
 });
 
+test('convert_to_md tolerates non-semver tags without throwing', () => {
+  const data = { reflog: [], tag_list: ['nightly', '1.0.0', '2.0.0'], tag_hashes: new Map() };
+  let md;
+  assert.doesNotThrow(() => { md = convert_to_md({ data }); });
+  assert.match(md, /nightly/);
+  assert.match(md, /1\.0\.0/);
+  assert.match(md, /2\.0\.0/);
+});
+
 function sampleData() {
   return {
     reflog: [

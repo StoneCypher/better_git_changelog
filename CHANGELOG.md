@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-48 merges; 8 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
+50 merges; 9 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
 
 
 
@@ -12,8 +12,46 @@ All notable changes to this project will be documented in this file.
 
 Published tags:
 
-<a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
+<a href="#1__6__5">1.6.5</a>, <a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+<a name="1__6__5" />
+
+## [1.6.5] - May 17, 2026 10:11:37 PM
+
+Commit [bf0422f736a08de7fb3aaa04a5010076d854d0c5](https://github.com/StoneCypher/better_git_changelog/commit/bf0422f736a08de7fb3aaa04a5010076d854d0c5)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+Merges [83f760f, 56638f0]
+
+  * Merge pull request #5 from StoneCypher/fix_26-05-17_commit-url_2
+  * fix: derive commit URLs from the git remote
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 17, 2026 10:08:44 PM
+
+Commit [56638f08a775de1d034a63250a7b1f382ec80184](https://github.com/StoneCypher/better_git_changelog/commit/56638f08a775de1d034a63250a7b1f382ec80184)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+Merges [1e403b0, 83f760f]
+
+  * Merge origin/main into fix_26-05-17_commit-url_2
+  * PR #4 (CLI i18n) merged to main and also rewrote default_formatter. Conflict resolved: default_formatter is now (item, tr, repo_url) — both translator-aware (from the i18n work) and repo-URL-aware (this branch's issue #2 fix). Also untracks .claude/settings.local.json, a per-machine file committed by mistake, and adds it to .gitignore.
 
 
 
@@ -138,33 +176,3 @@ Commit [2f99467d3c1d2b8edd857b3c4299eeb0a91b81f0](https://github.com/StoneCypher
 Author: `John Haugeland <stonecypher@gmail.com>`
 
   * refactor: tidy the content translator and document its separator limit
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 17, 2026 4:43:20 PM
-
-Commit [ab792e40c877124f18986cb1a0559aac195a96ac](https://github.com/StoneCypher/better_git_changelog/commit/ab792e40c877124f18986cb1a0559aac195a96ac)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * feat: add changelog content translator
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 17, 2026 4:40:14 PM
-
-Commit [566da299044cdc589ebdb488ef2ce78e234a1653](https://github.com/StoneCypher/better_git_changelog/commit/566da299044cdc589ebdb488ef2ce78e234a1653)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * docs: document the localized rendering functions

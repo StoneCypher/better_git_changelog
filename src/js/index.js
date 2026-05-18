@@ -27,12 +27,31 @@ function default_preface(t) {
 
 
 
+/**
+ * Comparator that orders tag names, tolerating non-semver tags.
+ *
+ * Two valid semver tags are compared by version precedence. A valid semver
+ * tag sorts before a non-semver one, and two non-semver tags are compared
+ * lexically — so a tag like `nightly` or `release-1` never throws.
+ *
+ * @param l  A tag name.
+ * @param r  A tag name.
+ * @returns  -1, 0, or 1, suitable for Array.prototype.sort.
+ *
+ * @example
+ *   ['2.0.0', 'nightly', '1.0.0'].sort(sem_sort);  // ['1.0.0','2.0.0','nightly']
+ */
 function sem_sort(l, r) {
-  return sv.lt(l, r)
-    ? -1
-    : (sv.gt(l, r)
-      ? 1
-      : 0);
+
+  const lv = sv.valid(l),
+        rv = sv.valid(r);
+
+  if (lv && rv) { return sv.lt(l, r) ? -1 : (sv.gt(l, r) ? 1 : 0); }
+  if (lv)       { return -1; }
+  if (rv)       { return 1; }
+
+  return (l < r) ? -1 : ((l > r) ? 1 : 0);
+
 }
 
 
