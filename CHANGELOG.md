@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-53 merges; 9 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
+54 merges; 9 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
 
 
 
@@ -14,6 +14,22 @@ Published tags:
 
 <a href="#1__6__5">1.6.5</a>, <a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 18, 2026 7:12:46 AM
+
+Commit [70f1c013dcc7120b3565b4ca1ba4691cf9c7cedf](https://github.com/StoneCypher/better_git_changelog/commit/70f1c013dcc7120b3565b4ca1ba4691cf9c7cedf)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * fix: remove shell-injection risk in tag_to_hash
+  * tag_to_hash interpolated the tag name into a shell command string passed to execSync. Git tag names may legally contain shell metacharacters, so a hostile tag could execute arbitrary commands. It now uses execFileSync with an argument array — no shell, the tag is a single literal argument. (get_commit_message_for_hash has the same pattern but is dead code; it is removed in a later PR in this series.)
 
 
 
@@ -164,18 +180,3 @@ Commit [80eecb624d3da4f17fbee01b9eb410042a0c2948](https://github.com/StoneCypher
 Author: `John Haugeland <stonecypher@gmail.com>`
 
   * docs: clarify the Languages section with locale codes and accurate examples
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 17, 2026 5:09:40 PM
-
-Commit [0f59cbe32c9564de264d5f83b963c01eb3181b3f](https://github.com/StoneCypher/better_git_changelog/commit/0f59cbe32c9564de264d5f83b963c01eb3181b3f)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * docs: document CLI internationalization

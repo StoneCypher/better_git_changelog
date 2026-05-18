@@ -1,5 +1,5 @@
 
-const cp = require('child_process');
+const cp = require('child_process'),
       fs = require('fs');
 
 const sv = require('semver');
