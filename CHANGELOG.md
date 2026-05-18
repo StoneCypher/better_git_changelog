@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-4 merges; 9 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
+8 merges; 11 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
 
 
 
@@ -12,8 +12,112 @@ All notable changes to this project will be documented in this file.
 
 Published tags:
 
-<a href="#1__6__5">1.6.5</a>, <a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
+<a href="#1__6__15">1.6.15</a>, <a href="#1__6__6">1.6.6</a>, <a href="#1__6__5">1.6.5</a>, <a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 18, 2026 2:22:25 PM
+
+Commit [5ae8f70f0dca34e29de777379e07db06ad3b884d](https://github.com/StoneCypher/better_git_changelog/commit/5ae8f70f0dca34e29de777379e07db06ad3b884d)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+Merges [086752a, 0e2a202]
+
+  * Merge pull request #18 from StoneCypher/ci_26-05-18_release-guard
+  * ci: skip release and publish when the version is unchanged
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 18, 2026 1:58:44 PM
+
+Commit [0e2a2025d6fba342b2d06acbeffcc85456df6a97](https://github.com/StoneCypher/better_git_changelog/commit/0e2a2025d6fba342b2d06acbeffcc85456df6a97)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * ci: skip release and publish when the version is unchanged
+  * The release job ran on every owner push to main and unconditionally created a GitHub release for package.json's version. A push that does not bump the version (such as a CI-only change) re-ran it for an already-released version, and actions/create-release failed with 'tag_name already_exists' (npm publish would reject the duplicate too). A new step checks whether the version's tag already exists on origin; push-tags, create-release, upgrade-npm and publish now run only when the version is new.
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 18, 2026 11:01:29 AM
+
+Commit [086752a9aa8b91d27b334384c7a309c25e288941](https://github.com/StoneCypher/better_git_changelog/commit/086752a9aa8b91d27b334384c7a309c25e288941)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+Merges [b9de48f, 5353e38]
+
+  * Merge pull request #17 from StoneCypher/ci_26-05-18_npm-trusted-publishing
+  * ci: publish to npm via OIDC trusted publishing
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 18, 2026 11:00:01 AM
+
+Commit [5353e38704c6d5dbf12af00931544c9af322e0c9](https://github.com/StoneCypher/better_git_changelog/commit/5353e38704c6d5dbf12af00931544c9af322e0c9)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * ci: publish to npm via OIDC trusted publishing
+  * The release job published with a long-lived NODE_AUTH_TOKEN, which no longer works under npm's current auth model. It now uses trusted publishing: an id-token:write permission lets npm authenticate via GitHub's OIDC, an upgrade-npm step ensures npm is new enough (>= 11.5.1) to support it, and the NODE_AUTH_TOKEN secret reference is removed. Also bumps actions/checkout (v1 and v2) and actions/setup-node (v1) to v4. The package's trusted publisher must be registered on npmjs.com before the next release.
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+<a name="1__6__15" />
+
+## [1.6.15] - May 18, 2026 10:47:50 AM
+
+Commit [b9de48f2cc9ee560f9845589b2673a3a093c8161](https://github.com/StoneCypher/better_git_changelog/commit/b9de48f2cc9ee560f9845589b2673a3a093c8161)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+Merges [5883848, 42ac85b]
+
+  * Merge pull request #16 from StoneCypher/fix_26-05-18_short-length
+  * fix: land bug fixes 2-10 on main
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 18, 2026 10:08:03 AM
+
+Commit [42ac85b8a5a22ffd1579210ada68ad6de517df6b](https://github.com/StoneCypher/better_git_changelog/commit/42ac85b8a5a22ffd1579210ada68ad6de517df6b)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * fix: reject a non-numeric --short-length instead of emptying the changelog
+  * opts.shortLength was an unvalidated string; -S abc became slice(0, NaN), silently producing an empty changelog with no error. -S now has a commander argument parser that coerces the value to a positive integer and raises InvalidArgumentError on anything else, so a bad value fails the run loudly.
 
 
 
@@ -30,6 +134,26 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
   * fix: count merge commits, not all commits, in the summary line
   * The changelog summary rendered data.reflog.length through the 'merges' string, so it reported every commit as a merge (e.g. '441 merges' when 441 was the total entry count). It now counts only entries that actually carry a merge field.
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+<a name="1__6__6" />
+
+## [1.6.6] - May 18, 2026 9:49:04 AM
+
+Commit [58838484bd9b901bb7cde398c854e67df3feb7d9](https://github.com/StoneCypher/better_git_changelog/commit/58838484bd9b901bb7cde398c854e67df3feb7d9)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+Merges [bf0422f, 6673f2e]
+
+  * Merge pull request #6 from StoneCypher/fix_26-05-18_non-semver-tags
+  * fix: tolerate non-semver tags in changelog generation
 
 
 
@@ -62,119 +186,3 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
   * fix: keep every tag when a commit has more than one
   * scan() did reflog[idx].tag = tag, so when several tags pointed at the same commit each assignment overwrote the previous and only the last survived. scan() now collects them into an array. default_formatter accepts either a single tag or an array, emitting an anchor per tag and listing them all in the heading, so every tag's index link still resolves.
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 18, 2026 9:01:30 AM
-
-Commit [02861f9b9ed1dacccb59c87338dc9f53077e6838](https://github.com/StoneCypher/better_git_changelog/commit/02861f9b9ed1dacccb59c87338dc9f53077e6838)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * fix: stop convert_to_md from mutating the caller's tag_list
-  * convert_to_md sorted data.tag_list with Array.prototype.sort, which sorts in place — so it reordered the caller's array (the scan() result) as a side effect. It now sorts a copy.
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 18, 2026 8:57:57 AM
-
-Commit [472d3b4556fd667deb2f5f4c7fd7b0f278a79092](https://github.com/StoneCypher/better_git_changelog/commit/472d3b4556fd667deb2f5f4c7fd7b0f278a79092)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * fix: declare fs instead of leaking it as a global
-  * index.js assigned fs = require('fs') with no const/let/var, which created an implicit global in sloppy mode and would throw a ReferenceError under strict mode. It is now part of the adjacent const declaration.
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 18, 2026 7:12:46 AM
-
-Commit [70f1c013dcc7120b3565b4ca1ba4691cf9c7cedf](https://github.com/StoneCypher/better_git_changelog/commit/70f1c013dcc7120b3565b4ca1ba4691cf9c7cedf)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * fix: remove shell-injection risk in tag_to_hash
-  * tag_to_hash interpolated the tag name into a shell command string passed to execSync. Git tag names may legally contain shell metacharacters, so a hostile tag could execute arbitrary commands. It now uses execFileSync with an argument array — no shell, the tag is a single literal argument. (get_commit_message_for_hash has the same pattern but is dead code; it is removed in a later PR in this series.)
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 18, 2026 7:05:59 AM
-
-Commit [6e689419cfad9725f255c8b3a69506bbfdb53557](https://github.com/StoneCypher/better_git_changelog/commit/6e689419cfad9725f255c8b3a69506bbfdb53557)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * fix: honor the item_separator option in convert_to_md
-  * convert_to_md resolved separator = item_separator || default_separator but the render loop then called default_separator directly, so a caller-supplied item_separator was silently ignored. The loop now calls the resolved separator.
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 18, 2026 7:00:47 AM
-
-Commit [e23fbdc457ca77fbfdab56de1fc25c346f1067d8](https://github.com/StoneCypher/better_git_changelog/commit/e23fbdc457ca77fbfdab56de1fc25c346f1067d8)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * fix: parse octopus merges with three or more parents
-  * The PEG grammar's MergeRow accepted exactly two parent hashes, so a merge commit with 3+ parents (an octopus merge) failed to parse and crashed parse_rl. MergeRow now accepts one parent followed by one or more additional parents, returning the full list. The regenerated reflog_parser.js is included.
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 18, 2026 12:56:53 AM
-
-Commit [6673f2edea33d8298027baabc0c3403a15ee24a9](https://github.com/StoneCypher/better_git_changelog/commit/6673f2edea33d8298027baabc0c3403a15ee24a9)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * fix: tolerate non-semver tags in changelog generation
-  * sem_sort called semver.lt/gt directly, which throw on any tag that is not valid semver; convert_to_md sorts the tag list with it, so a single tag like 'nightly' crashed the whole run. sem_sort now validates first: valid semver tags compare by precedence, non-semver tags compare lexically and sort after, and nothing throws.
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-<a name="1__6__5" />
-
-## [1.6.5] - May 17, 2026 10:11:37 PM
-
-Commit [bf0422f736a08de7fb3aaa04a5010076d854d0c5](https://github.com/StoneCypher/better_git_changelog/commit/bf0422f736a08de7fb3aaa04a5010076d854d0c5)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-Merges [83f760f, 56638f0]
-
-  * Merge pull request #5 from StoneCypher/fix_26-05-17_commit-url_2
-  * fix: derive commit URLs from the git remote

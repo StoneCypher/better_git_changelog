@@ -74,10 +74,10 @@ jobs:
           echo "new_version=true" >> "$GITHUB_OUTPUT"
         fi
 
-    - name: Use Node.js 18.x
+    - name: Use Node.js 24.x
       uses: actions/setup-node@v4
       with:
-        node-version: 18.x
+        node-version: 24.x
         registry-url: https://registry.npmjs.org/
 
     - name: Push tags
