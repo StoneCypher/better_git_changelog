@@ -7,11 +7,21 @@ const sv = require('semver');
 const reflog_parser = require('./reflog_parser.js'),
       parse_rl      = reflog_parser.parse;
 
+const i18n = require('./i18n.js');
 
 
 
 
-const default_preface = "# Changelog\n\nAll notable changes to this project will be documented in this file.\n\n";
+
+/**
+ * Build the default changelog preface (the heading and intro sentence).
+ *
+ * @param t  A translator's `t(namespace, key)` lookup function.
+ * @returns The Markdown preface string, ending in a blank line.
+ */
+function default_preface(t) {
+  return `# ${t('changelog', 'changelogHeading')}\n\n${t('changelog', 'prefaceSentence')}\n\n`;
+}
 
 
 
@@ -58,12 +68,31 @@ function tag_to_hash(tag) {
 
 function tags_to_hashes(tags) {
 
+  // Resolve every tag to its commit in a single git call.  Spawning one
+  // `git rev-list` per tag costs ~130ms of process-creation time each on
+  // Windows; for-each-ref returns the whole set at once.  For annotated
+  // tags the commit is the dereferenced `*objectname`; for lightweight
+  // tags it is `objectname` directly.
+  const resolved = new Map();
+
+  cp.execFileSync('git', [ 'for-each-ref',
+                           '--format=%(refname:short) %(objectname) %(objecttype) %(*objectname)',
+                           'refs/tags' ])
+    .toString()
+    .trim()
+    .split('\n')
+    .filter(row => row.length > 0)
+    .forEach(row => {
+      const [name, objectname, objecttype, deref] = row.trim().split(' ');
+      resolved.set(name, objecttype === 'tag' ? deref : objectname);
+    });
+
   return tags.reduce(
 
     (acc, cur) =>
-      acc.has(cur)
+      (acc.has(cur) || !resolved.has(cur))
         ? acc
-        : (acc.set(cur, tag_to_hash(cur)), acc),
+        : (acc.set(cur, resolved.get(cur)), acc),
 
     new Map()
 
@@ -163,15 +192,44 @@ function convert_to_json({ target, data }) {
 
 
 
+/**
+ * Turn a tag name into an HTML-anchor-safe slug.
+ *
+ * Every character that is not a Unicode letter, a Unicode digit, an
+ * underscore, or a hyphen is replaced with `__`, so non-Latin tag names
+ * survive while punctuation is escaped. Input is assumed to be NFC-normalized;
+ * a decomposed combining mark would be stripped.
+ *
+ * @param text  The tag name to convert.
+ * @returns The anchor-safe slug.
+ *
+ * @example
+ *   slug('v1.0/beta');   // 'v1__0__beta'
+ *   slug('versión-2');   // 'versión-2'
+ */
 function slug(text) {
-  return text.replace( /[^a-zA-Z0-9-_]/g, '__' );
+  return text.replace( /[^\p{L}\p{N}_-]/gu, '__' );
 }
 
 
 
 
 
-function default_formatter(item) {
+/**
+ * Render one parsed reflog entry as a Markdown changelog section.
+ *
+ * @param item  A reflog entry: `commit_hash` and `commit_text`, plus optional
+ *              `tag`, `date`, `author`, and `merge`.
+ * @param tr    A translator from i18n.make_translator; defaults to English.
+ * @returns The entry rendered as Markdown.
+ *
+ * @example
+ *   default_formatter({ commit_hash: 'abc', commit_text: ['Fix a bug'] });
+ */
+function default_formatter(item, tr) {
+  tr = tr || i18n.make_translator('en');
+  const t = tr.t;
+  const d = item.date ? new Date(item.date) : null;
 
   return `${
 
@@ -183,12 +241,12 @@ function default_formatter(item) {
 
     item.tag
       ? ` [${item.tag}]`
-      : ' [Untagged]'
+      : ` [${t('changelog', 'untagged')}]`
 
   }${
 
-    item.date
-      ? ` - ${new Date(item.date).toLocaleDateString()} ${new Date(item.date).toLocaleTimeString()}`
+    d
+      ? ` - ${tr.date(d)} ${tr.time(d)}`
       : ''
 
   }${
@@ -200,13 +258,13 @@ function default_formatter(item) {
   }${
 
     item.author
-      ? `\n\nAuthor: \`${item.author}\``
+      ? `\n\n${t('changelog', 'author')} \`${item.author}\``
       : ''
 
   }${
 
     item.merge
-      ? `\n\nMerges [${item.merge.join(', ')}]`
+      ? `\n\n${t('changelog', 'mergesLabel', { list: `[${item.merge.join(', ')}]` })}`
       : ''
 
   }\n\n${
@@ -214,7 +272,6 @@ function default_formatter(item) {
     item.commit_text.join('').split('\n\n').map(sp => `  * ${sp}`).join('\n')
 
   }`;
-
 }
 
 
@@ -237,14 +294,30 @@ function to_link(tag) {
 
 
 
-function convert_to_md({ target, data, item_formatter, item_separator, preface, short, short_length, has_both, longname }) {
+/**
+ * Render scanned changelog data as a complete Markdown document.
+ *
+ * @param target          Output path; informational only, nothing is written here.
+ * @param data            A scan result: `{ reflog, tag_list, tag_hashes }`.
+ * @param item_formatter  Optional per-entry renderer; defaults to default_formatter.
+ * @param item_separator  Optional separator renderer; defaults to default_separator.
+ * @param preface         Optional preface string; defaults to the localized preface.
+ * @param short           When true, include only the most recent `short_length` entries.
+ * @param short_length    Entry count for the short form (default 10).
+ * @param has_both        When true (and `short`), append a link to the long-form file.
+ * @param longname        Long-form filename, used by the `has_both` link.
+ * @param translator      A translator for the changelog language; defaults to English.
+ * @returns The complete changelog as a Markdown string.
+ */
+function convert_to_md({ target, data, item_formatter, item_separator, preface, short, short_length, has_both, longname, translator }) {
 
-  const formatter = item_formatter || default_formatter,
-        separator = item_separator || default_separator,
-        prefix    = preface        || default_preface,
-        is_short  = short          ?? false,
-        use_sl    = short_length   ?? 10,
-        use_both  = has_both       ?? false;
+  const tr        = translator      || i18n.make_translator('en'),
+        t         = tr.t,
+        formatter = item_formatter  || default_formatter,
+        separator = item_separator  || default_separator,
+        prefix    = preface         || default_preface(t),
+        is_short  = short           ?? false,
+        use_sl    = short_length    ?? 10;
 
   let md = prefix;
 
@@ -252,23 +325,23 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface, 
         rel_ct   = data.tag_list.length,
         notes    = [];
 
-  if (merge_ct)             { notes.push(`${merge_ct} merges`); }
-  if (rel_ct)               { notes.push(`${rel_ct} releases`); }
-  if (is_short)             { notes.push(`Changlogging the last ${use_sl} commits`); }
-  if (is_short && has_both) { notes.push(`Full changelog at [${longname}](${longname})`)}
+  if (merge_ct)             { notes.push(t('changelog', 'merges',   { n: merge_ct })); }
+  if (rel_ct)               { notes.push(t('changelog', 'releases', { n: rel_ct   })); }
+  if (is_short)             { notes.push(t('changelog', 'shortNote', { n: use_sl  })); }
+  if (is_short && has_both) { notes.push(t('changelog', 'fullChangelogAt', { link: `[${longname}](${longname})` })); }
 
   md += notes.join('; ');
 
   if (data.tag_list) {
     const sorted = data.tag_list.sort(sem_sort).reverse();
-    md += '\n\n\n\n&nbsp;\n\n&nbsp;\n\nPublished tags:\n\n' + sorted.map(to_link).join(', ') + '\n';
+    md += '\n\n\n\n&nbsp;\n\n&nbsp;\n\n' + t('changelog', 'publishedTags') + '\n\n' + sorted.map(to_link).join(', ') + '\n';
   }
 
-  const urefs = is_short? data.reflog.slice(0, use_sl) : data.reflog;
+  const urefs = is_short ? data.reflog.slice(0, use_sl) : data.reflog;
 
-  urefs.map( (rli, i) => {
+  urefs.forEach( (rli) => {
     md += default_separator(rli);
-    md += formatter(rli);
+    md += formatter(rli, tr);
   } );
 
   return md;
@@ -279,12 +352,22 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface, 
 
 
 
-function write_short_md(target, has_both, short_length, longname) {
+/**
+ * Scan the repository (or use supplied data) and write the short-form changelog.
+ *
+ * @param target        Output path; defaults to './CHANGELOG.md'.
+ * @param has_both      When true, append a link to the long-form file.
+ * @param short_length  Number of recent entries to include.
+ * @param longname      Long-form filename, used by the `has_both` link.
+ * @param data          Optional pre-computed scan result; the repo is scanned if omitted.
+ * @param translator    A translator for the changelog language; defaults to English.
+ */
+function write_short_md(target, has_both, short_length, longname, data, translator) {
 
-  const data     = scan(),
+  const u_data   = data || scan(),
         u_target = target || './CHANGELOG.md';
 
-  fs.writeFileSync( u_target, convert_to_md({ u_target, data, short: true, has_both, short_length, longname }), { flag: 'w' } );
+  fs.writeFileSync( u_target, convert_to_md({ u_target, data: u_data, short: true, has_both, short_length, longname, translator }), { flag: 'w' } );
 
 }
 
@@ -292,12 +375,19 @@ function write_short_md(target, has_both, short_length, longname) {
 
 
 
-function write_long_md(target) {
+/**
+ * Scan the repository (or use supplied data) and write the full-history changelog.
+ *
+ * @param target      Output path; defaults to './CHANGELOG.long.md'.
+ * @param data        Optional pre-computed scan result; the repo is scanned if omitted.
+ * @param translator  A translator for the changelog language; defaults to English.
+ */
+function write_long_md(target, data, translator) {
 
-  const data     = scan(),
+  const u_data   = data || scan(),
         u_target = target || './CHANGELOG.long.md';
 
-  fs.writeFileSync( u_target, convert_to_md({ u_target, data }), { flag: 'w' } );
+  fs.writeFileSync( u_target, convert_to_md({ u_target, data: u_data, translator }), { flag: 'w' } );
 
 }
 
@@ -318,6 +408,8 @@ module.exports = {
 
   convert_to_json,
   convert_to_md,
+
+  slug,
 
   default_formatter,
   default_separator,

@@ -1,0 +1,38 @@
+{
+  "ui": {
+    "optLongForm": "変更履歴にすべてのコミットを含める",
+    "optShortForm": "変更履歴に最新のコミットのみを含める",
+    "optShortLength": "短縮形に含めるコミット数を設定する",
+    "optBothForms": "両方の形式を書き出す。  長形式のファイル名を引数として指定することもできる",
+    "optFilename": "出力ファイル名を設定する",
+    "optUiLang": "ヘルプテキストおよびコンソール出力の言語",
+    "optChangelogLang": "生成される変更履歴の言語",
+    "optTranslator": "変更履歴コンテンツの翻訳者（'claude' または実行可能ファイル名）",
+    "optHelp": "コマンドのヘルプを表示する",
+    "usageLabel": "使用法：",
+    "optionsLabel": "オプション：",
+    "generating": "{file} を生成中...",
+    "generatingWithEntries": {
+      "other": "{n} 件のエントリで {file} を生成中..."
+    },
+    "finished": "完了！",
+    "errUnknownLocale": "不明な言語 '{code}'；英語にフォールバックします。",
+    "errUnknownOption": "エラー：不明なオプション '{option}'",
+    "errTranslatorNotFound": "翻訳コマンドが見つかりません：{command}",
+    "errTranslatorFailed": "翻訳コマンドが失敗しました：{detail}"
+  },
+  "changelog": {
+    "changelogHeading": "変更履歴",
+    "prefaceSentence": "このプロジェクトの重要な変更はすべてこのファイルに記録されます。",
+    "publishedTags": "公開済みタグ：",
+    "untagged": "タグなし",
+    "author": "著者：",
+    "mergesLabel": "{list} をマージ",
+    "fullChangelogAt": "完全な変更履歴は {link}",
+    "merges":   { "other": "{n} 件のマージ" },
+    "releases": { "other": "{n} 件のリリース" },
+    "shortNote": {
+      "other": "最新 {n} 件のコミットを記録中"
+    }
+  }
+}

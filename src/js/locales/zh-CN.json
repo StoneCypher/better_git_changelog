@@ -1,0 +1,38 @@
+{
+  "ui": {
+    "optLongForm": "在变更日志中包含所有提交",
+    "optShortForm": "在变更日志中仅包含最近的提交",
+    "optShortLength": "设置简短形式中包含的提交数量",
+    "optBothForms": "写入两种形式。  可选择将长形式文件名作为参数提供",
+    "optFilename": "设置输出文件名",
+    "optUiLang": "帮助文本和控制台输出的语言",
+    "optChangelogLang": "生成的变更日志的语言",
+    "optTranslator": "变更日志内容的翻译器（'claude' 或可执行文件名）",
+    "optHelp": "显示命令帮助",
+    "usageLabel": "用法：",
+    "optionsLabel": "选项：",
+    "generating": "正在生成 {file}...",
+    "generatingWithEntries": {
+      "other": "正在生成 {file}，共 {n} 个条目..."
+    },
+    "finished": "完成！",
+    "errUnknownLocale": "未知语言 '{code}'；回退到英语。",
+    "errUnknownOption": "错误：未知选项 '{option}'",
+    "errTranslatorNotFound": "未找到翻译器命令：{command}",
+    "errTranslatorFailed": "翻译器命令失败：{detail}"
+  },
+  "changelog": {
+    "changelogHeading": "变更日志",
+    "prefaceSentence": "本项目的所有重要变更均记录在此文件中。",
+    "publishedTags": "已发布标签：",
+    "untagged": "未标记",
+    "author": "作者：",
+    "mergesLabel": "合并 {list}",
+    "fullChangelogAt": "完整变更日志见 {link}",
+    "merges":   { "other": "{n} 次合并" },
+    "releases": { "other": "{n} 个版本" },
+    "shortNote": {
+      "other": "记录最近 {n} 个提交"
+    }
+  }
+}
