@@ -83,6 +83,13 @@ test('convert_to_md does not mutate the caller\'s tag_list', () => {
   assert.deepStrictEqual(data.tag_list, before);
 });
 
+test('default_formatter renders every tag on a multiply-tagged commit', () => {
+  const md = default_formatter({ tag: ['1.0.0', 'stable'], commit_hash: 'abc', commit_text: ['m'] });
+  assert.match(md, /## \[1\.0\.0\] \[stable\]/);
+  assert.match(md, /<a name="1__0__0" \/>/);
+  assert.match(md, /<a name="stable" \/>/);
+});
+
 function sampleData() {
   return {
     reflog: [

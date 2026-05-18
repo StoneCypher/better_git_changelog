@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-55 merges; 9 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
+56 merges; 9 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
 
 
 
@@ -14,6 +14,22 @@ Published tags:
 
 <a href="#1__6__5">1.6.5</a>, <a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 18, 2026 9:01:30 AM
+
+Commit [02861f9b9ed1dacccb59c87338dc9f53077e6838](https://github.com/StoneCypher/better_git_changelog/commit/02861f9b9ed1dacccb59c87338dc9f53077e6838)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * fix: stop convert_to_md from mutating the caller's tag_list
+  * convert_to_md sorted data.tag_list with Array.prototype.sort, which sorts in place — so it reordered the caller's array (the scan() result) as a side effect. It now sorts a copy.
 
 
 
@@ -166,18 +182,3 @@ Merges [64587df, 297f6da]
 
   * Merge pull request #4 from StoneCypher/feat_26-05-17_cli-i18n
   * feat: internationalize the CLI with twelve languages
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 17, 2026 9:18:31 PM
-
-Commit [297f6da977a247f7711b36165287511e4f57387c](https://github.com/StoneCypher/better_git_changelog/commit/297f6da977a247f7711b36165287511e4f57387c)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * change node versions supported in ci/cd

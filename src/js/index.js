@@ -277,7 +277,7 @@ function scan() {
       not_found.push(tag);
     } else {
       found.push(tag);
-      reflog[idx].tag = tag;
+      ( reflog[idx].tag || (reflog[idx].tag = []) ).push(tag);
     }
 
   } );
@@ -331,7 +331,8 @@ function slug(text) {
  * Render one parsed reflog entry as a Markdown changelog section.
  *
  * @param item      A reflog entry: `commit_hash` and `commit_text`, plus the
- *                  optional `tag`, `date`, `author`, and `merge` fields.
+ *                  optional `tag` (a tag name, or an array of tag names when a
+ *                  commit carries several), `date`, `author`, and `merge`.
  * @param tr        A translator from i18n.make_translator; defaults to English.
  * @param repo_url  The repository's web base URL. When given, the commit hash
  *                  is linked to `<repo_url>/commit/<hash>`; when absent, the
@@ -346,16 +347,20 @@ function default_formatter(item, tr, repo_url) {
   const t = tr.t;
   const d = item.date ? new Date(item.date) : null;
 
+  const tags = item.tag
+    ? (Array.isArray(item.tag) ? item.tag : [item.tag])
+    : [];
+
   return `${
 
-    item.tag
-      ? `<a name="${slug(item.tag)}" />\n\n`
+    tags.length
+      ? tags.map(tg => `<a name="${slug(tg)}" />`).join('\n\n') + '\n\n'
       : ''
 
   }##${
 
-    item.tag
-      ? ` [${item.tag}]`
+    tags.length
+      ? tags.map(tg => ` [${tg}]`).join('')
       : ` [${t('changelog', 'untagged')}]`
 
   }${
