@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Claude Code local (per-machine) settings
+.claude/settings.local.json

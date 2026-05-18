@@ -31,6 +31,7 @@ test('scan returns the documented shape', () => {
   assert.ok(result.tag_hashes instanceof Map);
   assert.ok(Array.isArray(result.reflog));
   assert.ok(Array.isArray(result.not_found));
+  assert.ok(result.repo_url === null || typeof result.repo_url === 'string');
 });
 
 test('tag_to_hash resolves a real tag to a 40-char hash, when tags exist', () => {

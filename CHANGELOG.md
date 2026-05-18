@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-43 merges; 8 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
+48 merges; 8 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
 
 
 
@@ -22,9 +22,88 @@ Published tags:
 
 &nbsp;
 
+## [Untagged] - May 17, 2026 9:42:21 PM
+
+Commit [1e403b0c35bd75c6b1cc09ec42a2acea7ccd1cbb](https://github.com/StoneCypher/better_git_changelog/commit/1e403b0c35bd75c6b1cc09ec42a2acea7ccd1cbb)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * fix: derive commit URLs from the git remote
+  * The changelog formatter hardcoded https://github.com/StoneCypher/jssm as the commit-link base, so every generated changelog linked its commits to an unrelated repository. Commit URLs are now built from the origin remote (parsed from git remote get-url), falling back to a plain unlinked hash when no hosted remote exists. Reported in #2.
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 17, 2026 9:23:28 PM
+
+Commit [83f760f9eb8fc316b4d16a0650c42354a7b3af58](https://github.com/StoneCypher/better_git_changelog/commit/83f760f9eb8fc316b4d16a0650c42354a7b3af58)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+Merges [64587df, 297f6da]
+
+  * Merge pull request #4 from StoneCypher/feat_26-05-17_cli-i18n
+  * feat: internationalize the CLI with twelve languages
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 17, 2026 9:18:31 PM
+
+Commit [297f6da977a247f7711b36165287511e4f57387c](https://github.com/StoneCypher/better_git_changelog/commit/297f6da977a247f7711b36165287511e4f57387c)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * change node versions supported in ci/cd
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 17, 2026 8:59:09 PM
+
+Commit [80eecb624d3da4f17fbee01b9eb410042a0c2948](https://github.com/StoneCypher/better_git_changelog/commit/80eecb624d3da4f17fbee01b9eb410042a0c2948)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * docs: clarify the Languages section with locale codes and accurate examples
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 17, 2026 5:09:40 PM
+
+Commit [0f59cbe32c9564de264d5f83b963c01eb3181b3f](https://github.com/StoneCypher/better_git_changelog/commit/0f59cbe32c9564de264d5f83b963c01eb3181b3f)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * docs: document CLI internationalization
+
+
+
+
+&nbsp;
+
+&nbsp;
+
 ## [Untagged] - May 17, 2026 5:07:03 PM
 
-Commit [be7171150cdbbdd4c8d125b7cd65203fa5fd6306](https://github.com/StoneCypher/jssm/commit/be7171150cdbbdd4c8d125b7cd65203fa5fd6306)
+Commit [be7171150cdbbdd4c8d125b7cd65203fa5fd6306](https://github.com/StoneCypher/better_git_changelog/commit/be7171150cdbbdd4c8d125b7cd65203fa5fd6306)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
@@ -39,7 +118,7 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
 ## [Untagged] - May 17, 2026 4:51:07 PM
 
-Commit [aa56d69ad100a30c23475144c0a8e01ca66dcaf7](https://github.com/StoneCypher/jssm/commit/aa56d69ad100a30c23475144c0a8e01ca66dcaf7)
+Commit [aa56d69ad100a30c23475144c0a8e01ca66dcaf7](https://github.com/StoneCypher/better_git_changelog/commit/aa56d69ad100a30c23475144c0a8e01ca66dcaf7)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
@@ -54,7 +133,7 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
 ## [Untagged] - May 17, 2026 4:48:30 PM
 
-Commit [2f99467d3c1d2b8edd857b3c4299eeb0a91b81f0](https://github.com/StoneCypher/jssm/commit/2f99467d3c1d2b8edd857b3c4299eeb0a91b81f0)
+Commit [2f99467d3c1d2b8edd857b3c4299eeb0a91b81f0](https://github.com/StoneCypher/better_git_changelog/commit/2f99467d3c1d2b8edd857b3c4299eeb0a91b81f0)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
@@ -69,7 +148,7 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
 ## [Untagged] - May 17, 2026 4:43:20 PM
 
-Commit [ab792e40c877124f18986cb1a0559aac195a96ac](https://github.com/StoneCypher/jssm/commit/ab792e40c877124f18986cb1a0559aac195a96ac)
+Commit [ab792e40c877124f18986cb1a0559aac195a96ac](https://github.com/StoneCypher/better_git_changelog/commit/ab792e40c877124f18986cb1a0559aac195a96ac)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
@@ -84,83 +163,8 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
 ## [Untagged] - May 17, 2026 4:40:14 PM
 
-Commit [566da299044cdc589ebdb488ef2ce78e234a1653](https://github.com/StoneCypher/jssm/commit/566da299044cdc589ebdb488ef2ce78e234a1653)
+Commit [566da299044cdc589ebdb488ef2ce78e234a1653](https://github.com/StoneCypher/better_git_changelog/commit/566da299044cdc589ebdb488ef2ce78e234a1653)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
   * docs: document the localized rendering functions
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 17, 2026 4:09:57 PM
-
-Commit [d17629c7e6ba18f4f1aa82795bfa8d8709ebad69](https://github.com/StoneCypher/jssm/commit/d17629c7e6ba18f4f1aa82795bfa8d8709ebad69)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * feat: localize generated changelog boilerplate
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 17, 2026 4:07:25 PM
-
-Commit [4bc90ecb8cecf1be8d5a4dc3fd870b66053af466](https://github.com/StoneCypher/jssm/commit/4bc90ecb8cecf1be8d5a4dc3fd870b66053af466)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * docs: document slug and cover non-ASCII digits
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 17, 2026 3:46:45 PM
-
-Commit [727b2bff37d20b29c781dc3a6c68123c9e283381](https://github.com/StoneCypher/jssm/commit/727b2bff37d20b29c781dc3a6c68123c9e283381)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * fix: make slug Unicode-aware
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 17, 2026 3:45:22 PM
-
-Commit [a6592f9c8002ce18678c5f568eaa215813c000ce](https://github.com/StoneCypher/jssm/commit/a6592f9c8002ce18678c5f568eaa215813c000ce)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * refactor: harden locale check and document it
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 17, 2026 2:39:10 PM
-
-Commit [f105895ecbc55d206a19431b0a4c523b6434c09f](https://github.com/StoneCypher/jssm/commit/f105895ecbc55d206a19431b0a4c523b6434c09f)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * feat: add locale completeness build-check
