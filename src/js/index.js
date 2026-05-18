@@ -432,7 +432,7 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface, 
 
   let md = prefix;
 
-  const merge_ct = data.reflog.length,
+  const merge_ct = data.reflog.filter(r => r.merge).length,
         rel_ct   = data.tag_list.length,
         notes    = [];
 

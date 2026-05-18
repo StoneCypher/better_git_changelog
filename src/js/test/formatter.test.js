@@ -105,11 +105,25 @@ test('convert_to_md emits the default preface, counts, and tag index', () => {
   const md = convert_to_md({ data: sampleData() });
 
   assert.ok(md.startsWith('# Changelog'));
-  assert.match(md, /2 merges/);
   assert.match(md, /2 releases/);
   assert.match(md, /Published tags:/);
   assert.match(md, /  \* one/);
   assert.match(md, /  \* two/);
+});
+
+test('convert_to_md counts merge commits, not all commits, in the summary', () => {
+  const data = {
+    reflog: [
+      { commit_hash: 'a', commit_text: ['x'], merge: ['p1', 'p2'] },
+      { commit_hash: 'b', commit_text: ['y'] },
+      { commit_hash: 'c', commit_text: ['z'], merge: ['p3', 'p4'] },
+    ],
+    tag_list:   [],
+    tag_hashes: new Map(),
+  };
+  const md = convert_to_md({ data });
+  assert.match(md, /2 merges/);          // 2 merge commits among 3 entries
+  assert.doesNotMatch(md, /3 merges/);
 });
 
 test('slug preserves non-ASCII letters and digits', () => {
@@ -131,5 +145,5 @@ test('convert_to_md renders boilerplate in the changelog locale', () => {
   const md = convert_to_md({ data: sampleData(), translator: i18n.make_translator('es') });
   assert.ok(md.startsWith('# Registro de cambios'));
   assert.match(md, /Etiquetas publicadas:/);
-  assert.match(md, /2 fusiones/);
+  assert.match(md, /2 versiones/);
 });

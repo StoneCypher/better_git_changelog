@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-57 merges; 9 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
+4 merges; 9 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
 
 
 
@@ -14,6 +14,22 @@ Published tags:
 
 <a href="#1__6__5">1.6.5</a>, <a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 18, 2026 9:48:07 AM
+
+Commit [1025797c006f88bb9f724467a9c636729cd22254](https://github.com/StoneCypher/better_git_changelog/commit/1025797c006f88bb9f724467a9c636729cd22254)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * refactor: remove dead get_commit_message_for_hash
+  * get_commit_message_for_hash was never called and never exported, so it was unreachable code — and it carried the same string-interpolated execSync injection pattern that was fixed in tag_to_hash. Removing it eliminates both. No test accompanies this change because there was nothing reachable to test; the existing suite still passes, confirming nothing depended on it.
 
 
 
@@ -164,19 +180,3 @@ Merges [1e403b0, 83f760f]
 
   * Merge origin/main into fix_26-05-17_commit-url_2
   * PR #4 (CLI i18n) merged to main and also rewrote default_formatter. Conflict resolved: default_formatter is now (item, tr, repo_url) — both translator-aware (from the i18n work) and repo-URL-aware (this branch's issue #2 fix). Also untracks .claude/settings.local.json, a per-machine file committed by mistake, and adds it to .gitignore.
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 17, 2026 9:42:21 PM
-
-Commit [1e403b0c35bd75c6b1cc09ec42a2acea7ccd1cbb](https://github.com/StoneCypher/better_git_changelog/commit/1e403b0c35bd75c6b1cc09ec42a2acea7ccd1cbb)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * fix: derive commit URLs from the git remote
-  * The changelog formatter hardcoded https://github.com/StoneCypher/jssm as the commit-link base, so every generated changelog linked its commits to an unrelated repository. Commit URLs are now built from the origin remote (parsed from git remote get-url), falling back to a plain unlinked hash when no hosted remote exists. Reported in #2.
