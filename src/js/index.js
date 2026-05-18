@@ -445,7 +445,7 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface, 
   const urefs = is_short ? data.reflog.slice(0, use_sl) : data.reflog;
 
   urefs.forEach( (rli) => {
-    md += default_separator(rli);
+    md += separator(rli);
     md += formatter(rli, tr, data.repo_url);
   } );
 

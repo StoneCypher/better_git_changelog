@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-51 merges; 9 releases
+52 merges; 9 releases
 
 
 
@@ -14,6 +14,22 @@ Published tags:
 
 <a href="#1__6__5">1.6.5</a>, <a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 18, 2026 7:00:47 AM
+
+Commit [e23fbdc457ca77fbfdab56de1fc25c346f1067d8](https://github.com/StoneCypher/better_git_changelog/commit/e23fbdc457ca77fbfdab56de1fc25c346f1067d8)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * fix: parse octopus merges with three or more parents
+  * The PEG grammar's MergeRow accepted exactly two parent hashes, so a merge commit with 3+ parents (an octopus merge) failed to parse and crashed parse_rl. MergeRow now accepts one parent followed by one or more additional parents, returning the full list. The regenerated reflog_parser.js is included.
 
 
 

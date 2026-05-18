@@ -71,6 +71,11 @@ test('convert_to_md tolerates non-semver tags without throwing', () => {
   assert.match(md, /2\.0\.0/);
 });
 
+test('convert_to_md honors a custom item_separator', () => {
+  const md = convert_to_md({ data: sampleData(), item_separator: () => '\n===CUSTOMSEP===\n' });
+  assert.match(md, /===CUSTOMSEP===/);
+});
+
 function sampleData() {
   return {
     reflog: [
