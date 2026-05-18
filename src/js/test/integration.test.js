@@ -40,6 +40,13 @@ test('tag_to_hash resolves a real tag to a 40-char hash, when tags exist', () =>
   assert.match(api.tag_to_hash(tags[0]), /^[a-fA-F0-9]{40}$/);
 });
 
+test('tag_to_hash does not let a tag name reach the shell', () => {
+  // With execFileSync the whole string is a single git argument (an unknown
+  // ref), so git fails and execFileSync throws. The old shell form would have
+  // run the trailing `; echo ...` and returned its output instead of throwing.
+  assert.throws(() => api.tag_to_hash('no-such-ref; echo shell-injection'));
+});
+
 test('tags_to_hashes maps every distinct tag to a hash', () => {
   const tags   = api.get_tag_list();
   const hashes = api.tags_to_hashes(tags);

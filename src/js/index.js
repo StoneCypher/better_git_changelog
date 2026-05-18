@@ -73,9 +73,21 @@ function get_tag_list() {
 
 
 
+/**
+ * Resolve a tag name to the hash of the commit it points at.
+ *
+ * Spawned shell-free with execFileSync, so a tag name containing shell
+ * metacharacters cannot be reinterpreted by a shell.
+ *
+ * @param tag  A git tag name.
+ * @returns The commit hash the tag resolves to.
+ *
+ * @example
+ *   tag_to_hash('1.6.8');   // 'a1b2c3d4...'
+ */
 function tag_to_hash(tag) {
 
-  return cp.execSync(`git rev-list -n 1 ${tag}`)
+  return cp.execFileSync('git', [ 'rev-list', '-n', '1', tag ])
     .toString()
     .trim();
 

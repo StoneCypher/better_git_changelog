@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-52 merges; 9 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
+53 merges; 9 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
 
 
 
@@ -14,6 +14,22 @@ Published tags:
 
 <a href="#1__6__5">1.6.5</a>, <a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 18, 2026 7:05:59 AM
+
+Commit [6e689419cfad9725f255c8b3a69506bbfdb53557](https://github.com/StoneCypher/better_git_changelog/commit/6e689419cfad9725f255c8b3a69506bbfdb53557)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * fix: honor the item_separator option in convert_to_md
+  * convert_to_md resolved separator = item_separator || default_separator but the render loop then called default_separator directly, so a caller-supplied item_separator was silently ignored. The loop now calls the resolved separator.
 
 
 
@@ -163,18 +179,3 @@ Commit [0f59cbe32c9564de264d5f83b963c01eb3181b3f](https://github.com/StoneCypher
 Author: `John Haugeland <stonecypher@gmail.com>`
 
   * docs: document CLI internationalization
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 17, 2026 5:07:03 PM
-
-Commit [be7171150cdbbdd4c8d125b7cd65203fa5fd6306](https://github.com/StoneCypher/better_git_changelog/commit/be7171150cdbbdd4c8d125b7cd65203fa5fd6306)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * fix: stop duplicate CLI error output and honor --ui-lang=fr form
