@@ -71,6 +71,25 @@ test('convert_to_md tolerates non-semver tags without throwing', () => {
   assert.match(md, /2\.0\.0/);
 });
 
+test('convert_to_md honors a custom item_separator', () => {
+  const md = convert_to_md({ data: sampleData(), item_separator: () => '\n===CUSTOMSEP===\n' });
+  assert.match(md, /===CUSTOMSEP===/);
+});
+
+test('convert_to_md does not mutate the caller\'s tag_list', () => {
+  const data   = { reflog: [], tag_list: ['1.0.0', '3.0.0', '2.0.0'], tag_hashes: new Map() };
+  const before = [...data.tag_list];
+  convert_to_md({ data });
+  assert.deepStrictEqual(data.tag_list, before);
+});
+
+test('default_formatter renders every tag on a multiply-tagged commit', () => {
+  const md = default_formatter({ tag: ['1.0.0', 'stable'], commit_hash: 'abc', commit_text: ['m'] });
+  assert.match(md, /## \[1\.0\.0\] \[stable\]/);
+  assert.match(md, /<a name="1__0__0" \/>/);
+  assert.match(md, /<a name="stable" \/>/);
+});
+
 function sampleData() {
   return {
     reflog: [
@@ -86,11 +105,25 @@ test('convert_to_md emits the default preface, counts, and tag index', () => {
   const md = convert_to_md({ data: sampleData() });
 
   assert.ok(md.startsWith('# Changelog'));
-  assert.match(md, /2 merges/);
   assert.match(md, /2 releases/);
   assert.match(md, /Published tags:/);
   assert.match(md, /  \* one/);
   assert.match(md, /  \* two/);
+});
+
+test('convert_to_md counts merge commits, not all commits, in the summary', () => {
+  const data = {
+    reflog: [
+      { commit_hash: 'a', commit_text: ['x'], merge: ['p1', 'p2'] },
+      { commit_hash: 'b', commit_text: ['y'] },
+      { commit_hash: 'c', commit_text: ['z'], merge: ['p3', 'p4'] },
+    ],
+    tag_list:   [],
+    tag_hashes: new Map(),
+  };
+  const md = convert_to_md({ data });
+  assert.match(md, /2 merges/);          // 2 merge commits among 3 entries
+  assert.doesNotMatch(md, /3 merges/);
 });
 
 test('slug preserves non-ASCII letters and digits', () => {
@@ -112,5 +145,5 @@ test('convert_to_md renders boilerplate in the changelog locale', () => {
   const md = convert_to_md({ data: sampleData(), translator: i18n.make_translator('es') });
   assert.ok(md.startsWith('# Registro de cambios'));
   assert.match(md, /Etiquetas publicadas:/);
-  assert.match(md, /2 fusiones/);
+  assert.match(md, /2 versiones/);
 });

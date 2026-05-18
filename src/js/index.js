@@ -1,5 +1,5 @@
 
-const cp = require('child_process');
+const cp = require('child_process'),
       fs = require('fs');
 
 const sv = require('semver');
@@ -73,9 +73,21 @@ function get_tag_list() {
 
 
 
+/**
+ * Resolve a tag name to the hash of the commit it points at.
+ *
+ * Spawned shell-free with execFileSync, so a tag name containing shell
+ * metacharacters cannot be reinterpreted by a shell.
+ *
+ * @param tag  A git tag name.
+ * @returns The commit hash the tag resolves to.
+ *
+ * @example
+ *   tag_to_hash('1.6.8');   // 'a1b2c3d4...'
+ */
 function tag_to_hash(tag) {
 
-  return cp.execSync(`git rev-list -n 1 ${tag}`)
+  return cp.execFileSync('git', [ 'rev-list', '-n', '1', tag ])
     .toString()
     .trim();
 
@@ -229,17 +241,6 @@ function scan_all() {
 
 
 
-function get_commit_message_for_hash(hash) {
-
-  return cp.execSync(`git log -n 1 --pretty=format:%s ${hash}`)
-    .toString()
-    .trim();
-
-}
-
-
-
-
 
 /**
  * Scan the current repository: gather its tags, reflog, and remote URL.
@@ -265,7 +266,7 @@ function scan() {
       not_found.push(tag);
     } else {
       found.push(tag);
-      reflog[idx].tag = tag;
+      ( reflog[idx].tag || (reflog[idx].tag = []) ).push(tag);
     }
 
   } );
@@ -319,7 +320,8 @@ function slug(text) {
  * Render one parsed reflog entry as a Markdown changelog section.
  *
  * @param item      A reflog entry: `commit_hash` and `commit_text`, plus the
- *                  optional `tag`, `date`, `author`, and `merge` fields.
+ *                  optional `tag` (a tag name, or an array of tag names when a
+ *                  commit carries several), `date`, `author`, and `merge`.
  * @param tr        A translator from i18n.make_translator; defaults to English.
  * @param repo_url  The repository's web base URL. When given, the commit hash
  *                  is linked to `<repo_url>/commit/<hash>`; when absent, the
@@ -334,16 +336,20 @@ function default_formatter(item, tr, repo_url) {
   const t = tr.t;
   const d = item.date ? new Date(item.date) : null;
 
+  const tags = item.tag
+    ? (Array.isArray(item.tag) ? item.tag : [item.tag])
+    : [];
+
   return `${
 
-    item.tag
-      ? `<a name="${slug(item.tag)}" />\n\n`
+    tags.length
+      ? tags.map(tg => `<a name="${slug(tg)}" />`).join('\n\n') + '\n\n'
       : ''
 
   }##${
 
-    item.tag
-      ? ` [${item.tag}]`
+    tags.length
+      ? tags.map(tg => ` [${tg}]`).join('')
       : ` [${t('changelog', 'untagged')}]`
 
   }${
@@ -426,7 +432,7 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface, 
 
   let md = prefix;
 
-  const merge_ct = data.reflog.length,
+  const merge_ct = data.reflog.filter(r => r.merge).length,
         rel_ct   = data.tag_list.length,
         notes    = [];
 
@@ -438,14 +444,14 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface, 
   md += notes.join('; ');
 
   if (data.tag_list) {
-    const sorted = data.tag_list.sort(sem_sort).reverse();
+    const sorted = [...data.tag_list].sort(sem_sort).reverse();
     md += '\n\n\n\n&nbsp;\n\n&nbsp;\n\n' + t('changelog', 'publishedTags') + '\n\n' + sorted.map(to_link).join(', ') + '\n';
   }
 
   const urefs = is_short ? data.reflog.slice(0, use_sl) : data.reflog;
 
   urefs.forEach( (rli) => {
-    md += default_separator(rli);
+    md += separator(rli);
     md += formatter(rli, tr, data.repo_url);
   } );
 

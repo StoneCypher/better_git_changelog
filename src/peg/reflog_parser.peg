@@ -16,7 +16,9 @@ CommitRow
   = 'commit ' hash:Hash '\n' { return hash; }
 
 MergeRow
-  = 'Merge: ' hash1:ShortHash ' ' hash2:ShortHash '\n' { return [hash1, hash2]; }
+  = 'Merge: ' first:ShortHash rest:(' ' ShortHash)+ '\n' {
+    return [first, ...rest.map(r => r[1])];
+  }
 
 AuthorRow
   = 'Author: ' author:[^\n]* '\n' { return author.join(''); }

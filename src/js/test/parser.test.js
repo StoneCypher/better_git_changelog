@@ -44,3 +44,18 @@ test('exactly the fixture\'s 92 merge commits carry a merge array', () => {
   const merges = reflog.filter(e => e.merge !== undefined);
   assert.strictEqual(merges.length, 92);
 });
+
+test('parse_rl handles an octopus merge (three or more parents)', () => {
+  const octopus =
+    'commit 1111111111111111111111111111111111111111\n' +
+    'Merge: aaaaaaa bbbbbbb ccccccc\n' +
+    'Author: A <a@example.com>\n' +
+    'Date:   Sun May 18 12:00:00 2026 -0700\n' +
+    '\n' +
+    '    octopus merge\n' +
+    '\n';
+  let parsed;
+  assert.doesNotThrow(() => { parsed = parse_rl(octopus); });
+  assert.strictEqual(parsed.length, 1);
+  assert.deepStrictEqual(parsed[0].merge, ['aaaaaaa', 'bbbbbbb', 'ccccccc']);
+});
