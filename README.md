@@ -73,6 +73,40 @@ better_git_changelog -f RECENT.md -b HISTORY.md
 
 &nbsp; 
 
+# Languages
+
+The CLI's interface and the generated changelog can each be rendered in a
+different language. Twelve languages ship: English, Spanish, French, German,
+Portuguese, Chinese (Simplified), Japanese, Russian, Arabic, Hindi, Italian,
+and Korean.
+
+| Flag | Description | Default |
+|------|-------------|---------|
+| `-u, --ui-lang <code>`        | Language for help text and console output | OS locale, else English |
+| `-c, --changelog-lang <code>` | Language for the generated changelog       | the UI language          |
+| `-t, --translator <name>`     | Translator for changelog *content*         | off                      |
+
+The UI language is detected from `--ui-lang`, then the `LC_ALL` / `LC_MESSAGES`
+/ `LANG` environment variables, then the operating system's locale.
+
+```
+# generate a French changelog with an English UI
+better_git_changelog --changelog-lang fr
+
+# also machine-translate the commit text, using the Claude CLI
+better_git_changelog --changelog-lang fr --translator claude
+```
+
+By default only the changelog's boilerplate is localized; commit messages are
+left as written. Passing `--translator` (together with `--changelog-lang`) also
+translates the commit text. `claude` is a built-in preset; any other value is
+the name of an executable, which is run with the target language code as its
+argument and receives the text to translate on standard input.
+
+&nbsp; 
+
+&nbsp; 
+
 # Programmatic use
 
 The package also exports its internals, so you can drive it from code:
