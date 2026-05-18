@@ -7,20 +7,21 @@ test('default_separator returns the fixed spacer block', () => {
   assert.strictEqual(default_separator({}), '\n\n\n\n\n&nbsp;\n\n&nbsp;\n\n');
 });
 
-test('default_formatter renders a tagged commit with an anchor and heading', () => {
+test('default_formatter links a tagged commit to the given repository', () => {
   const md = default_formatter({
     tag:         '1.2.0',
     date:        Date.parse('2022-05-22T12:00:00Z'),
     commit_hash: 'abc123',
     author:      'John Haugeland <john@example.com>',
     commit_text: ['First change\n\nSecond change'],
-  });
+  }, 'https://github.com/StoneCypher/better_git_changelog');
 
   // slug() rewrites every non-alphanumeric char to '__', so the anchor
   // form of "1.2.0" is "1__2__0" while the heading keeps the raw tag.
   assert.match(md, /<a name="1__2__0" \/>/);
   assert.match(md, /## \[1\.2\.0\]/);
-  assert.match(md, /Commit \[abc123\]/);
+  assert.match(md, /Commit \[abc123\]\(https:\/\/github\.com\/StoneCypher\/better_git_changelog\/commit\/abc123\)/);
+  assert.doesNotMatch(md, /jssm/);
   assert.match(md, /Author: `John Haugeland/);
   assert.match(md, /  \* First change/);
   assert.match(md, /  \* Second change/);
@@ -46,6 +47,18 @@ test('default_formatter lists merge parents for a merge commit', () => {
   });
 
   assert.match(md, /Merges \[aaa, bbb\]/);
+});
+
+test('default_formatter renders a bare commit hash when no repo URL is known', () => {
+  const md = default_formatter({
+    commit_hash: 'abc123',
+    author:      'A',
+    commit_text: ['msg'],
+  });
+
+  assert.match(md, /Commit `abc123`/);
+  assert.doesNotMatch(md, /\[abc123\]\(/);   // no Markdown link
+  assert.doesNotMatch(md, /jssm/);
 });
 
 function sampleData() {

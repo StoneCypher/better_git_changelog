@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-20 merges; 7 releases; Changlogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
+46 merges; 8 releases; Changlogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
 
 
 
@@ -12,7 +12,7 @@ All notable changes to this project will be documented in this file.
 
 Published tags:
 
-<a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
+<a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
 
 
@@ -22,15 +22,13 @@ Published tags:
 
 &nbsp;
 
-<a name="1__6__3" />
+## [Untagged] - 5/17/2026 9:18:31 PM
 
-## [1.6.3] - 1/25/2024 11:54:44 AM
-
-Commit [4fcab911dbaaba057a3dfd3e3f2f2d93500c5d36](https://github.com/StoneCypher/jssm/commit/4fcab911dbaaba057a3dfd3e3f2f2d93500c5d36)
+Commit [297f6da977a247f7711b36165287511e4f57387c](https://github.com/StoneCypher/better_git_changelog/commit/297f6da977a247f7711b36165287511e4f57387c)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
-  * address sember bump
+  * change node versions supported in ci/cd
 
 
 
@@ -39,15 +37,13 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
 &nbsp;
 
-<a name="1__6__2" />
+## [Untagged] - 5/17/2026 8:59:09 PM
 
-## [1.6.2] - 6/18/2022 7:29:38 AM
-
-Commit [f51a3dc23ed3109ed13e6c4674cc97bd9edf1c39](https://github.com/StoneCypher/jssm/commit/f51a3dc23ed3109ed13e6c4674cc97bd9edf1c39)
+Commit [80eecb624d3da4f17fbee01b9eb410042a0c2948](https://github.com/StoneCypher/better_git_changelog/commit/80eecb624d3da4f17fbee01b9eb410042a0c2948)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
-  * commander shouldn't be a devdep because we aren't bundling
+  * docs: clarify the Languages section with locale codes and accurate examples
 
 
 
@@ -56,15 +52,13 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
 &nbsp;
 
-<a name="1__6__1" />
+## [Untagged] - 5/17/2026 5:09:40 PM
 
-## [1.6.1] - 6/6/2022 12:43:11 PM
-
-Commit [67b161ca1272aaf3e04dcf7fa5b5978df587485c](https://github.com/StoneCypher/jssm/commit/67b161ca1272aaf3e04dcf7fa5b5978df587485c)
+Commit [0f59cbe32c9564de264d5f83b963c01eb3181b3f](https://github.com/StoneCypher/better_git_changelog/commit/0f59cbe32c9564de264d5f83b963c01eb3181b3f)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
-  * Link in short to long was wrong
+  * docs: document CLI internationalization
 
 
 
@@ -73,15 +67,13 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
 &nbsp;
 
-<a name="1__6__0" />
+## [Untagged] - 5/17/2026 5:07:03 PM
 
-## [1.6.0] - 6/6/2022 11:40:38 AM
-
-Commit [ec266b5239fba0bca072e9e9a0e152c94b44fc1d](https://github.com/StoneCypher/jssm/commit/ec266b5239fba0bca072e9e9a0e152c94b44fc1d)
+Commit [be7171150cdbbdd4c8d125b7cd65203fa5fd6306](https://github.com/StoneCypher/better_git_changelog/commit/be7171150cdbbdd4c8d125b7cd65203fa5fd6306)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
-  * Add ability to set short length; better logging; bugfixes
+  * fix: stop duplicate CLI error output and honor --ui-lang=fr form
 
 
 
@@ -90,15 +82,13 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
 &nbsp;
 
-<a name="1__5__0" />
+## [Untagged] - 5/17/2026 4:51:07 PM
 
-## [1.5.0] - 6/6/2022 9:21:23 AM
-
-Commit [95c6e63dd19e0739240e37367aa9468f77e4e137](https://github.com/StoneCypher/jssm/commit/95c6e63dd19e0739240e37367aa9468f77e4e137)
+Commit [aa56d69ad100a30c23475144c0a8e01ca66dcaf7](https://github.com/StoneCypher/better_git_changelog/commit/aa56d69ad100a30c23475144c0a8e01ca66dcaf7)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
-  * Self-run in build.  Fix various bugs.  Support for short length control.
+  * feat: wire i18n into the CLI
 
 
 
@@ -107,15 +97,13 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
 &nbsp;
 
-<a name="1__4__1" />
+## [Untagged] - 5/17/2026 4:48:30 PM
 
-## [1.4.1] - 6/6/2022 8:56:41 AM
-
-Commit [b1bbc19ba7d9861ae506e0d3543de308ecaec80f](https://github.com/StoneCypher/jssm/commit/b1bbc19ba7d9861ae506e0d3543de308ecaec80f)
+Commit [2f99467d3c1d2b8edd857b3c4299eeb0a91b81f0](https://github.com/StoneCypher/better_git_changelog/commit/2f99467d3c1d2b8edd857b3c4299eeb0a91b81f0)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
-  * not complex enough to need a distinct ci build
+  * refactor: tidy the content translator and document its separator limit
 
 
 
@@ -124,13 +112,13 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
 &nbsp;
 
-## [Untagged] - 6/6/2022 8:55:53 AM
+## [Untagged] - 5/17/2026 4:43:20 PM
 
-Commit [0b8ae7decba920a34cb84cb963ef40975fccfe50](https://github.com/StoneCypher/jssm/commit/0b8ae7decba920a34cb84cb963ef40975fccfe50)
+Commit [ab792e40c877124f18986cb1a0559aac195a96ac](https://github.com/StoneCypher/better_git_changelog/commit/ab792e40c877124f18986cb1a0559aac195a96ac)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
-  * Improved logging, fixed non-required arg, set up automation in 1.3.0
+  * feat: add changelog content translator
 
 
 
@@ -139,13 +127,13 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
 &nbsp;
 
-## [Untagged] - 6/6/2022 8:53:41 AM
+## [Untagged] - 5/17/2026 4:40:14 PM
 
-Commit [a6864bfbb7b91724ddd840084a5b231603b5f790](https://github.com/StoneCypher/jssm/commit/a6864bfbb7b91724ddd840084a5b231603b5f790)
+Commit [566da299044cdc589ebdb488ef2ce78e234a1653](https://github.com/StoneCypher/better_git_changelog/commit/566da299044cdc589ebdb488ef2ce78e234a1653)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
-  * oh, didn't have an automation, whoops
+  * docs: document the localized rendering functions
 
 
 
@@ -154,13 +142,13 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
 &nbsp;
 
-## [Untagged] - 6/6/2022 8:38:32 AM
+## [Untagged] - 5/17/2026 4:09:57 PM
 
-Commit [fecb3a62f47c439ef8ecb8d3a6eb87e98ea91aa7](https://github.com/StoneCypher/jssm/commit/fecb3a62f47c439ef8ecb8d3a6eb87e98ea91aa7)
+Commit [d17629c7e6ba18f4f1aa82795bfa8d8709ebad69](https://github.com/StoneCypher/better_git_changelog/commit/d17629c7e6ba18f4f1aa82795bfa8d8709ebad69)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
-  * long and short mechanics
+  * feat: localize generated changelog boilerplate
 
 
 
@@ -169,10 +157,10 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
 &nbsp;
 
-## [Untagged] - 6/6/2022 8:28:50 AM
+## [Untagged] - 5/17/2026 4:07:25 PM
 
-Commit [b8270eab75af5a51ccdb2f31f2875c58e8bed527](https://github.com/StoneCypher/jssm/commit/b8270eab75af5a51ccdb2f31f2875c58e8bed527)
+Commit [4bc90ecb8cecf1be8d5a4dc3fd870b66053af466](https://github.com/StoneCypher/better_git_changelog/commit/4bc90ecb8cecf1be8d5a4dc3fd870b66053af466)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
-  * long and short forms for jssm overlength
+  * docs: document slug and cover non-ASCII digits
