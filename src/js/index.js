@@ -450,7 +450,7 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface, 
   md += notes.join('; ');
 
   if (data.tag_list) {
-    const sorted = data.tag_list.sort(sem_sort).reverse();
+    const sorted = [...data.tag_list].sort(sem_sort).reverse();
     md += '\n\n\n\n&nbsp;\n\n&nbsp;\n\n' + t('changelog', 'publishedTags') + '\n\n' + sorted.map(to_link).join(', ') + '\n';
   }
 

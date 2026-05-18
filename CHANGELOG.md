@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-54 merges; 9 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
+55 merges; 9 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
 
 
 
@@ -14,6 +14,22 @@ Published tags:
 
 <a href="#1__6__5">1.6.5</a>, <a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 18, 2026 8:57:57 AM
+
+Commit [472d3b4556fd667deb2f5f4c7fd7b0f278a79092](https://github.com/StoneCypher/better_git_changelog/commit/472d3b4556fd667deb2f5f4c7fd7b0f278a79092)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * fix: declare fs instead of leaking it as a global
+  * index.js assigned fs = require('fs') with no const/let/var, which created an implicit global in sloppy mode and would throw a ReferenceError under strict mode. It is now part of the adjacent const declaration.
 
 
 
@@ -165,18 +181,3 @@ Commit [297f6da977a247f7711b36165287511e4f57387c](https://github.com/StoneCypher
 Author: `John Haugeland <stonecypher@gmail.com>`
 
   * change node versions supported in ci/cd
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 17, 2026 8:59:09 PM
-
-Commit [80eecb624d3da4f17fbee01b9eb410042a0c2948](https://github.com/StoneCypher/better_git_changelog/commit/80eecb624d3da4f17fbee01b9eb410042a0c2948)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * docs: clarify the Languages section with locale codes and accurate examples

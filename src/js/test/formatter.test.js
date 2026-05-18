@@ -76,6 +76,13 @@ test('convert_to_md honors a custom item_separator', () => {
   assert.match(md, /===CUSTOMSEP===/);
 });
 
+test('convert_to_md does not mutate the caller\'s tag_list', () => {
+  const data   = { reflog: [], tag_list: ['1.0.0', '3.0.0', '2.0.0'], tag_hashes: new Map() };
+  const before = [...data.tag_list];
+  convert_to_md({ data });
+  assert.deepStrictEqual(data.tag_list, before);
+});
+
 function sampleData() {
   return {
     reflog: [
