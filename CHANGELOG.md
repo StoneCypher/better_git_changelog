@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-56 merges; 9 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
+57 merges; 9 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
 
 
 
@@ -14,6 +14,22 @@ Published tags:
 
 <a href="#1__6__5">1.6.5</a>, <a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 18, 2026 9:45:29 AM
+
+Commit [fce0d5b67f5895be5bbb180cfaaed32f885eeb5e](https://github.com/StoneCypher/better_git_changelog/commit/fce0d5b67f5895be5bbb180cfaaed32f885eeb5e)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * fix: keep every tag when a commit has more than one
+  * scan() did reflog[idx].tag = tag, so when several tags pointed at the same commit each assignment overwrote the previous and only the last survived. scan() now collects them into an array. default_formatter accepts either a single tag or an array, emitting an anchor per tag and listing them all in the heading, so every tag's index link still resolves.
 
 
 
@@ -164,21 +180,3 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
   * fix: derive commit URLs from the git remote
   * The changelog formatter hardcoded https://github.com/StoneCypher/jssm as the commit-link base, so every generated changelog linked its commits to an unrelated repository. Commit URLs are now built from the origin remote (parsed from git remote get-url), falling back to a plain unlinked hash when no hosted remote exists. Reported in #2.
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 17, 2026 9:23:28 PM
-
-Commit [83f760f9eb8fc316b4d16a0650c42354a7b3af58](https://github.com/StoneCypher/better_git_changelog/commit/83f760f9eb8fc316b4d16a0650c42354a7b3af58)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-Merges [64587df, 297f6da]
-
-  * Merge pull request #4 from StoneCypher/feat_26-05-17_cli-i18n
-  * feat: internationalize the CLI with twelve languages

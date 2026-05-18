@@ -241,17 +241,6 @@ function scan_all() {
 
 
 
-function get_commit_message_for_hash(hash) {
-
-  return cp.execSync(`git log -n 1 --pretty=format:%s ${hash}`)
-    .toString()
-    .trim();
-
-}
-
-
-
-
 
 /**
  * Scan the current repository: gather its tags, reflog, and remote URL.
