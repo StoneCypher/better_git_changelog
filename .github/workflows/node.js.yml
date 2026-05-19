@@ -41,6 +41,8 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Install attw (type-correctness checker)
+      run: npm install -g @arethetypeswrong/cli
     - name: npm install, build, and test
       run: |
         npm install && npm run build
@@ -79,6 +81,16 @@ jobs:
       with:
         node-version: 24.x
         registry-url: https://registry.npmjs.org/
+
+    - name: Install dependencies and attw
+      if: steps.release_state.outputs.new_version == 'true'
+      run: |
+        npm install
+        npm install -g @arethetypeswrong/cli
+
+    - name: Build (generate type declarations and changelog)
+      if: steps.release_state.outputs.new_version == 'true'
+      run: npm run build
 
     - name: Push tags
       if: steps.release_state.outputs.new_version == 'true'
