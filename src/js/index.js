@@ -11,6 +11,7 @@ const reflog_parser = require('./reflog_parser.js'),
        * A re-export of the parser generated from `src/peg/reflog_parser.peg`.
        * Each `commit ...` block becomes one {@link ReflogEntry}.
        *
+       * @type {(input: string) => ReflogEntry[]}
        * @param {string} input  The raw reflog text to parse.
        * @returns {ReflogEntry[]}  The parsed commit entries in reflog order.
        * @throws {Error}  A peggy `SyntaxError` when the input does not match
