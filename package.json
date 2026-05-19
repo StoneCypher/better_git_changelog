@@ -3,15 +3,30 @@
   "version": "1.6.16",
   "description": "Make a changelog from git commits, tags, and releases",
   "main": "src/js/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "default": "./src/js/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src/js/*.js",
+    "src/js/locales",
+    "dist/types"
+  ],
   "bin": {
     "better_git_changelog": "./src/js/cli.js"
   },
   "scripts": {
-    "clean": "rm -f ./src/js/reflog_parser.js",
+    "clean": "rm -f ./src/js/reflog_parser.js && rm -rf dist",
     "peg": "npx pegjs -o ./src/js/reflog_parser.js ./src/peg/reflog_parser.peg",
     "self": "node ./src/js/cli.js -b",
     "check-locales": "node scripts/check-locales.js",
-    "build": "npm run clean && npm run peg && npm run check-locales && npm run self",
+    "types": "tsc",
+    "check-types": "attw --pack . --profile node16",
+    "build": "npm run clean && npm run peg && npm run check-locales && npm run types && npm run self && npm run check-types",
     "test": "node --test \"src/js/test/*.test.js\"",
     "coverage": "node --test --experimental-test-coverage --test-coverage-exclude=\"src/js/reflog_parser.js\" \"src/js/test/*.test.js\""
   },
@@ -29,6 +44,9 @@
   ],
   "author": "John Haugeland <stonecypher@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": ">=14"
+  },
   "bugs": {
     "url": "https://github.com/StoneCypher/better_git_changelog/issues"
   },
