@@ -42,7 +42,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Install attw (type-correctness checker)
-      run: npm install -g @arethetypeswrong/cli
+      run: npm install -g @arethetypeswrong/cli@0.18.2
     - name: npm install, build, and test
       run: |
         npm install && npm run build
@@ -86,7 +86,7 @@ jobs:
       if: steps.release_state.outputs.new_version == 'true'
       run: |
         npm install
-        npm install -g @arethetypeswrong/cli
+        npm install -g @arethetypeswrong/cli@0.18.2
 
     - name: Build (generate type declarations and changelog)
       if: steps.release_state.outputs.new_version == 'true'
