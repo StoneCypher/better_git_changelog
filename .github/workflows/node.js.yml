@@ -80,6 +80,14 @@ jobs:
         node-version: 24.x
         registry-url: https://registry.npmjs.org/
 
+    - name: Install dependencies
+      if: steps.release_state.outputs.new_version == 'true'
+      run: npm install
+
+    - name: Build (generate type declarations and changelog)
+      if: steps.release_state.outputs.new_version == 'true'
+      run: npm run build
+
     - name: Push tags
       if: steps.release_state.outputs.new_version == 'true'
       run: git push origin --tags

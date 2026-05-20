@@ -5,19 +5,86 @@ const cp = require('child_process'),
 const sv = require('semver');
 
 const reflog_parser = require('./reflog_parser.js'),
+      /**
+       * Parse raw `git log --reflog` text into structured commit entries.
+       *
+       * A re-export of the parser generated from `src/peg/reflog_parser.peg`.
+       * Each `commit ...` block becomes one {@link ReflogEntry}.
+       *
+       * @type {(input: string) => ReflogEntry[]}
+       * @param {string} input  The raw reflog text to parse.
+       * @returns {ReflogEntry[]}  The parsed commit entries in reflog order.
+       * @throws {Error}  A peggy `SyntaxError` when the input does not match
+       *                  the reflog grammar.
+       *
+       * @example
+       *   parse_rl(get_reflog_data());   // [{ commit_hash: 'a1b2...', ... }]
+       *
+       * @see get_reflog_data
+       */
       parse_rl      = reflog_parser.parse;
 
 const i18n = require('./i18n.js');
 
 
+/**
+ * One parsed commit entry from the git reflog.
+ *
+ * Produced by the generated PEG parser (`parse_rl`) and consumed by the
+ * formatters.  `scan` additionally stamps matching entries with `tag`.
+ *
+ * @typedef {object} ReflogEntry
+ * @property {string}   commit_hash  The full 40-character commit hash.
+ * @property {string[]} commit_text  The commit message body, one element per
+ *                                   blank-line-separated block.
+ * @property {string}   [author]     The commit author line, when present.
+ * @property {number}   [date]       Commit timestamp as epoch milliseconds.
+ * @property {string[]} [merge]      Short hashes of the merge parents, for a
+ *                                   merge commit.
+ * @property {string[]} [tag]        Tag names whose commit matches this entry;
+ *                                   added by `scan`.
+ */
+
+/**
+ * The subset of a scan returned by `scan_all` — tags and reflog only, with no
+ * tag/reflog cross-referencing or remote-URL resolution performed yet.
+ *
+ * @typedef {object} ScanAllResult
+ * @property {string[]}             tag_list    Every tag name in the repository.
+ * @property {Map<string, string>}  tag_hashes  Map of tag name to commit hash.
+ * @property {ReflogEntry[]}        reflog      The parsed reflog entries.
+ */
+
+/**
+ * The complete result of scanning a repository, returned by `scan`.
+ *
+ * @typedef {object} ScanResult
+ * @property {string[]}             tag_list    Every tag name in the repository.
+ * @property {Map<string, string>}  tag_hashes  Map of tag name to commit hash.
+ * @property {ReflogEntry[]}        reflog      The parsed reflog entries, with
+ *                                              `tag` stamped onto matches.
+ * @property {string[]}             not_found   Tag names whose commit was not
+ *                                              found in the reflog.
+ * @property {string | null}        repo_url    The repository's web base URL,
+ *                                              or `null` when no hosted
+ *                                              `origin` remote exists.
+ */
 
 
 
 /**
  * Build the default changelog preface (the heading and intro sentence).
  *
- * @param t  A translator's `t(namespace, key)` lookup function.
- * @returns The Markdown preface string, ending in a blank line.
+ * @param {(ns: string, key: string, params?: object) => string} t
+ *        A translator's `t(namespace, key)` lookup function — the `t` member
+ *        of a {@link import('./i18n.js').Translator}.
+ * @returns {string}  The Markdown preface string, ending in a blank line.
+ *
+ * @example
+ *   default_preface(make_translator('en').t);
+ *   // '# Changelog\n\n...intro...\n\n'
+ *
+ * @see {@link import('./i18n.js').Translator}
  */
 function default_preface(t) {
   return `# ${t('changelog', 'changelogHeading')}\n\n${t('changelog', 'prefaceSentence')}\n\n`;
@@ -34,9 +101,9 @@ function default_preface(t) {
  * tag sorts before a non-semver one, and two non-semver tags are compared
  * lexically — so a tag like `nightly` or `release-1` never throws.
  *
- * @param l  A tag name.
- * @param r  A tag name.
- * @returns  -1, 0, or 1, suitable for Array.prototype.sort.
+ * @param {string} l  A tag name.
+ * @param {string} r  A tag name.
+ * @returns {number}  -1, 0, or 1, suitable for Array.prototype.sort.
  *
  * @example
  *   ['2.0.0', 'nightly', '1.0.0'].sort(sem_sort);  // ['1.0.0','2.0.0','nightly']
@@ -58,6 +125,20 @@ function sem_sort(l, r) {
 
 
 
+/**
+ * List every tag name in the current repository.
+ *
+ * Runs `git tag -l`, trimming blank lines so the result contains only real
+ * tag names.
+ *
+ * @returns {string[]}  The tag names, in git's listing order.
+ * @throws {Error}  When git cannot be run or the command fails.
+ *
+ * @example
+ *   get_tag_list();   // ['1.0.0', '1.1.0', 'nightly']
+ *
+ * @see tags_to_hashes
+ */
 function get_tag_list() {
 
   return cp.execSync('git tag -l')
@@ -79,8 +160,9 @@ function get_tag_list() {
  * Spawned shell-free with execFileSync, so a tag name containing shell
  * metacharacters cannot be reinterpreted by a shell.
  *
- * @param tag  A git tag name.
- * @returns The commit hash the tag resolves to.
+ * @param {string} tag  A git tag name.
+ * @returns {string}  The commit hash the tag resolves to.
+ * @throws {Error}  When the tag does not exist or git cannot be run.
  *
  * @example
  *   tag_to_hash('1.6.8');   // 'a1b2c3d4...'
@@ -97,6 +179,24 @@ function tag_to_hash(tag) {
 
 
 
+/**
+ * Resolve a set of tag names to their commit hashes in a single git call.
+ *
+ * Uses `git for-each-ref` once for the whole repository — far cheaper than
+ * one `git rev-list` per tag.  Tags not present in the repository are simply
+ * omitted from the result.
+ *
+ * @param {string[]} tags  Tag names to resolve.
+ * @returns {Map<string, string>}  Map of tag name to commit hash, containing
+ *                                 only the tags that exist.
+ * @throws {Error}  When git cannot be run or the command fails.
+ *
+ * @example
+ *   tags_to_hashes(['1.0.0', 'nope']);   // Map { '1.0.0' => 'a1b2...' }
+ *
+ * @see get_tag_list
+ * @see get_tags_as_hashes
+ */
 function tags_to_hashes(tags) {
 
   // Resolve every tag to its commit in a single git call.  Spawning one
@@ -135,6 +235,20 @@ function tags_to_hashes(tags) {
 
 
 
+/**
+ * List every tag in the repository and resolve each to its commit hash.
+ *
+ * A convenience composition of `get_tag_list` and `tags_to_hashes`.
+ *
+ * @returns {Map<string, string>}  Map of tag name to commit hash.
+ * @throws {Error}  When git cannot be run or a command fails.
+ *
+ * @example
+ *   get_tags_as_hashes();   // Map { '1.0.0' => 'a1b2...', ... }
+ *
+ * @see get_tag_list
+ * @see tags_to_hashes
+ */
 function get_tags_as_hashes() {
 
   return tags_to_hashes( get_tag_list() );
@@ -145,6 +259,20 @@ function get_tags_as_hashes() {
 
 
 
+/**
+ * Read the raw reflog text for the current repository.
+ *
+ * Runs `git --no-pager log --reflog` and appends a trailing blank line so the
+ * output satisfies the reflog grammar consumed by `parse_rl`.
+ *
+ * @returns {string}  The raw reflog text, ready to hand to `parse_rl`.
+ * @throws {Error}  When git cannot be run or the command fails.
+ *
+ * @example
+ *   parse_rl(get_reflog_data());   // structured ReflogEntry[]
+ *
+ * @see parse_rl
+ */
 function get_reflog_data() {
 
   return cp.execSync('git --no-pager log --reflog')
@@ -163,11 +291,13 @@ function get_reflog_data() {
  * Spawned shell-free with execFileSync, so the fixed git argument list
  * cannot be reinterpreted by a shell.
  *
- * @returns The `origin` remote URL as a trimmed string, or `null` when there
- *          is no `origin` remote (or git cannot be run).
+ * @returns {string | null}  The `origin` remote URL as a trimmed string, or
+ *          `null` when there is no `origin` remote (or git cannot be run).
  *
  * @example
  *   get_remote_url();   // 'git@github.com:owner/repo.git'
+ *
+ * @see remote_to_web_url
  */
 function get_remote_url() {
 
@@ -192,13 +322,15 @@ function get_remote_url() {
  * host is not a dotted hostname, yields `null` — no web URL can be built
  * from it.
  *
- * @param remote  A git remote URL, or `null`.
- * @returns The `https://host/owner/repo` web base, or `null` when the remote
- *          is missing or is not a hosted URL.
+ * @param {string | null} remote  A git remote URL, or `null`.
+ * @returns {string | null}  The `https://host/owner/repo` web base, or `null`
+ *          when the remote is missing or is not a hosted URL.
  *
  * @example
  *   remote_to_web_url('git@github.com:o/r.git');  // 'https://github.com/o/r'
  *   remote_to_web_url('/home/u/r.git');           // null
+ *
+ * @see get_remote_url
  */
 function remote_to_web_url(remote) {
 
@@ -227,6 +359,20 @@ function remote_to_web_url(remote) {
 
 
 
+/**
+ * Gather the raw building blocks of a scan: tag list, tag hashes, and reflog.
+ *
+ * Internal helper for `scan`; performs no tag/reflog cross-referencing and
+ * does not resolve the remote URL.
+ *
+ * @returns {ScanAllResult}  The tag list, tag-to-hash Map, and parsed reflog.
+ * @throws {Error}  When git cannot be run or a command fails.
+ *
+ * @example
+ *   const { tag_list, tag_hashes, reflog } = scan_all();
+ *
+ * @see scan
+ */
 function scan_all() {
 
   const tag_list   = get_tag_list(),
@@ -245,11 +391,18 @@ function scan_all() {
 /**
  * Scan the current repository: gather its tags, reflog, and remote URL.
  *
- * @returns `{ tag_list, tag_hashes, reflog, not_found, repo_url }` — the tag
- *          names, a tag-to-commit Map, the parsed reflog (each entry stamped
- *          with its `tag` when one matches a tag's commit), the tags whose
- *          commit was not found in the reflog, and the repository's web URL
- *          (or `null` when no hosted `origin` remote exists).
+ * @returns {ScanResult}  `{ tag_list, tag_hashes, reflog, not_found, repo_url }`
+ *          — the tag names, a tag-to-commit Map, the parsed reflog (each entry
+ *          stamped with its `tag` when one matches a tag's commit), the tags
+ *          whose commit was not found in the reflog, and the repository's web
+ *          URL (or `null` when no hosted `origin` remote exists).
+ * @throws {Error}  When git cannot be run or a command fails.
+ *
+ * @example
+ *   const { reflog, repo_url } = scan();
+ *
+ * @see scan_all
+ * @see convert_to_md
  */
 function scan() {
 
@@ -283,6 +436,21 @@ function scan() {
 
 
 
+/**
+ * Serialize scanned changelog data to a JSON file.
+ *
+ * @param {object} options         Destructured options bag.
+ * @param {string} options.target  Output path the JSON is written to.
+ * @param {ScanResult} options.data  The scan result to serialize.
+ * @returns {void}
+ * @throws {Error}  When the target path cannot be written.
+ *
+ * @example
+ *   convert_to_json({ target: './changelog.json', data: scan() });
+ *
+ * @see scan
+ * @see convert_to_md
+ */
 function convert_to_json({ target, data }) {
 
   fs.writeFileSync( target, JSON.stringify( data ) );
@@ -301,12 +469,14 @@ function convert_to_json({ target, data }) {
  * survive while punctuation is escaped. Input is assumed to be NFC-normalized;
  * a decomposed combining mark would be stripped.
  *
- * @param text  The tag name to convert.
- * @returns The anchor-safe slug.
+ * @param {string} text  The tag name to convert.
+ * @returns {string}  The anchor-safe slug.
  *
  * @example
  *   slug('v1.0/beta');   // 'v1__0__beta'
  *   slug('versión-2');   // 'versión-2'
+ *
+ * @see to_link
  */
 function slug(text) {
   return text.replace( /[^\p{L}\p{N}_-]/gu, '__' );
@@ -319,17 +489,23 @@ function slug(text) {
 /**
  * Render one parsed reflog entry as a Markdown changelog section.
  *
- * @param item      A reflog entry: `commit_hash` and `commit_text`, plus the
- *                  optional `tag` (a tag name, or an array of tag names when a
- *                  commit carries several), `date`, `author`, and `merge`.
- * @param tr        A translator from i18n.make_translator; defaults to English.
- * @param repo_url  The repository's web base URL. When given, the commit hash
- *                  is linked to `<repo_url>/commit/<hash>`; when absent, the
- *                  hash is rendered as plain inline code with no link.
- * @returns The entry rendered as Markdown.
+ * @param {ReflogEntry} item  A reflog entry: `commit_hash` and `commit_text`,
+ *                  plus the optional `tag` (a tag name, or an array of tag
+ *                  names when a commit carries several), `date`, `author`,
+ *                  and `merge`.
+ * @param {import('./i18n.js').Translator} [tr]  A translator from
+ *                  i18n.make_translator; defaults to English.
+ * @param {string | null} [repo_url]  The repository's web base URL. When
+ *                  given, the commit hash is linked to
+ *                  `<repo_url>/commit/<hash>`; when absent, the hash is
+ *                  rendered as plain inline code with no link.
+ * @returns {string}  The entry rendered as Markdown.
  *
  * @example
  *   default_formatter({ commit_hash: 'abc', commit_text: ['Fix a bug'] });
+ *
+ * @see convert_to_md
+ * @see default_separator
  */
 function default_formatter(item, tr, repo_url) {
   tr = tr || i18n.make_translator('en');
@@ -389,6 +565,21 @@ function default_formatter(item, tr, repo_url) {
 
 
 
+/**
+ * Produce the Markdown separator placed between changelog entries.
+ *
+ * A fixed run of blank lines and non-breaking spaces; the entry argument is
+ * accepted for interface symmetry with custom separators but is unused.
+ *
+ * @param {ReflogEntry} [item]  The reflog entry following the separator; unused.
+ * @returns {string}  The separator Markdown.
+ *
+ * @example
+ *   default_separator();   // '\n\n\n\n\n&nbsp;\n\n&nbsp;\n\n'
+ *
+ * @see default_formatter
+ * @see convert_to_md
+ */
 function default_separator(item) {
   return "\n\n\n\n\n&nbsp;\n\n&nbsp;\n\n";
 }
@@ -397,6 +588,20 @@ function default_separator(item) {
 
 
 
+/**
+ * Render a tag name as an in-document HTML anchor link.
+ *
+ * Internal helper used to build the published-tags index; the link target is
+ * the anchor produced by `slug`.
+ *
+ * @param {string} tag  The tag name to link.
+ * @returns {string}  An `<a href="#slug">tag</a>` HTML fragment.
+ *
+ * @example
+ *   to_link('1.0.0');   // '<a href="#1__0__0">1.0.0</a>'
+ *
+ * @see slug
+ */
 function to_link(tag) {
   return `<a href="#${slug(tag)}">${tag}</a>`;
 }
@@ -408,17 +613,34 @@ function to_link(tag) {
 /**
  * Render scanned changelog data as a complete Markdown document.
  *
- * @param target          Output path; informational only, nothing is written here.
- * @param data            A scan result: `{ reflog, tag_list, tag_hashes }`.
- * @param item_formatter  Optional per-entry renderer; defaults to default_formatter.
- * @param item_separator  Optional separator renderer; defaults to default_separator.
- * @param preface         Optional preface string; defaults to the localized preface.
- * @param short           When true, include only the most recent `short_length` entries.
- * @param short_length    Entry count for the short form (default 10).
- * @param has_both        When true (and `short`), append a link to the long-form file.
- * @param longname        Long-form filename, used by the `has_both` link.
- * @param translator      A translator for the changelog language; defaults to English.
- * @returns The complete changelog as a Markdown string.
+ * @param {object} options  Destructured options bag.
+ * @param {string} [options.target]  Output path; informational only, nothing
+ *                  is written here.
+ * @param {ScanResult} options.data  A scan result: `{ reflog, tag_list,
+ *                  tag_hashes, repo_url }`.
+ * @param {(item: ReflogEntry, tr: import('./i18n.js').Translator, repo_url: (string | null)) => string} [options.item_formatter]
+ *                  Optional per-entry renderer; defaults to default_formatter.
+ * @param {(item: ReflogEntry) => string} [options.item_separator]
+ *                  Optional separator renderer; defaults to default_separator.
+ * @param {string} [options.preface]  Optional preface string; defaults to the
+ *                  localized preface.
+ * @param {boolean} [options.short]  When true, include only the most recent
+ *                  `short_length` entries.
+ * @param {number} [options.short_length]  Entry count for the short form
+ *                  (default 10).
+ * @param {boolean} [options.has_both]  When true (and `short`), append a link
+ *                  to the long-form file.
+ * @param {string} [options.longname]  Long-form filename, used by the
+ *                  `has_both` link.
+ * @param {import('./i18n.js').Translator} [options.translator]  A translator
+ *                  for the changelog language; defaults to English.
+ * @returns {string}  The complete changelog as a Markdown string.
+ *
+ * @example
+ *   convert_to_md({ data: scan() });
+ *
+ * @see scan
+ * @see default_formatter
  */
 function convert_to_md({ target, data, item_formatter, item_separator, preface, short, short_length, has_both, longname, translator }) {
 
@@ -466,12 +688,22 @@ function convert_to_md({ target, data, item_formatter, item_separator, preface, 
 /**
  * Scan the repository (or use supplied data) and write the short-form changelog.
  *
- * @param target        Output path; defaults to './CHANGELOG.md'.
- * @param has_both      When true, append a link to the long-form file.
- * @param short_length  Number of recent entries to include.
- * @param longname      Long-form filename, used by the `has_both` link.
- * @param data          Optional pre-computed scan result; the repo is scanned if omitted.
- * @param translator    A translator for the changelog language; defaults to English.
+ * @param {string} [target]        Output path; defaults to './CHANGELOG.md'.
+ * @param {boolean} [has_both]     When true, append a link to the long-form file.
+ * @param {number} [short_length]  Number of recent entries to include.
+ * @param {string} [longname]      Long-form filename, used by the `has_both` link.
+ * @param {ScanResult} [data]      Optional pre-computed scan result; the repo
+ *                                 is scanned if omitted.
+ * @param {import('./i18n.js').Translator} [translator]  A translator for the
+ *                                 changelog language; defaults to English.
+ * @returns {void}
+ * @throws {Error}  When the target path cannot be written or git fails.
+ *
+ * @example
+ *   write_short_md('./CHANGELOG.md', true, 10, 'CHANGELOG.long.md');
+ *
+ * @see write_long_md
+ * @see convert_to_md
  */
 function write_short_md(target, has_both, short_length, longname, data, translator) {
 
@@ -489,9 +721,19 @@ function write_short_md(target, has_both, short_length, longname, data, translat
 /**
  * Scan the repository (or use supplied data) and write the full-history changelog.
  *
- * @param target      Output path; defaults to './CHANGELOG.long.md'.
- * @param data        Optional pre-computed scan result; the repo is scanned if omitted.
- * @param translator  A translator for the changelog language; defaults to English.
+ * @param {string} [target]  Output path; defaults to './CHANGELOG.long.md'.
+ * @param {ScanResult} [data]  Optional pre-computed scan result; the repo is
+ *                             scanned if omitted.
+ * @param {import('./i18n.js').Translator} [translator]  A translator for the
+ *                             changelog language; defaults to English.
+ * @returns {void}
+ * @throws {Error}  When the target path cannot be written or git fails.
+ *
+ * @example
+ *   write_long_md('./CHANGELOG.long.md');
+ *
+ * @see write_short_md
+ * @see convert_to_md
  */
 function write_long_md(target, data, translator) {
 
