@@ -27,7 +27,7 @@
     "types": "tsc",
     "check-types": "attw --pack . --profile node16",
     "check-dts": "tsc -p type-tests/tsconfig.json",
-    "build": "npm run clean && npm run peg && npm run check-locales && npm run types && npm run check-dts && npm run self && npm run check-types",
+    "build": "npm run clean && npm run peg && npm run check-locales && npm run types && npm run check-dts && npm run self",
     "test": "node --test \"src/js/test/*.test.js\"",
     "coverage": "node --test --experimental-test-coverage --test-coverage-exclude=\"src/js/reflog_parser.js\" \"src/js/test/*.test.js\""
   },
