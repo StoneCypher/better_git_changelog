@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-15 merges; 13 releases
+16 merges; 13 releases
 
 
 
@@ -14,6 +14,46 @@ Published tags:
 
 <a href="#1__6__17">1.6.17</a>, <a href="#1__6__16">1.6.16</a>, <a href="#1__6__15">1.6.15</a>, <a href="#1__6__6">1.6.6</a>, <a href="#1__6__5">1.6.5</a>, <a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 23, 2026 2:23:59 AM
+
+Commit [87635e1b7aac14e22505fe68c269c91fdf369d23](https://github.com/StoneCypher/better_git_changelog/commit/87635e1b7aac14e22505fe68c269c91fdf369d23)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+Merges [b6985f8, ed8b265]
+
+  * Merge pull request #29 from StoneCypher/test_26-05-23_property-test-numruns_25
+  * test: raise fast-check iteration count in CI runs
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 23, 2026 12:16:18 AM
+
+Commit [ed8b2658418c2c43962d768a9416a4dbd33a135b](https://github.com/StoneCypher/better_git_changelog/commit/ed8b2658418c2c43962d768a9416a4dbd33a135b)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * test: raise fast-check iteration count in CI runs
+  * Configure fast-check globally to use 1000 numRuns per property when
+process.env.CI is set, and the default 100 otherwise. GitHub Actions
+sets CI=true automatically; local invocations stay fast.
+  * Observed timing on this branch: ~670ms local (100 runs/prop) vs.
+~2.3s in CI mode (1000 runs/prop). Trade-off is well inside the slack
+budget of an existing CI job.
+  * Closes #25
 
 
 
