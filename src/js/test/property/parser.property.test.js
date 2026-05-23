@@ -19,6 +19,17 @@ const { parse_rl } = require('../../index.js');
 
 
 
+// fast-check defaults to 100 runs per property — fast for local iteration,
+// thin for the kind of input-space exploration this suite exists to do. In
+// CI we have slack budget and want bugs that hide in 1-in-N input shapes to
+// fail more often than never. GitHub Actions sets process.env.CI to 'true'
+// automatically, so the higher count kicks in only when the suite runs there.
+fc.configureGlobal({
+  numRuns: process.env.CI ? 1000 : 100
+});
+
+
+
 // ---------------------------------------------------------------------------
 // Generators
 // ---------------------------------------------------------------------------
