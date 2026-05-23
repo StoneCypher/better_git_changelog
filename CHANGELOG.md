@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-13 merges; 13 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
+14 merges; 13 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
 
 
 
@@ -14,6 +14,69 @@ Published tags:
 
 <a href="#1__6__17">1.6.17</a>, <a href="#1__6__16">1.6.16</a>, <a href="#1__6__15">1.6.15</a>, <a href="#1__6__6">1.6.6</a>, <a href="#1__6__5">1.6.5</a>, <a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 23, 2026 12:13:03 AM
+
+Commit [23038e7a0fe16a3bf50994c27dde550b71b00ce1](https://github.com/StoneCypher/better_git_changelog/commit/23038e7a0fe16a3bf50994c27dde550b71b00ce1)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * ci: split test execution into unit and property steps
+  * Replace the bundled "npm install, build, and test" step with three
+distinct steps: install+build, then `npm run test:unit`, then
+`npm run test:property`. Each test suite now produces its own check
+entry in the GitHub PR UI and its own clearly-bounded log section, so
+a property-test shrink output doesn't get buried among unit assertions.
+  * Supersedes #23 / PR #27 (which added a single bundled `npm test`).
+  * Closes #24
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 23, 2026 2:17:02 AM
+
+Commit [7c424bd9609de210008ef32f28b4961bc16da507](https://github.com/StoneCypher/better_git_changelog/commit/7c424bd9609de210008ef32f28b4961bc16da507)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+Merges [a208c36, 7eeaf14]
+
+  * Merge pull request #27 from StoneCypher/ci_26-05-22_npm-test-in-ci_23
+  * ci: run the test suite in CI
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 23, 2026 12:10:24 AM
+
+Commit [7eeaf148a1087d688b00f9007f7937a41cd3a71f](https://github.com/StoneCypher/better_git_changelog/commit/7eeaf148a1087d688b00f9007f7937a41cd3a71f)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * ci: run the test suite in CI
+  * The build step was named "npm install, build, and test" but its body
+only ran `npm install && npm run build`, so assertions never executed
+on push. This is the root pattern that let the 3+ parent Merge: row
+bug ship in 1.6.3 without local catch.
+  * Append `&& npm test` to the run line so the full node:test suite
+runs on every push across the existing node/OS matrix. The step
+name is now accurate.
+  * Closes #23
 
 
 
@@ -159,75 +222,3 @@ entry in the GitHub PR UI and its own clearly-bounded log section, so
 a property-test shrink output doesn't get buried among unit assertions.
   * Supersedes #23 / PR #27 (which added a single bundled `npm test`).
   * Closes #24
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 23, 2026 1:55:54 AM
-
-Commit [94d66c7b9a052c2ab3c3736b1124e519891b95ad](https://github.com/StoneCypher/better_git_changelog/commit/94d66c7b9a052c2ab3c3736b1124e519891b95ad)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-Merges [2f14edb, 4ccc9b0]
-
-  * Merge pull request #31 from StoneCypher/fix_26-05-23_short-hash-variable-length_30
-  * fix: accept short hashes longer than 7 chars in Merge: rows
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 23, 2026 12:13:03 AM
-
-Commit [642e16ad5919125cdb2d655dfd59ba72e3e53016](https://github.com/StoneCypher/better_git_changelog/commit/642e16ad5919125cdb2d655dfd59ba72e3e53016)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * ci: split test execution into unit and property steps
-  * Replace the bundled "npm install, build, and test" step with three
-distinct steps: install+build, then `npm run test:unit`, then
-`npm run test:property`. Each test suite now produces its own check
-entry in the GitHub PR UI and its own clearly-bounded log section, so
-a property-test shrink output doesn't get buried among unit assertions.
-  * Supersedes #23 / PR #27 (which added a single bundled `npm test`).
-  * Closes #24
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 23, 2026 12:24:49 AM
-
-Commit [4ccc9b073b4dfb9527e75067134c40962ae10a97](https://github.com/StoneCypher/better_git_changelog/commit/4ccc9b073b4dfb9527e75067134c40962ae10a97)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * fix: accept short hashes longer than 7 chars in Merge: rows
-  * The PEG grammar's ShortHash production hardcoded exactly seven hex
-characters. Once a repository's object set crosses git's auto-abbrev
-threshold (typically mid-thousands of commits, shape-dependent), git
-log emits 8+ character short hashes and the parser dies at the 8th
-character with "expected newline". Reported against 1.6.16 with a
-b0eda7bf shape; users worked around it with core.abbrev=7.
-  * Widen ShortHash to `Hex Hex Hex Hex Hex*` — four mandatory hex
-characters (git's documented --abbrev minimum) plus zero-or-more
-additional. PEG's greedy match plus the existing space/newline
-terminator in MergeRow keeps it unambiguous in context. The
-regenerated reflog_parser.js is included.
-  * This is the second bug in the same MergeRow area; the first
-(3+ parents) was fixed in e23fbdc / 1.6.6. The property suite added
-in PR #22 is mis-scoped against this class of bug (generator
-hardcoded to seven chars, matching the parser) and will be addressed
-in a follow-up.
-  * Closes #30

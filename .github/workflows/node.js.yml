@@ -41,11 +41,15 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: 24
-    - name: npm install, build, and test
+    - name: npm install and build
       run: |
-        npm install && npm run build && npm test
+        npm install && npm run build
       env:
         CI: true
+    - name: Run unit tests
+      run: npm run test:unit
+    - name: Run property tests
+      run: npm run test:property
 
   release:
     if: (github.event.pusher.name == github.event.repository.owner.name) && (github.ref == 'refs/heads/main')

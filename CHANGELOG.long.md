@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-13 merges; 13 releases
+14 merges; 13 releases
 
 
 
@@ -14,6 +14,69 @@ Published tags:
 
 <a href="#1__6__17">1.6.17</a>, <a href="#1__6__16">1.6.16</a>, <a href="#1__6__15">1.6.15</a>, <a href="#1__6__6">1.6.6</a>, <a href="#1__6__5">1.6.5</a>, <a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 23, 2026 12:13:03 AM
+
+Commit [23038e7a0fe16a3bf50994c27dde550b71b00ce1](https://github.com/StoneCypher/better_git_changelog/commit/23038e7a0fe16a3bf50994c27dde550b71b00ce1)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * ci: split test execution into unit and property steps
+  * Replace the bundled "npm install, build, and test" step with three
+distinct steps: install+build, then `npm run test:unit`, then
+`npm run test:property`. Each test suite now produces its own check
+entry in the GitHub PR UI and its own clearly-bounded log section, so
+a property-test shrink output doesn't get buried among unit assertions.
+  * Supersedes #23 / PR #27 (which added a single bundled `npm test`).
+  * Closes #24
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 23, 2026 2:17:02 AM
+
+Commit [7c424bd9609de210008ef32f28b4961bc16da507](https://github.com/StoneCypher/better_git_changelog/commit/7c424bd9609de210008ef32f28b4961bc16da507)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+Merges [a208c36, 7eeaf14]
+
+  * Merge pull request #27 from StoneCypher/ci_26-05-22_npm-test-in-ci_23
+  * ci: run the test suite in CI
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 23, 2026 12:10:24 AM
+
+Commit [7eeaf148a1087d688b00f9007f7937a41cd3a71f](https://github.com/StoneCypher/better_git_changelog/commit/7eeaf148a1087d688b00f9007f7937a41cd3a71f)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * ci: run the test suite in CI
+  * The build step was named "npm install, build, and test" but its body
+only ran `npm install && npm run build`, so assertions never executed
+on push. This is the root pattern that let the 3+ parent Merge: row
+bug ship in 1.6.3 without local catch.
+  * Append `&& npm test` to the run line so the full node:test suite
+runs on every push across the existing node/OS matrix. The step
+name is now accurate.
+  * Closes #23
 
 
 
