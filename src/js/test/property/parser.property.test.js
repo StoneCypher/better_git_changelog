@@ -15,6 +15,18 @@ const { parse_rl } = require('../../index.js');
  * the canonical proof it does not. These tests instead generate plausible
  * reflog inputs at runtime and assert structural invariants that must hold
  * for every well-formed input the parser is expected to accept.
+ *
+ * Generator scoping note (issue #32, May 2026):
+ * The generators below reflect git's *real output range* — not the parser's
+ * current accepted range. This distinction matters: when an earlier revision
+ * of this file coupled the `shortHash` generator to the parser's 7-char
+ * hardcode, the round-trip properties became tautological and missed the
+ * exact bug they were written to catch (the parser failed on 8-char short
+ * hashes from auto-abbrev; the generator agreed with the parser so the
+ * property never produced a counter-example). If you tighten a generator
+ * to match the implementation, the property tests stop finding bugs in
+ * the implementation. Generators should track the contract of the input
+ * source (here: what `git log --reflog` actually emits).
  */
 
 
@@ -39,7 +51,11 @@ const hexChar = fc.constantFrom(
   '0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'
 );
 
-const shortHash = fc.string({ unit: hexChar, minLength: 7,  maxLength: 7  });
+// git's --abbrev minimum is 4; auto-abbrev grows to 7+ for typical repos and
+// 8, 9, 10+ for large ones as needed for unique-prefix disambiguation. The
+// upper bound of 12 covers very large repos with room to spare without
+// risking collision with `fullHash` (40 chars) in unrelated grammar contexts.
+const shortHash = fc.string({ unit: hexChar, minLength:  4, maxLength: 12 });
 const fullHash  = fc.string({ unit: hexChar, minLength: 40, maxLength: 40 });
 
 // Any single-line string. Production `git log` is LF-only; the fixture
