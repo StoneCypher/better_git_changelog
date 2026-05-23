@@ -593,7 +593,7 @@ function peg$parse(input, options) {
   }
 
   function peg$parseShortHash() {
-    var s0, s1, s2, s3, s4, s5, s6, s7;
+    var s0, s1, s2, s3, s4, s5, s6;
 
     s0 = peg$currPos;
     s1 = peg$parseHex();
@@ -604,23 +604,16 @@ function peg$parse(input, options) {
         if (s3 !== peg$FAILED) {
           s4 = peg$parseHex();
           if (s4 !== peg$FAILED) {
-            s5 = peg$parseHex();
-            if (s5 !== peg$FAILED) {
+            s5 = [];
+            s6 = peg$parseHex();
+            while (s6 !== peg$FAILED) {
+              s5.push(s6);
               s6 = peg$parseHex();
-              if (s6 !== peg$FAILED) {
-                s7 = peg$parseHex();
-                if (s7 !== peg$FAILED) {
-                  peg$savedPos = s0;
-                  s1 = peg$c2();
-                  s0 = s1;
-                } else {
-                  peg$currPos = s0;
-                  s0 = peg$FAILED;
-                }
-              } else {
-                peg$currPos = s0;
-                s0 = peg$FAILED;
-              }
+            }
+            if (s5 !== peg$FAILED) {
+              peg$savedPos = s0;
+              s1 = peg$c2();
+              s0 = s1;
             } else {
               peg$currPos = s0;
               s0 = peg$FAILED;
