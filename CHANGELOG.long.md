@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-12 merges; 13 releases
+13 merges; 13 releases
 
 
 
@@ -14,6 +14,66 @@ Published tags:
 
 <a href="#1__6__17">1.6.17</a>, <a href="#1__6__16">1.6.16</a>, <a href="#1__6__15">1.6.15</a>, <a href="#1__6__6">1.6.6</a>, <a href="#1__6__5">1.6.5</a>, <a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 23, 2026 12:10:24 AM
+
+Commit [8af57bc0e39055c7c31833ff24ba78cf3792d25f](https://github.com/StoneCypher/better_git_changelog/commit/8af57bc0e39055c7c31833ff24ba78cf3792d25f)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * ci: run the test suite in CI
+  * The build step was named "npm install, build, and test" but its body
+only ran `npm install && npm run build`, so assertions never executed
+on push. This is the root pattern that let the 3+ parent Merge: row
+bug ship in 1.6.3 without local catch.
+  * Append `&& npm test` to the run line so the full node:test suite
+runs on every push across the existing node/OS matrix. The step
+name is now accurate.
+  * Closes #23
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 23, 2026 2:10:17 AM
+
+Commit [a208c36ab119fd3cbd8efde74e7840740de434ee](https://github.com/StoneCypher/better_git_changelog/commit/a208c36ab119fd3cbd8efde74e7840740de434ee)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+Merges [94d66c7, 42fd16a]
+
+  * Merge pull request #26 from StoneCypher/ci_26-05-23_pin-node-24
+  * ci: pin setup-node to 24 across the matrix
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 23, 2026 12:07:54 AM
+
+Commit [42fd16a2b374ba8e81447e5b3c476039b328b8a8](https://github.com/StoneCypher/better_git_changelog/commit/42fd16a2b374ba8e81447e5b3c476039b328b8a8)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * ci: pin setup-node to 24 across the matrix
+  * The setup-node step was reading matrix.node-version, so each matrix
+row provisioned the Node version it declared. Replace both references
+with the literal 24 so every row uses Node 24 regardless of the
+matrix entry's node-version field.
 
 
 
