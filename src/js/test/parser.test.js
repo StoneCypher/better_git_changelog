@@ -79,3 +79,39 @@ test('parse_rl handles a 3-parent stash-with-untracked commit (bug-report shape)
   assert.strictEqual(parsed.length, 1);
   assert.deepStrictEqual(parsed[0].merge, ['232e461', 'beef2bb', 'e979fe1']);
 });
+
+// Regression for issue #30 (reported 2026-05-23 against 1.6.16): git's
+// auto-abbrev grows the short-hash length past 7 once a repository's
+// object set requires more characters for unique-prefix disambiguation.
+// The pre-fix ShortHash production accepted exactly 7 hex chars and
+// threw on the 8th. Grammar widened to `Hex Hex Hex Hex Hex*` (4+).
+test('parse_rl handles short hashes longer than 7 chars (auto-abbrev grew)', () => {
+  const widened =
+    'commit 2222222222222222222222222222222222222222\n' +
+    'Merge: b0eda7bf c1f2e3d4\n' +
+    'Author: A <a@example.com>\n' +
+    'Date:   Sat May 23 09:00:00 2026 -0700\n' +
+    '\n' +
+    '    merge with 8-char short hashes\n' +
+    '\n';
+  const parsed = parse_rl(widened);
+  assert.strictEqual(parsed.length, 1);
+  assert.deepStrictEqual(parsed[0].merge, ['b0eda7bf', 'c1f2e3d4']);
+});
+
+// Cover the documented minimum (--abbrev=4) and a longer auto-abbrev value,
+// to lock the new range explicitly rather than leaving "7 vs 8" as the only
+// known boundary.
+test('parse_rl handles short hashes from 4 to 12 characters', () => {
+  const sample =
+    'commit 3333333333333333333333333333333333333333\n' +
+    'Merge: abcd 12345 abcdef0 0123456789ab\n' +
+    'Author: A <a@example.com>\n' +
+    'Date:   Sat May 23 09:00:00 2026 -0700\n' +
+    '\n' +
+    '    mixed short-hash lengths\n' +
+    '\n';
+  const parsed = parse_rl(sample);
+  assert.strictEqual(parsed.length, 1);
+  assert.deepStrictEqual(parsed[0].merge, ['abcd', '12345', 'abcdef0', '0123456789ab']);
+});

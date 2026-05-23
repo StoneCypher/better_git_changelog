@@ -10,7 +10,7 @@ Hash
     Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex Hex { return text(); }
 
 ShortHash
-  = Hex Hex Hex Hex Hex Hex Hex { return text(); }
+  = Hex Hex Hex Hex Hex* { return text(); }
 
 CommitRow
   = 'commit ' hash:Hash '\n' { return hash; }
