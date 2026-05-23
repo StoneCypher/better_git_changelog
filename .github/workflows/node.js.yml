@@ -43,7 +43,7 @@ jobs:
         node-version: 24
     - name: npm install, build, and test
       run: |
-        npm install && npm run build
+        npm install && npm run build && npm test
       env:
         CI: true
 
