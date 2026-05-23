@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-8 merges; 11 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
+10 merges; 12 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
 
 
 
@@ -12,7 +12,7 @@ All notable changes to this project will be documented in this file.
 
 Published tags:
 
-<a href="#1__6__15">1.6.15</a>, <a href="#1__6__6">1.6.6</a>, <a href="#1__6__5">1.6.5</a>, <a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
+<a href="#1__6__16">1.6.16</a>, <a href="#1__6__15">1.6.15</a>, <a href="#1__6__6">1.6.6</a>, <a href="#1__6__5">1.6.5</a>, <a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
 
 
@@ -22,13 +22,16 @@ Published tags:
 
 &nbsp;
 
-## [Untagged] - May 18, 2026 3:41:17 PM
+## [Untagged] - May 20, 2026 4:50:13 PM
 
-Commit [80318800063d3480e736f1448c3e5cd89424d764](https://github.com/StoneCypher/better_git_changelog/commit/80318800063d3480e736f1448c3e5cd89424d764)
+Commit [5555714d943d48f9a4afb51609f7aed4a4c92191](https://github.com/StoneCypher/better_git_changelog/commit/5555714d943d48f9a4afb51609f7aed4a4c92191)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
-  * tag under node 24
+Merges [dad8713, 539ecbb]
+
+  * Merge pull request #21 from StoneCypher/feat_26-05-18_ship-type-declarations_20
+  * Ship verified TypeScript type declarations
 
 
 
@@ -37,16 +40,14 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
 &nbsp;
 
-## [Untagged] - May 18, 2026 2:22:25 PM
+## [Untagged] - May 20, 2026 4:45:08 PM
 
-Commit [5ae8f70f0dca34e29de777379e07db06ad3b884d](https://github.com/StoneCypher/better_git_changelog/commit/5ae8f70f0dca34e29de777379e07db06ad3b884d)
+Commit [539ecbb1f59b9bca371568bfa9c9cf14da41964a](https://github.com/StoneCypher/better_git_changelog/commit/539ecbb1f59b9bca371568bfa9c9cf14da41964a)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
-Merges [086752a, 0e2a202]
-
-  * Merge pull request #18 from StoneCypher/ci_26-05-18_release-guard
-  * ci: skip release and publish when the version is unchanged
+  * ci: temporarily disable attw type-correctness gate
+  * The published @arethetypeswrong/cli@0.18.2 crashes with 'Cannot read properties of undefined (reading filename)' when invoked after 'npm install -g' in CI, on every matrix combo. The same version installed via 'npx' passes locally — so it appears to be a published-artifact / global-install bug, not our package's types. Disabling the gate to unblock builds. The .d.ts files are still generated and shipped; check-dts smoke test still gates the build; the check-types npm script is retained for manual local use against the linked attw fork.
 
 
 
@@ -55,14 +56,14 @@ Merges [086752a, 0e2a202]
 
 &nbsp;
 
-## [Untagged] - May 18, 2026 1:58:44 PM
+## [Untagged] - May 20, 2026 4:00:47 PM
 
-Commit [0e2a2025d6fba342b2d06acbeffcc85456df6a97](https://github.com/StoneCypher/better_git_changelog/commit/0e2a2025d6fba342b2d06acbeffcc85456df6a97)
+Commit [a6aee18330c2b03903a7448400ff6f11bc268ce2](https://github.com/StoneCypher/better_git_changelog/commit/a6aee18330c2b03903a7448400ff6f11bc268ce2)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
-  * ci: skip release and publish when the version is unchanged
-  * The release job ran on every owner push to main and unconditionally created a GitHub release for package.json's version. A push that does not bump the version (such as a CI-only change) re-ran it for an already-released version, and actions/create-release failed with 'tag_name already_exists' (npm publish would reject the duplicate too). A new step checks whether the version's tag already exists on origin; push-tags, create-release, upgrade-npm and publish now run only when the version is new.
+  * ci: pin attw to 0.18.2 (the published @latest crashes despite same version)
+  * @arethetypeswrong/cli@latest currently resolves to 0.18.2 but the install of the @latest tag crashes with 'Cannot read properties of undefined (reading filename)' on every matrix combo. Invoking @0.18.2 explicitly works (verified locally). Pin to that exact version until the published @latest is stable.
 
 
 
@@ -71,16 +72,14 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
 &nbsp;
 
-## [Untagged] - May 18, 2026 11:01:29 AM
+## [Untagged] - May 18, 2026 10:50:04 PM
 
-Commit [086752a9aa8b91d27b334384c7a309c25e288941](https://github.com/StoneCypher/better_git_changelog/commit/086752a9aa8b91d27b334384c7a309c25e288941)
+Commit [4704025482be3c61e6a28e02bdc49005eb491a1e](https://github.com/StoneCypher/better_git_changelog/commit/4704025482be3c61e6a28e02bdc49005eb491a1e)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
-Merges [b9de48f, 5353e38]
-
-  * Merge pull request #17 from StoneCypher/ci_26-05-18_npm-trusted-publishing
-  * ci: publish to npm via OIDC trusted publishing
+  * test: add a TypeScript smoke test for the published declarations
+  * type-tests/smoke.ts imports the package by name (through the exports map, as a consumer would) and asserts the shipped .d.ts signatures, with @ts-expect-error blocks guarding against silent regression to any. Wired into build via the check-dts script.
 
 
 
@@ -89,14 +88,14 @@ Merges [b9de48f, 5353e38]
 
 &nbsp;
 
-## [Untagged] - May 18, 2026 11:00:01 AM
+## [Untagged] - May 18, 2026 10:44:30 PM
 
-Commit [5353e38704c6d5dbf12af00931544c9af322e0c9](https://github.com/StoneCypher/better_git_changelog/commit/5353e38704c6d5dbf12af00931544c9af322e0c9)
+Commit [d53f342e6bec67b1156f92895b2b753f1df19fb9](https://github.com/StoneCypher/better_git_changelog/commit/d53f342e6bec67b1156f92895b2b753f1df19fb9)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
-  * ci: publish to npm via OIDC trusted publishing
-  * The release job published with a long-lived NODE_AUTH_TOKEN, which no longer works under npm's current auth model. It now uses trusted publishing: an id-token:write permission lets npm authenticate via GitHub's OIDC, an upgrade-npm step ensures npm is new enough (>= 11.5.1) to support it, and the NODE_AUTH_TOKEN secret reference is removed. Also bumps actions/checkout (v1 and v2) and actions/setup-node (v1) to v4. The package's trusted publisher must be registered on npmjs.com before the next release.
+  * ci: provision attw and build before publishing
+  * The build job installs the published @arethetypeswrong/cli so build's new attw type-check can run. The release job now installs deps and runs the build before npm publish, so the generated dist/types declarations are present in the published tarball (the job previously published from a raw checkout).
 
 
 
@@ -105,18 +104,14 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
 &nbsp;
 
-<a name="1__6__15" />
+## [Untagged] - May 18, 2026 10:41:30 PM
 
-## [1.6.15] - May 18, 2026 10:47:50 AM
-
-Commit [b9de48f2cc9ee560f9845589b2673a3a093c8161](https://github.com/StoneCypher/better_git_changelog/commit/b9de48f2cc9ee560f9845589b2673a3a093c8161)
+Commit [2c338a7bc9b0fcc0a74735422faa572181fbcb42](https://github.com/StoneCypher/better_git_changelog/commit/2c338a7bc9b0fcc0a74735422faa572181fbcb42)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
-Merges [5883848, 42ac85b]
-
-  * Merge pull request #16 from StoneCypher/fix_26-05-18_short-length
-  * fix: land bug fixes 2-10 on main
+  * build: ship type declarations and trim the published package
+  * Adds types/exports pointing at the generated declarations, an engines field matching the documented Node requirement, and a files allowlist so the tarball no longer publishes test fixtures or grammar sources. build now generates declarations and gates on an attw check.
 
 
 
@@ -125,14 +120,14 @@ Merges [5883848, 42ac85b]
 
 &nbsp;
 
-## [Untagged] - May 18, 2026 10:08:03 AM
+## [Untagged] - May 18, 2026 10:39:10 PM
 
-Commit [42ac85b8a5a22ffd1579210ada68ad6de517df6b](https://github.com/StoneCypher/better_git_changelog/commit/42ac85b8a5a22ffd1579210ada68ad6de517df6b)
+Commit [c58746d55e1a3badc058fa005c9658bbf3acd7af](https://github.com/StoneCypher/better_git_changelog/commit/c58746d55e1a3badc058fa005c9658bbf3acd7af)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
-  * fix: reject a non-numeric --short-length instead of emptying the changelog
-  * opts.shortLength was an unvalidated string; -S abc became slice(0, NaN), silently producing an empty changelog with no error. -S now has a commander argument parser that coerces the value to a positive integer and raises InvalidArgumentError on anything else, so a bad value fails the run loudly.
+  * build: add declaration-emit tsconfig and PEG parser typings
+  * tsconfig.json emits .d.ts from the JSDoc-annotated CommonJS sources into dist/types. reflog_parser.d.ts types the generated PEG parser; parse_rl is given an explicit @type so the emitted index.d.ts is self-contained.
 
 
 
@@ -141,14 +136,14 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
 &nbsp;
 
-## [Untagged] - May 18, 2026 9:55:25 AM
+## [Untagged] - May 18, 2026 6:07:47 PM
 
-Commit [c5e90a724cdf065a41b7a08b6db20755d8b7a3f4](https://github.com/StoneCypher/better_git_changelog/commit/c5e90a724cdf065a41b7a08b6db20755d8b7a3f4)
+Commit [566c1a4227188598d6905ecf4c5ae1b852761353](https://github.com/StoneCypher/better_git_changelog/commit/566c1a4227188598d6905ecf4c5ae1b852761353)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
-  * fix: count merge commits, not all commits, in the summary line
-  * The changelog summary rendered data.reflog.length through the 'merges' string, so it reported every commit as a merge (e.g. '441 merges' when 441 was the total entry count). It now counts only entries that actually carry a merge field.
+  * docs: add typed JSDoc and shared typedefs to index.js and i18n.js
+  * Completes the JSDoc type surface so tsc can emit accurate .d.ts files. Introduces ReflogEntry, ScanResult, ScanAllResult, and Translator typedefs and types every exported function's params and returns.
 
 
 
@@ -157,31 +152,29 @@ Author: `John Haugeland <stonecypher@gmail.com>`
 
 &nbsp;
 
-<a name="1__6__6" />
+## [Untagged] - May 18, 2026 3:57:36 PM
 
-## [1.6.6] - May 18, 2026 9:49:04 AM
-
-Commit [58838484bd9b901bb7cde398c854e67df3feb7d9](https://github.com/StoneCypher/better_git_changelog/commit/58838484bd9b901bb7cde398c854e67df3feb7d9)
+Commit [dad87139fece628a2c19ade36659f0a04a68556d](https://github.com/StoneCypher/better_git_changelog/commit/dad87139fece628a2c19ade36659f0a04a68556d)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
-Merges [bf0422f, 6673f2e]
+Merges [8031880, 4f34e23]
 
-  * Merge pull request #6 from StoneCypher/fix_26-05-18_non-semver-tags
-  * fix: tolerate non-semver tags in changelog generation
-
-
+  * Merge pull request #19 from StoneCypher/refactor_26-05-18_extract-cli-core
+  * refactor: extract testable CLI logic into cli_core.js for coverage
 
 
-&nbsp;
+
 
 &nbsp;
 
-## [Untagged] - May 18, 2026 9:48:07 AM
+&nbsp;
 
-Commit [1025797c006f88bb9f724467a9c636729cd22254](https://github.com/StoneCypher/better_git_changelog/commit/1025797c006f88bb9f724467a9c636729cd22254)
+## [Untagged] - May 18, 2026 3:51:30 PM
+
+Commit [4f34e23888e539fe67add3305fe223bd43a25e0e](https://github.com/StoneCypher/better_git_changelog/commit/4f34e23888e539fe67add3305fe223bd43a25e0e)
 
 Author: `John Haugeland <stonecypher@gmail.com>`
 
-  * refactor: remove dead get_commit_message_for_hash
-  * get_commit_message_for_hash was never called and never exported, so it was unreachable code — and it carried the same string-interpolated execSync injection pattern that was fixed in tag_to_hash. Removing it eliminates both. No test accompanies this change because there was nothing reachable to test; the existing suite still passes, confirming nothing depended on it.
+  * refactor: extract testable CLI logic into cli_core.js
+  * cli.js was a procedural entry-point script with no testable surface — its argv pre-scan, the -S validator, and the long/short/both decision logic were not reachable by the coverage instrumentation. Those three pure functions now live in cli_core.js with full unit tests (cli_core.test.js, 100% covered); cli.js requires them. No behavior change — the build's self-run confirms the CLI still works. Overall line coverage rises 93.0% to 94.1%, branch 85.0% to 88.9%.

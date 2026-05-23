@@ -59,3 +59,23 @@ test('parse_rl handles an octopus merge (three or more parents)', () => {
   assert.strictEqual(parsed.length, 1);
   assert.deepStrictEqual(parsed[0].merge, ['aaaaaaa', 'bbbbbbb', 'ccccccc']);
 });
+
+// Regression: this is the exact input shape that failed in
+// better_git_changelog@1.6.3, reported on 2026-05-22 from the issue_tree
+// project after the user ran `git stash push -u`. A stash-with-untracked
+// creates a three-parent merge commit (tip-of-HEAD, index tree, untracked
+// tree) which the pre-fix MergeRow rejected, having accepted exactly two
+// parent hashes. Fixed in e23fbdc, first released in 1.6.6.
+test('parse_rl handles a 3-parent stash-with-untracked commit (bug-report shape)', () => {
+  const stashed =
+    'commit 222c2b61bfa58ee82b1d5e2f525cfab3b45bd325\n' +
+    'Merge: 232e461 beef2bb e979fe1\n' +
+    'Author: John Haugeland <stonecypher@gmail.com>\n' +
+    'Date:   Fri May 22 01:51:14 2026 -0700\n' +
+    '\n' +
+    '    WIP on main: 232e461 add a\n' +
+    '\n';
+  const parsed = parse_rl(stashed);
+  assert.strictEqual(parsed.length, 1);
+  assert.deepStrictEqual(parsed[0].merge, ['232e461', 'beef2bb', 'e979fe1']);
+});
