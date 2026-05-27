@@ -22,6 +22,31 @@ Published tags:
 
 &nbsp;
 
+## [Untagged] - May 27, 2026 12:07:31 AM
+
+Commit [9fbe24af2eaea6cf93b8bdb06e40e336e6928c6f](https://github.com/StoneCypher/better_git_changelog/commit/9fbe24af2eaea6cf93b8bdb06e40e336e6928c6f)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * chore(release): 1.6.19
+  * Versions 1.6.17 and 1.6.18 reached GitHub (tag + release) but never
+landed on npm; latest published is still 1.6.16. The release job
+pushes the git tag before it attempts `npm publish`, so when publish
+failed the tag was already on the remote and the "tag exists" gate
+short-circuited every subsequent run. Bumping past 1.6.18 gives the
+workflow a fresh version the gate has not seen, so it will attempt
+to publish 1.6.19 (succeeds once a Trusted Publisher is registered
+for the package on npmjs.com).
+  * Regenerates CHANGELOG.md and CHANGELOG.long.md from the build; no
+source changes.
+
+
+
+
+&nbsp;
+
+&nbsp;
+
 ## [Untagged] - May 23, 2026 2:27:03 AM
 
 Commit [c198ba682da2ecaa8fa448efdddbe9a9e9d5beed](https://github.com/StoneCypher/better_git_changelog/commit/c198ba682da2ecaa8fa448efdddbe9a9e9d5beed)
