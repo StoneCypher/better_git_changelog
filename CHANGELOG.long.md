@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-16 merges; 13 releases
+17 merges; 14 releases
 
 
 
@@ -12,8 +12,55 @@ All notable changes to this project will be documented in this file.
 
 Published tags:
 
-<a href="#1__6__17">1.6.17</a>, <a href="#1__6__16">1.6.16</a>, <a href="#1__6__15">1.6.15</a>, <a href="#1__6__6">1.6.6</a>, <a href="#1__6__5">1.6.5</a>, <a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
+<a href="#1__6__18">1.6.18</a>, <a href="#1__6__17">1.6.17</a>, <a href="#1__6__16">1.6.16</a>, <a href="#1__6__15">1.6.15</a>, <a href="#1__6__6">1.6.6</a>, <a href="#1__6__5">1.6.5</a>, <a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 23, 2026 2:27:03 AM
+
+Commit [c198ba682da2ecaa8fa448efdddbe9a9e9d5beed](https://github.com/StoneCypher/better_git_changelog/commit/c198ba682da2ecaa8fa448efdddbe9a9e9d5beed)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+Merges [87635e1, 6b35624]
+
+  * Merge pull request #33 from StoneCypher/test_26-05-23_widen-property-generator_32
+  * test: widen property-suite shortHash generator to git's real range
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 23, 2026 2:26:17 AM
+
+Commit [6b356244cd9fd705bba2b1637104210aadffc696](https://github.com/StoneCypher/better_git_changelog/commit/6b356244cd9fd705bba2b1637104210aadffc696)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * test: widen property-suite shortHash generator to git's real range
+  * The shortHash generator was coupled to the parser's pre-#31 hardcode
+(exactly 7 hex chars), so the round-trip properties confirmed only
+that "the parser handles what the parser handles." The 8-char
+auto-abbrev bug (issue #30, fixed in #31) is the canonical proof:
+the property suite was written expressly to catch that class of
+parser bug and would not have caught the actual instance.
+  * Widen the generator to 4..12 chars — git's documented --abbrev
+minimum through a comfortable upper bound for large-repo auto-abbrev.
+Now the property tests bite if the grammar ever re-narrows.
+  * Also adds a header comment documenting the methodology lesson for
+future contributors: generators should track the contract of the
+input source (what `git log --reflog` actually emits), not the
+implementation's accepted range.
+  * Closes #32
 
 
 
@@ -332,7 +379,9 @@ a property-test shrink output doesn't get buried among unit assertions.
 
 &nbsp;
 
-## [Untagged] - May 23, 2026 1:55:54 AM
+<a name="1__6__18" />
+
+## [1.6.18] - May 23, 2026 1:55:54 AM
 
 Commit [94d66c7b9a052c2ab3c3736b1124e519891b95ad](https://github.com/StoneCypher/better_git_changelog/commit/94d66c7b9a052c2ab3c3736b1124e519891b95ad)
 
