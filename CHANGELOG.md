@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-17 merges; 14 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
+18 merges; 15 releases; Changelogging the last 10 commits; Full changelog at [CHANGELOG.long.md](CHANGELOG.long.md)
 
 
 
@@ -12,7 +12,7 @@ All notable changes to this project will be documented in this file.
 
 Published tags:
 
-<a href="#1__6__18">1.6.18</a>, <a href="#1__6__17">1.6.17</a>, <a href="#1__6__16">1.6.16</a>, <a href="#1__6__15">1.6.15</a>, <a href="#1__6__6">1.6.6</a>, <a href="#1__6__5">1.6.5</a>, <a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
+<a href="#1__6__19">1.6.19</a>, <a href="#1__6__18">1.6.18</a>, <a href="#1__6__17">1.6.17</a>, <a href="#1__6__16">1.6.16</a>, <a href="#1__6__15">1.6.15</a>, <a href="#1__6__6">1.6.6</a>, <a href="#1__6__5">1.6.5</a>, <a href="#1__6__4">1.6.4</a>, <a href="#1__6__3">1.6.3</a>, <a href="#1__6__2">1.6.2</a>, <a href="#1__6__1">1.6.1</a>, <a href="#1__6__0">1.6.0</a>, <a href="#1__5__0">1.5.0</a>, <a href="#1__4__1">1.4.1</a>, <a href="#1__0__0">1.0.0</a>
 
 
 
@@ -22,7 +22,60 @@ Published tags:
 
 &nbsp;
 
-## [Untagged] - May 27, 2026 12:07:31 AM
+## [Untagged] - May 27, 2026 12:38:41 AM
+
+Commit [544b969e409489668588eee10cf8725687cff8f4](https://github.com/StoneCypher/better_git_changelog/commit/544b969e409489668588eee10cf8725687cff8f4)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+Merges [9fbe24a, d51fc7f]
+
+  * Merge pull request #34 from StoneCypher/docs_26-05-27_readme-improvements
+  * docs(readme): add TOC, TypeScript, exports table, and Development sections
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+## [Untagged] - May 27, 2026 12:33:30 AM
+
+Commit [d51fc7f77527291d031958c7857271efdf4d6a8e](https://github.com/StoneCypher/better_git_changelog/commit/d51fc7f77527291d031958c7857271efdf4d6a8e)
+
+Author: `John Haugeland <stonecypher@gmail.com>`
+
+  * docs(readme): add TOC, TypeScript, exports table, and Development sections
+  * - Add table of contents
+- Show install commands for npm, pnpm, yarn, and bun
+- Expand "Programmatic use" to cover CommonJS, ESM, and TypeScript with
+  typed imports against the shipped dist/types declarations
+- Replace the trailing "Other exports include..." paragraph with a public
+  exports table sourced from src/js/index.js — surfaces previously
+  unmentioned functions (scan, convert_to_md, get_remote_url,
+  remote_to_web_url, slug, get_tags_as_hashes) and the exported types
+- Add an inline example of generated output (real 1.6.18 entry lifted
+  from CHANGELOG.long.md) alongside the existing jssm link
+- Add a Development section documenting npm scripts and the PEG -> JS
+  generation pipeline
+- Note that --translator claude requires the Claude CLI installed
+- Add "types included" and "license: MIT" badges
+- Add a TypeScript users note to Requirements
+  * Reflects the type-declarations shipping work from #21 (commit 2c338a7),
+which added a public-API surface that was not mentioned in the README.
+  * No source changes; CHANGELOG.md and CHANGELOG.long.md are build outputs.
+
+
+
+
+&nbsp;
+
+&nbsp;
+
+<a name="1__6__19" />
+
+## [1.6.19] - May 27, 2026 12:07:31 AM
 
 Commit [9fbe24af2eaea6cf93b8bdb06e40e336e6928c6f](https://github.com/StoneCypher/better_git_changelog/commit/9fbe24af2eaea6cf93b8bdb06e40e336e6928c6f)
 
@@ -188,43 +241,3 @@ entry in the GitHub PR UI and its own clearly-bounded log section, so
 a property-test shrink output doesn't get buried among unit assertions.
   * Supersedes #23 / PR #27 (which added a single bundled `npm test`).
   * Closes #24
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 23, 2026 12:13:03 AM
-
-Commit [23038e7a0fe16a3bf50994c27dde550b71b00ce1](https://github.com/StoneCypher/better_git_changelog/commit/23038e7a0fe16a3bf50994c27dde550b71b00ce1)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-  * ci: split test execution into unit and property steps
-  * Replace the bundled "npm install, build, and test" step with three
-distinct steps: install+build, then `npm run test:unit`, then
-`npm run test:property`. Each test suite now produces its own check
-entry in the GitHub PR UI and its own clearly-bounded log section, so
-a property-test shrink output doesn't get buried among unit assertions.
-  * Supersedes #23 / PR #27 (which added a single bundled `npm test`).
-  * Closes #24
-
-
-
-
-&nbsp;
-
-&nbsp;
-
-## [Untagged] - May 23, 2026 2:17:02 AM
-
-Commit [7c424bd9609de210008ef32f28b4961bc16da507](https://github.com/StoneCypher/better_git_changelog/commit/7c424bd9609de210008ef32f28b4961bc16da507)
-
-Author: `John Haugeland <stonecypher@gmail.com>`
-
-Merges [a208c36, 7eeaf14]
-
-  * Merge pull request #27 from StoneCypher/ci_26-05-22_npm-test-in-ci_23
-  * ci: run the test suite in CI
