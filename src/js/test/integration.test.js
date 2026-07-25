@@ -54,6 +54,53 @@ test('tags_to_hashes maps every distinct tag to a hash', () => {
   assert.strictEqual(hashes.size, new Set(tags).size);
 });
 
+test('get_reflog_data survives a reflog larger than node\'s default 1 MiB buffer', () => {
+
+  // Regression: get_reflog_data used execSync's default maxBuffer, so once a
+  // repository's `git log --reflog` output crossed 1 MiB node killed git with
+  // SIGTERM and threw ENOBUFS -- turning "your project got big" into a hard
+  // changelog failure. jssm hit this at ~7,000 commits.
+  //
+  // Rather than build thousands of commits, one commit carries an oversized
+  // message: the failure depends on total output bytes, not commit count, so
+  // this reproduces the exact condition in well under a second.
+
+  const child = require('node:child_process');
+  const repo  = fs.mkdtempSync(path.join(os.tmpdir(), 'bgc-bigreflog-'));
+  const cwd   = process.cwd();
+
+  const git = (...args) => child.execFileSync('git', args, { cwd: repo, stdio: 'pipe' });
+
+  try {
+
+    git('init', '--quiet');
+    git('config', 'user.email', 'test@example.invalid');
+    git('config', 'user.name',  'Buffer Test');
+    git('config', 'commit.gpgsign', 'false');
+
+    const message_path = path.join(repo, 'message.txt');
+    fs.writeFileSync(message_path, 'x'.repeat(1200 * 1024));      // > 1 MiB on its own
+    git('commit', '--allow-empty', '--quiet', '-F', message_path);
+
+    process.chdir(repo);
+    const data = api.get_reflog_data();
+
+    assert.ok(data.length > 1024 * 1024,
+      `expected over 1 MiB of reflog text, got ${data.length} bytes`);
+
+  } finally {
+    process.chdir(cwd);
+    fs.rmSync(repo, { recursive: true, force: true });
+  }
+
+});
+
+test('GIT_MAX_BUFFER is finite, so a pathological repository still fails loudly', () => {
+  assert.strictEqual(typeof api.GIT_MAX_BUFFER, 'number');
+  assert.ok(api.GIT_MAX_BUFFER > 1024 * 1024, 'must exceed the default it exists to replace');
+  assert.ok(Number.isFinite(api.GIT_MAX_BUFFER), 'an infinite cap would trade ENOBUFS for OOM');
+});
+
 test('write_long_md writes a non-empty changelog file', () => {
   const target = tempPath('long', 'md');
   try {

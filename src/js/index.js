@@ -28,6 +28,28 @@ const i18n = require('./i18n.js');
 
 
 /**
+ * Output cap, in bytes, for every git command whose output grows with the
+ * repository.
+ *
+ * Node's `execSync`/`execFileSync` default to a 1 MiB `maxBuffer` and, when a
+ * child exceeds it, kill the process with SIGTERM and throw `ENOBUFS` — losing
+ * the output rather than truncating it.  `git log --reflog` crosses 1 MiB on
+ * any repository with a few thousand commits (jssm hit it at ~7,000), so the
+ * default silently converted "your project got big" into a hard changelog
+ * failure.  `git tag -l` and `for-each-ref refs/tags` have the same exposure on
+ * tag-heavy repositories.
+ *
+ * 256 MiB is a cap, not an allocation: Node grows the buffer as output
+ * arrives, so a small repository pays nothing for the headroom.  The cap is
+ * kept finite deliberately, so a pathological or hostile repository still
+ * fails loudly instead of exhausting memory.
+ *
+ * @type {number}
+ */
+const GIT_MAX_BUFFER = 256 * 1024 * 1024;
+
+
+/**
  * One parsed commit entry from the git reflog.
  *
  * Produced by the generated PEG parser (`parse_rl`) and consumed by the
@@ -141,7 +163,7 @@ function sem_sort(l, r) {
  */
 function get_tag_list() {
 
-  return cp.execSync('git tag -l')
+  return cp.execSync('git tag -l', { maxBuffer: GIT_MAX_BUFFER })
     .toString()
     .trim()
     .split('\n')
@@ -208,7 +230,8 @@ function tags_to_hashes(tags) {
 
   cp.execFileSync('git', [ 'for-each-ref',
                            '--format=%(refname:short) %(objectname) %(objecttype) %(*objectname)',
-                           'refs/tags' ])
+                           'refs/tags' ],
+                  { maxBuffer: GIT_MAX_BUFFER })
     .toString()
     .trim()
     .split('\n')
@@ -265,8 +288,13 @@ function get_tags_as_hashes() {
  * Runs `git --no-pager log --reflog` and appends a trailing blank line so the
  * output satisfies the reflog grammar consumed by `parse_rl`.
  *
+ * Reads with {@link GIT_MAX_BUFFER} rather than Node's 1 MiB default: this is
+ * the largest output the tool consumes, and it grows with the repository's
+ * history, so the default turned large repositories into `ENOBUFS` failures.
+ *
  * @returns {string}  The raw reflog text, ready to hand to `parse_rl`.
- * @throws {Error}  When git cannot be run or the command fails.
+ * @throws {Error}  When git cannot be run or the command fails, or when the
+ *                  reflog exceeds {@link GIT_MAX_BUFFER} (`ENOBUFS`).
  *
  * @example
  *   parse_rl(get_reflog_data());   // structured ReflogEntry[]
@@ -275,7 +303,7 @@ function get_tags_as_hashes() {
  */
 function get_reflog_data() {
 
-  return cp.execSync('git --no-pager log --reflog')
+  return cp.execSync('git --no-pager log --reflog', { maxBuffer: GIT_MAX_BUFFER })
     .toString()
     .trim() + '\n\n';
 
@@ -751,6 +779,8 @@ function write_long_md(target, data, translator) {
 module.exports = {
 
   scan,
+
+  GIT_MAX_BUFFER,
 
   get_reflog_data,
   get_tag_list,
